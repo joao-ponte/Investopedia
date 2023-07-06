@@ -10,6 +10,7 @@ import UIKit
 class MeaningView: UIViewController {
     
     
+    @IBOutlet weak var meaningLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

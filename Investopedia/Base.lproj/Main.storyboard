@@ -18,6 +18,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oet-mb-LMT">
                                 <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="47N-J0-asf"/>
@@ -34,6 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="MCI-Gc-MDB" kind="show" id="wSq-FB-lO9"/>
                                         </connections>
@@ -42,7 +44,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="48o-Lz-fNw"/>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EOy-CQ-Fmf"/>
@@ -53,6 +55,10 @@
                             <constraint firstItem="oet-mb-LMT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tWZ-Lb-yVl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="oet-mb-LMT" id="JFE-0s-wIx"/>
+                        <outlet property="tableView" destination="j1u-iR-zGJ" id="EzG-y7-d10"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,14 +71,34 @@
                     <view key="view" contentMode="scaleToFill" id="7fg-dj-QgT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-2C-9TK">
+                                <rect key="frame" x="32.666666666666657" y="143" width="328" height="396"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="396" id="7HQ-to-i7Z"/>
+                                    <constraint firstAttribute="width" constant="328" id="AQN-r9-a54"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="u8A-Uj-vOk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7x3-2C-9TK" firstAttribute="centerX" secondItem="u8A-Uj-vOk" secondAttribute="centerX" id="jEO-dm-niv"/>
+                            <constraint firstItem="7x3-2C-9TK" firstAttribute="centerY" secondItem="u8A-Uj-vOk" secondAttribute="centerY" constant="-80" id="xtN-F8-sbV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PH8-IN-RzK"/>
+                    <connections>
+                        <outlet property="meaningLabel" destination="7x3-2C-9TK" id="dnT-h0-pzZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ax-5p-FPz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="4"/>
+            <point key="canvasLocation" x="893.89312977099235" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
