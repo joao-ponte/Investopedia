@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="115" width="393" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YnH-c8-mSZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wordCell" id="YnH-c8-mSZ">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YnH-c8-mSZ" id="sgr-db-wMM">
@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-2C-9TK">
-                                <rect key="frame" x="32.666666666666657" y="143" width="328" height="396"/>
+                                <rect key="frame" x="32.666666666666657" y="91" width="328" height="396"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="396" id="7HQ-to-i7Z"/>
@@ -83,16 +83,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wci-3X-Dck">
+                                <rect key="frame" x="32.666666666666657" y="503" width="328" height="288"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="375-Bi-Bwn"/>
+                                    <constraint firstAttribute="height" constant="288" id="KcZ-P1-MCB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u8A-Uj-vOk"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Wci-3X-Dck" firstAttribute="top" secondItem="7x3-2C-9TK" secondAttribute="bottom" constant="16" id="IuI-Dj-dbH"/>
                             <constraint firstItem="7x3-2C-9TK" firstAttribute="centerX" secondItem="u8A-Uj-vOk" secondAttribute="centerX" id="jEO-dm-niv"/>
-                            <constraint firstItem="7x3-2C-9TK" firstAttribute="centerY" secondItem="u8A-Uj-vOk" secondAttribute="centerY" constant="-80" id="xtN-F8-sbV"/>
+                            <constraint firstItem="Wci-3X-Dck" firstAttribute="centerX" secondItem="u8A-Uj-vOk" secondAttribute="centerX" id="olU-1h-h9X"/>
+                            <constraint firstItem="7x3-2C-9TK" firstAttribute="centerY" secondItem="u8A-Uj-vOk" secondAttribute="centerY" constant="-132" id="xtN-F8-sbV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PH8-IN-RzK"/>
                     <connections>
+                        <outlet property="exampleLabel" destination="Wci-3X-Dck" id="gsc-CD-aFE"/>
                         <outlet property="meaningLabel" destination="7x3-2C-9TK" id="dnT-h0-pzZ"/>
                     </connections>
                 </viewController>
