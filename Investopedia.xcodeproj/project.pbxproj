@@ -13,11 +13,13 @@
 		FC5E95DB2A56B6A100CECAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5E95D92A56B6A100CECAC1 /* Main.storyboard */; };
 		FC5E95DD2A56B6A300CECAC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC5E95DC2A56B6A300CECAC1 /* Assets.xcassets */; };
 		FC5E95E02A56B6A300CECAC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5E95DE2A56B6A300CECAC1 /* LaunchScreen.storyboard */; };
-		FC5E95E82A56B88200CECAC1 /* MeaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95E72A56B88200CECAC1 /* MeaningView.swift */; };
+		FC5E95E82A56B88200CECAC1 /* TermDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95E72A56B88200CECAC1 /* TermDetailViewController.swift */; };
 		FC5E95F62A56DF6100CECAC1 /* FinancialTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */; };
+		FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */; };
+		FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */; };
 		FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */; };
 		FCC276442A98AF05005A63D8 /* FinancialDictionaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */; };
-		FCC276462A98B785005A63D8 /* FinancialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC276452A98B785005A63D8 /* FinancialData.swift */; };
+		FCC276482A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +31,13 @@
 		FC5E95DC2A56B6A300CECAC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC5E95DF2A56B6A300CECAC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC5E95E12A56B6A300CECAC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC5E95E72A56B88200CECAC1 /* MeaningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningView.swift; sourceTree = "<group>"; };
+		FC5E95E72A56B88200CECAC1 /* TermDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewController.swift; sourceTree = "<group>"; };
 		FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialTerm.swift; sourceTree = "<group>"; };
+		FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModel.swift; sourceTree = "<group>"; };
+		FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewProtocol.swift; sourceTree = "<group>"; };
 		FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
 		FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FinancialDictionaryData.json; sourceTree = "<group>"; };
-		FCC276452A98B785005A63D8 /* FinancialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialData.swift; sourceTree = "<group>"; };
+		FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,8 @@
 		FC5E95E92A56BF5900CECAC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC9A1B572A9E0DAD0019F714 /* TermView */,
 				FCB44A812A979AFB000E4AF2 /* DictionaryView */,
-				FC5E95E72A56B88200CECAC1 /* MeaningView.swift */,
 				FC5E95D92A56B6A100CECAC1 /* Main.storyboard */,
 			);
 			path = View;
@@ -100,9 +104,18 @@
 			children = (
 				FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */,
 				FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */,
-				FCC276452A98B785005A63D8 /* FinancialData.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		FC9A1B572A9E0DAD0019F714 /* TermView */ = {
+			isa = PBXGroup;
+			children = (
+				FC5E95E72A56B88200CECAC1 /* TermDetailViewController.swift */,
+				FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */,
+				FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */,
+			);
+			path = TermView;
 			sourceTree = "<group>";
 		};
 		FCB44A812A979AFB000E4AF2 /* DictionaryView */ = {
@@ -110,6 +123,7 @@
 			children = (
 				FC5E95D72A56B6A100CECAC1 /* DictionaryViewController.swift */,
 				FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */,
+				FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */,
 			);
 			path = DictionaryView;
 			sourceTree = "<group>";
@@ -186,11 +200,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */,
+				FCC276482A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift in Sources */,
 				FC5E95D82A56B6A100CECAC1 /* DictionaryViewController.swift in Sources */,
 				FC5E95D42A56B6A100CECAC1 /* AppDelegate.swift in Sources */,
-				FC5E95E82A56B88200CECAC1 /* MeaningView.swift in Sources */,
+				FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */,
+				FC5E95E82A56B88200CECAC1 /* TermDetailViewController.swift in Sources */,
 				FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */,
-				FCC276462A98B785005A63D8 /* FinancialData.swift in Sources */,
 				FC5E95D62A56B6A100CECAC1 /* SceneDelegate.swift in Sources */,
 				FC5E95F62A56DF6100CECAC1 /* FinancialTerm.swift in Sources */,
 			);

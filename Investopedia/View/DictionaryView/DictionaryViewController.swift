@@ -8,18 +8,17 @@
 import UIKit
 
 class DictionaryViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    let viewModel = DictionaryViewModel()
+    var viewModel: DictionaryViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = DictionaryViewModel()
         setupTableView()
         viewModel.fetchTerms()
-        print(viewModel.numbersOfTerms())
-        
     }
     
     private func setupTableView() {
@@ -27,11 +26,20 @@ class DictionaryViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TermCell")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails",
+           let destinationVC = segue.destination as? TermDetailViewController,
+           let selectedTerm = sender as? FinancialTerm {
+            destinationVC.selectedTerm = selectedTerm
+        }
+    }
 }
 
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numbersOfTerms()
+        return viewModel.terms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,4 +49,9 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "showDetails", sender: viewModel.term(at: indexPath.row))
+        }
+
 }
