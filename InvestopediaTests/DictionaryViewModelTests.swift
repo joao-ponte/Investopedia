@@ -9,10 +9,20 @@
 import XCTest
 
 final class DictionaryViewModelTests: XCTestCase {
+
+    var viewModel: DictionaryViewModel!
+
+    override func setUp() {
+        super.setUp()
+        viewModel = DictionaryViewModel()
+    }
+
+    override func tearDown() {
+        viewModel = nil
+        super.tearDown()
+    }
     
     func testTermsProperty_ShouldBeInitiallyEmpty() {
-        // Given
-        let viewModel = DictionaryViewModel()
         // When
         let terms = viewModel.terms
         // Then
@@ -20,8 +30,6 @@ final class DictionaryViewModelTests: XCTestCase {
     }
     
     func testFetchTerms_ShouldPopulateTermsFromJSON() {
-        // Given
-        let viewModel = DictionaryViewModel()
         // When
         viewModel.fetchTerms()
         // Then
@@ -29,8 +37,6 @@ final class DictionaryViewModelTests: XCTestCase {
     }
     
     func testTermAtIndex_OutOfBoundsIndex_ShouldReturnNil() {
-        // Given
-        let viewModel = DictionaryViewModel()
         // When
         let term = viewModel.term(at: -1)
         // Then
@@ -39,7 +45,6 @@ final class DictionaryViewModelTests: XCTestCase {
     
     func testTermAtIndex_ValidIndex_ShouldReturnTerm() {
         // Given
-        let viewModel = DictionaryViewModel()
         viewModel.fetchTerms()
         // When
         let index = 0
