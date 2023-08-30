@@ -19,6 +19,8 @@ class DictionaryViewController: UIViewController {
         viewModel = DictionaryViewModel()
         setupTableView()
         viewModel.fetchTerms()
+        
+        navigationController?.navigationBar.isHidden = true
     }
     
     private func setupTableView() {

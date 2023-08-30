@@ -20,12 +20,16 @@ class TermDetailViewController: UIViewController {
         super.viewDidLoad()
         viewModel = TermDetailViewModel()
         setupUI()
+        navigationController?.navigationBar.isHidden = true
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     private func setupUI() {
         if let term = selectedTerm {
-            meaningLabel.text = "Meaning: " + term.meaning
-            exampleLabel.text = "Example: " + term.example
+            meaningLabel.text = term.meaning
+            exampleLabel.text = term.example
         }
     }
 }
