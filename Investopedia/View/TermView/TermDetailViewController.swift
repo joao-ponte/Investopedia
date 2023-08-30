@@ -10,6 +10,7 @@ import UIKit
 class TermDetailViewController: UIViewController {
     
     
+    @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
     @IBOutlet weak var meaningLabel: UILabel!
     
@@ -30,6 +31,7 @@ class TermDetailViewController: UIViewController {
         if let term = selectedTerm {
             meaningLabel.text = term.meaning
             exampleLabel.text = term.example
+            wordLabel.text = term.word
         }
     }
 }

@@ -48,6 +48,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath)
         if let term = viewModel.term(at: indexPath.row) {
             cell.textLabel?.text = term.word
+            cell.textLabel?.numberOfLines = 0
         }
         return cell
     }
