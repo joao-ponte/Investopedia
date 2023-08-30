@@ -15,11 +15,9 @@ class TermDetailViewController: UIViewController {
     @IBOutlet weak var meaningLabel: UILabel!
     
     var viewModel: TermDetailViewModelProtocol!
-    var selectedTerm: FinancialTerm?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = TermDetailViewModel()
         setupUI()
         navigationController?.navigationBar.isHidden = true
     }
@@ -28,7 +26,7 @@ class TermDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     private func setupUI() {
-        if let term = selectedTerm {
+        if let term = viewModel.selectedTerm {
             meaningLabel.text = term.meaning
             exampleLabel.text = term.example
             wordLabel.text = term.word

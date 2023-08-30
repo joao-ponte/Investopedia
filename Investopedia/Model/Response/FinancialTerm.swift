@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FinancialTerm: Decodable {
+struct FinancialTerm: Decodable, Equatable {
     let id: Int
     let word: String
     let meaning: String

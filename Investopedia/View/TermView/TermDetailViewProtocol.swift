@@ -8,5 +8,6 @@
 import Foundation
 
 protocol TermDetailViewModelProtocol {
-    
+    var selectedTerm: FinancialTerm? { get }
+    func configure(with term: FinancialTerm)
 }

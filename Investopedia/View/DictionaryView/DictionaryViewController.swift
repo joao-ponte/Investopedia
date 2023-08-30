@@ -33,7 +33,8 @@ class DictionaryViewController: UIViewController {
         if segue.identifier == "showDetails",
            let destinationVC = segue.destination as? TermDetailViewController,
            let selectedTerm = sender as? FinancialTerm {
-            destinationVC.selectedTerm = selectedTerm
+            let termDetailViewModel = TermDetailViewModel(terms: viewModel.terms, selectedTerm: selectedTerm)
+            destinationVC.viewModel = termDetailViewModel
         }
     }
 }
