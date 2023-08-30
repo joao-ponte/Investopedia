@@ -9,5 +9,11 @@ import Foundation
 
 protocol TermDetailViewModelProtocol {
     var selectedTerm: FinancialTerm? { get }
+    var canSelectNextTerm: Bool { get }
+    var canSelectPreviousTerm: Bool { get }
+    
     func configure(with term: FinancialTerm)
+    func selectNextTerm()
+    func selectPreviousTerm()
 }
+

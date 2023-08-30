@@ -24,6 +24,14 @@ final class TermDetailViewModel: TermDetailViewModelProtocol {
         return terms[currentTermIndex]
     }
     
+    var canSelectNextTerm: Bool {
+        return currentTermIndex < terms.count - 1
+    }
+    
+    var canSelectPreviousTerm: Bool {
+        return currentTermIndex > 0
+    }
+    
     func configure(with term: FinancialTerm) {
         if let selectedIndex = terms.firstIndex(of: term) {
             currentTermIndex = selectedIndex
@@ -31,13 +39,13 @@ final class TermDetailViewModel: TermDetailViewModelProtocol {
     }
     
     func selectNextTerm() {
-        if currentTermIndex < terms.count - 1 {
+        if canSelectNextTerm {
             currentTermIndex += 1
         }
     }
     
     func selectPreviousTerm() {
-        if currentTermIndex > 0 {
+        if canSelectPreviousTerm {
             currentTermIndex -= 1
         }
     }

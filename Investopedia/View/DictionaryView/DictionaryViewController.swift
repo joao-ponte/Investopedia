@@ -55,7 +55,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "showDetails", sender: viewModel.term(at: indexPath.row))
-        }
-
+        performSegue(withIdentifier: "showDetails", sender: viewModel.term(at: indexPath.row))
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
