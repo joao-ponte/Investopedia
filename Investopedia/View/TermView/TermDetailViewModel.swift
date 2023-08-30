@@ -8,8 +8,13 @@
 import Foundation
 
 final class TermDetailViewModel: TermDetailViewModelProtocol {
+    
+    // MARK: - Properties
+    
     private var terms: [FinancialTerm]
     private var currentTermIndex: Int = 0
+    
+    // MARK: - Initialization
     
     init(terms: [FinancialTerm], selectedTerm: FinancialTerm) {
         self.terms = terms
@@ -19,6 +24,8 @@ final class TermDetailViewModel: TermDetailViewModelProtocol {
             self.currentTermIndex = 0
         }
     }
+    
+    // MARK: - Computed Properties
     
     var selectedTerm: FinancialTerm? {
         return terms[currentTermIndex]
@@ -31,6 +38,8 @@ final class TermDetailViewModel: TermDetailViewModelProtocol {
     var canSelectPreviousTerm: Bool {
         return currentTermIndex > 0
     }
+    
+    // MARK: - Public Methods
     
     func configure(with term: FinancialTerm) {
         if let selectedIndex = terms.firstIndex(of: term) {

@@ -9,19 +9,27 @@ import UIKit
 
 class TermDetailViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
     @IBOutlet weak var meaningLabel: UILabel!
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    // MARK: - Properties
+    
     var viewModel: TermDetailViewModelProtocol!
-
+    
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         navigationController?.navigationBar.isHidden = true
     }
+    
+    // MARK: - IBActions
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -37,14 +45,20 @@ class TermDetailViewController: UIViewController {
         setupUI()
     }
     
+    // MARK: - Private Methods
+    
     private func setupUI() {
         if let term = viewModel.selectedTerm {
             meaningLabel.text = term.meaning
             exampleLabel.text = term.example
             wordLabel.text = term.word
             
-            previousButton.isEnabled = viewModel.canSelectPreviousTerm
-            nextButton.isEnabled = viewModel.canSelectNextTerm
+            updateButtonStates()
         }
+    }
+    
+    private func updateButtonStates() {
+        previousButton.isEnabled = viewModel.canSelectPreviousTerm
+        nextButton.isEnabled = viewModel.canSelectNextTerm
     }
 }

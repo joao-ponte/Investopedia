@@ -8,9 +8,14 @@
 import Foundation
 
 protocol TermDetailViewModelProtocol {
+    
+    // MARK: - Properties
+    
     var selectedTerm: FinancialTerm? { get }
     var canSelectNextTerm: Bool { get }
     var canSelectPreviousTerm: Bool { get }
+    
+    // MARK: - Methods
     
     func configure(with term: FinancialTerm)
     func selectNextTerm()

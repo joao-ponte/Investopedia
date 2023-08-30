@@ -8,19 +8,30 @@
 import UIKit
 
 class DictionaryViewController: UIViewController {
+
+    // MARK: - IBOutlets
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Properties
+    
     var viewModel: DictionaryViewModelProtocol!
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = DictionaryViewModel()
+        setupUI()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupUI() {
         setupTableView()
+        setupNavigationBar()
+        viewModel = DictionaryViewModel()
         viewModel.fetchTerms()
-        
-        navigationController?.navigationBar.isHidden = true
     }
     
     private func setupTableView() {
@@ -28,6 +39,12 @@ class DictionaryViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TermCell")
     }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails",
@@ -39,6 +56,8 @@ class DictionaryViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,8 +67,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath)
         if let term = viewModel.term(at: indexPath.row) {
-            cell.textLabel?.text = term.word
-            cell.textLabel?.numberOfLines = 0
+            configureCell(cell, with: term)
         }
         return cell
     }
@@ -57,5 +75,10 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetails", sender: viewModel.term(at: indexPath.row))
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    private func configureCell(_ cell: UITableViewCell, with term: FinancialTerm) {
+        cell.textLabel?.text = term.word
+        cell.textLabel?.numberOfLines = 0
     }
 }

@@ -8,7 +8,13 @@
 import Foundation
 
 protocol DictionaryViewModelProtocol {
+    
+    // MARK: - Methods
+    
     func fetchTerms()
     func term(at index: Int) -> FinancialTerm?
+    
+    // MARK: - Properties
+    
     var terms: [FinancialTerm] { get }
 }
