@@ -78,11 +78,19 @@
 		FC4545422A9F82B2005A7D07 /* InvestopediaTests */ = {
 			isa = PBXGroup;
 			children = (
+				FC4545562A9FB3A7005A7D07 /* DictionaryViewTests */,
+			);
+			path = InvestopediaTests;
+			sourceTree = "<group>";
+		};
+		FC4545562A9FB3A7005A7D07 /* DictionaryViewTests */ = {
+			isa = PBXGroup;
+			children = (
 				FC45454C2A9F8811005A7D07 /* DictionaryViewModelTests.swift */,
 				FC4545542A9FA88B005A7D07 /* DictionaryViewControllerTests.swift */,
 				FC4545522A9F9E7F005A7D07 /* MockDictionaryViewModel.swift */,
 			);
-			path = InvestopediaTests;
+			path = DictionaryViewTests;
 			sourceTree = "<group>";
 		};
 		FC5E95C72A56B6A100CECAC1 = {
