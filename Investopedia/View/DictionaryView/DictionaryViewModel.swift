@@ -7,27 +7,41 @@
 
 import Foundation
 
+protocol DictionaryViewModelDelegate: AnyObject {
+    func filteredTermsUpdated()
+}
+
 final class DictionaryViewModel: DictionaryViewModelProtocol {
     
     // MARK: - Properties
     
     private(set) var terms: [FinancialTerm] = []
-    private(set) var filteredTerms: [FinancialTerm] = []
+    private var searchQuery: String = ""
+    var filteredTerms: [FinancialTerm] {
+        if searchQuery.isEmpty {
+            return terms
+        } else {
+            return terms.filter { $0.word.localizedCaseInsensitiveContains(searchQuery) }
+        }
+    }
+    
+    weak var delegate: DictionaryViewModelDelegate?
     
     // MARK: - Public Methods
     
     func fetchTerms() {
-        if let url = Bundle.main.url(forResource: "FinancialDictionaryData", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(ResponseData.self, from: data)
-                updateTerms(with: jsonData.dictionary)
-            } catch {
-                print("Error decoding JSON: \(error)")
-            }
-        } else {
+        guard let url = Bundle.main.url(forResource: "FinancialDictionaryData", withExtension: "json") else {
             print("Error loading JSON file.")
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let jsonData = try decoder.decode(ResponseData.self, from: data)
+            updateTerms(with: jsonData.dictionary)
+        } catch {
+            print("Error decoding JSON: \(error)")
         }
     }
     
@@ -37,16 +51,8 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
     }
     
     func updateFilteredTerms(with searchText: String) {
-        guard !searchText.isEmpty else {
-            filteredTerms = terms
-            return
-        }
-        
-        let searchPredicate = { (term: FinancialTerm) in
-            term.word.localizedCaseInsensitiveContains(searchText)
-        }
-        
-        filteredTerms = terms.filter(searchPredicate)
+        searchQuery = searchText
+        delegate?.filteredTermsUpdated()
     }
     
     // MARK: - Private Methods

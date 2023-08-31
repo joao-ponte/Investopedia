@@ -11,6 +11,7 @@ class DictionaryViewController: UIViewController {
 
     // MARK: - IBOutlets
     
+    @IBOutlet weak var wordNotFoundImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,10 +31,8 @@ class DictionaryViewController: UIViewController {
     private func setupUI() {
         setupTableView()
         setupNavigationBar()
-        viewModel = DictionaryViewModel()
-        viewModel.fetchTerms()
+        setupViewModel()
         searchBar.delegate = self
-        viewModel.updateFilteredTerms(with: "")
     }
     
     private func setupTableView() {
@@ -44,6 +43,12 @@ class DictionaryViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func setupViewModel() {
+        viewModel = DictionaryViewModel()
+        viewModel.fetchTerms()
+        viewModel.updateFilteredTerms(with: "")
     }
     
     // MARK: - Navigation
@@ -63,14 +68,15 @@ class DictionaryViewController: UIViewController {
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.filteredTerms.count
+        let numberOfFilteredTerms = viewModel.filteredTerms.count
+        wordNotFoundImage.isHidden = numberOfFilteredTerms != 0
+        return numberOfFilteredTerms
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath)
         let term = viewModel.filteredTerms[indexPath.row]
         configureCell(cell, with: term)
-        
         return cell
     }
     

@@ -39,12 +39,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="MuN-AT-4e7">
+                                <rect key="frame" x="0.0" y="159" width="393" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <constraints>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="48o-Lz-fNw"/>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EOy-CQ-Fmf"/>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="top" secondItem="oet-mb-LMT" secondAttribute="bottom" id="I7S-AY-BDa"/>
+                            <constraint firstItem="MuN-AT-4e7" firstAttribute="centerX" secondItem="j1u-iR-zGJ" secondAttribute="centerX" id="QgQ-R2-eTr"/>
                             <constraint firstItem="oet-mb-LMT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bcZ-2h-KbM"/>
                             <constraint firstItem="oet-mb-LMT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jsg-sI-ykb"/>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tJK-ba-IHO"/>
@@ -55,6 +61,7 @@
                     <connections>
                         <outlet property="searchBar" destination="oet-mb-LMT" id="G5Z-Zr-fju"/>
                         <outlet property="tableView" destination="j1u-iR-zGJ" id="EzG-y7-d10"/>
+                        <outlet property="wordNotFoundImage" destination="MuN-AT-4e7" id="8wx-UR-ud1"/>
                         <segue destination="MCI-Gc-MDB" kind="show" identifier="showDetails" id="XEo-tY-fvR"/>
                     </connections>
                 </viewController>
@@ -197,6 +204,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
