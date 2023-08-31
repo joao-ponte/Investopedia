@@ -48,8 +48,6 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         
         filteredTerms = terms.filter(searchPredicate)
     }
-
-
     
     // MARK: - Private Methods
     
