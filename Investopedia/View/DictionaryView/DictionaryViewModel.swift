@@ -51,7 +51,8 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
     }
     
     func updateFilteredTerms(with searchText: String) {
-        searchQuery = searchText
+        let trimmedSearchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        searchQuery = trimmedSearchText
         delegate?.filteredTermsUpdated()
     }
     
