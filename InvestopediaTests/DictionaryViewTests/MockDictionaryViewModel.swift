@@ -9,6 +9,9 @@ import Foundation
 @testable import Investopedia
 
 class MockDictionaryViewModel: DictionaryViewModelProtocol {
+
+    var filteredTerms: [Investopedia.FinancialTerm] = []
+    
     
     var fetchTermsCalled = false
     var termAtIndexCalled = false
@@ -37,6 +40,12 @@ class MockDictionaryViewModel: DictionaryViewModelProtocol {
     func sortTermsAlphabetically() {
         sortTermsAlphabeticallyCalled = true
     }
+    
+    func updateFilteredTerms(with searchText: String) {
+            filteredTerms = mockTerms.filter { term in
+                term.word.localizedCaseInsensitiveContains(searchText)
+            }
+        }
 }
 
 extension Array {

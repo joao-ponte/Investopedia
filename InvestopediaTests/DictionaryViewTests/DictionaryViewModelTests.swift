@@ -53,4 +53,29 @@ final class DictionaryViewModelTests: XCTestCase {
         XCTAssertNotNil(term)
         XCTAssertEqual(term?.word, viewModel.terms[index].word)
     }
+    
+    func testUpdateFilteredTerms_WithEmptySearchText_ShouldMatchAllTerms() {
+        // Given
+        viewModel.fetchTerms()
+        
+        // When
+        viewModel.updateFilteredTerms(with: "")
+        
+        // Then
+        XCTAssertEqual(viewModel.filteredTerms, viewModel.terms)
+    }
+
+    func testUpdateFilteredTerms_WithSearchText_ShouldFilterTerms() {
+        // Given
+        viewModel.fetchTerms()
+        let searchText = "Bond"  // Provide a sample search text
+        
+        // When
+        viewModel.updateFilteredTerms(with: searchText)
+        
+        // Then
+        XCTAssertTrue(viewModel.filteredTerms.allSatisfy { term in
+            term.word.localizedCaseInsensitiveContains(searchText)
+        })
+    }
 }

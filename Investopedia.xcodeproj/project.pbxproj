@@ -20,6 +20,7 @@
 		FC5E95F62A56DF6100CECAC1 /* FinancialTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */; };
 		FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */; };
 		FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */; };
+		FCA918B72AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA918B62AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift */; };
 		FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */; };
 		FCC276442A98AF05005A63D8 /* FinancialDictionaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */; };
 		FCC276482A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */; };
@@ -52,6 +53,7 @@
 		FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialTerm.swift; sourceTree = "<group>"; };
 		FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModel.swift; sourceTree = "<group>"; };
 		FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewProtocol.swift; sourceTree = "<group>"; };
+		FCA918B62AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModelTests.swift; sourceTree = "<group>"; };
 		FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
 		FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FinancialDictionaryData.json; sourceTree = "<group>"; };
 		FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		FC4545422A9F82B2005A7D07 /* InvestopediaTests */ = {
 			isa = PBXGroup;
 			children = (
+				FCA918B52AA0CF1000BEC7D7 /* TermDetailViewTests */,
 				FC4545562A9FB3A7005A7D07 /* DictionaryViewTests */,
 			);
 			path = InvestopediaTests;
@@ -160,6 +163,14 @@
 				FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */,
 			);
 			path = TermView;
+			sourceTree = "<group>";
+		};
+		FCA918B52AA0CF1000BEC7D7 /* TermDetailViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCA918B62AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift */,
+			);
+			path = TermDetailViewTests;
 			sourceTree = "<group>";
 		};
 		FCB44A812A979AFB000E4AF2 /* DictionaryView */ = {
@@ -277,6 +288,7 @@
 				FC4545532A9F9E7F005A7D07 /* MockDictionaryViewModel.swift in Sources */,
 				FC45454D2A9F8811005A7D07 /* DictionaryViewModelTests.swift in Sources */,
 				FC4545552A9FA88B005A7D07 /* DictionaryViewControllerTests.swift in Sources */,
+				FCA918B72AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

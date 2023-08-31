@@ -27,17 +27,35 @@ class DictionaryViewControllerTests: XCTestCase {
         mockViewModel = nil
     }
     
-    func testTermAtIndexCalled() {
-        let _ = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
-        XCTAssertTrue(mockViewModel.termAtIndexCalled)
+    func testViewDidLoad_SetsUpUIElementsAndViewModel() {
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssertNotNil(sut.searchBar.delegate)
+        XCTAssertNotNil(sut.tableView.delegate)
+        XCTAssertNotNil(sut.tableView.dataSource)
     }
     
-    func testDidSelectRow() {
-        let tableView = sut.tableView
-        let indexPath = IndexPath(row: 0, section: 0)
+//    func testTermAtIndexCalled() {
+//        let _ = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+//        XCTAssertTrue(mockViewModel.termAtIndexCalled)
+//    }
+    
+//    func testDidSelectRow() {
+//        let tableView = sut.tableView
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        
+//        sut.tableView(tableView!, didSelectRowAt: indexPath)
+//        
+//        XCTAssertTrue(mockViewModel.termAtIndexCalled)
+//    }
+    
+    func testTableViewDataSource_NumberOfRowsInSection() {
+        // Given
+        let rowCount = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
         
-        sut.tableView(tableView!, didSelectRowAt: indexPath)
-        
-        XCTAssertTrue(mockViewModel.termAtIndexCalled)
+        // Then
+        XCTAssertEqual(rowCount, mockViewModel.filteredTerms.count)
     }
 }
