@@ -12,6 +12,7 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
     // MARK: - Properties
     
     private(set) var terms: [FinancialTerm] = []
+    private(set) var filteredTerms: [FinancialTerm] = []
     
     // MARK: - Public Methods
     
@@ -34,6 +35,21 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         guard index >= 0 && index < terms.count else { return nil }
         return terms[index]
     }
+    
+    func updateFilteredTerms(with searchText: String) {
+        guard !searchText.isEmpty else {
+            filteredTerms = terms
+            return
+        }
+        
+        let searchPredicate = { (term: FinancialTerm) in
+            term.word.localizedCaseInsensitiveContains(searchText)
+        }
+        
+        filteredTerms = terms.filter(searchPredicate)
+    }
+
+
     
     // MARK: - Private Methods
     

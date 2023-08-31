@@ -32,6 +32,8 @@ class DictionaryViewController: UIViewController {
         setupNavigationBar()
         viewModel = DictionaryViewModel()
         viewModel.fetchTerms()
+        searchBar.delegate = self
+        viewModel.updateFilteredTerms(with: "")
     }
     
     private func setupTableView() {
@@ -61,24 +63,33 @@ class DictionaryViewController: UIViewController {
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.terms.count
+        return viewModel.filteredTerms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath)
-        if let term = viewModel.term(at: indexPath.row) {
-            configureCell(cell, with: term)
-        }
+        let term = viewModel.filteredTerms[indexPath.row]
+        configureCell(cell, with: term)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetails", sender: viewModel.term(at: indexPath.row))
+        performSegue(withIdentifier: "showDetails", sender: viewModel.filteredTerms[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     private func configureCell(_ cell: UITableViewCell, with term: FinancialTerm) {
         cell.textLabel?.text = term.word
         cell.textLabel?.numberOfLines = 0
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension DictionaryViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.updateFilteredTerms(with: searchText)
+        tableView.reloadData()
     }
 }

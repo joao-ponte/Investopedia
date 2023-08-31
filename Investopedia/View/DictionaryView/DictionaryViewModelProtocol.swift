@@ -13,8 +13,11 @@ protocol DictionaryViewModelProtocol {
     
     func fetchTerms()
     func term(at index: Int) -> FinancialTerm?
+    func updateFilteredTerms(with searchText: String)
     
     // MARK: - Properties
     
     var terms: [FinancialTerm] { get }
+    var filteredTerms: [FinancialTerm] { get }
+    
 }
