@@ -15,6 +15,9 @@
 		FC571F7C2AA3400C00024B78 /* HttpClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F7B2AA3400C00024B78 /* HttpClientProtocol.swift */; };
 		FC571F7E2AA3408A00024B78 /* CoinCapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F7D2AA3408A00024B78 /* CoinCapAPI.swift */; };
 		FC571F812AA3502E00024B78 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F802AA3502E00024B78 /* NetworkError.swift */; };
+		FC571F832AA3592000024B78 /* CoinCapAPIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F822AA3592000024B78 /* CoinCapAPIEndpoints.swift */; };
+		FC571F872AA35B7100024B78 /* CryptoCurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */; };
+		FC571F892AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F882AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift */; };
 		FC5E95D42A56B6A100CECAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95D32A56B6A100CECAC1 /* AppDelegate.swift */; };
 		FC5E95D62A56B6A100CECAC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95D52A56B6A100CECAC1 /* SceneDelegate.swift */; };
 		FC5E95D82A56B6A100CECAC1 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95D72A56B6A100CECAC1 /* DictionaryViewController.swift */; };
@@ -51,6 +54,9 @@
 		FC571F7B2AA3400C00024B78 /* HttpClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientProtocol.swift; sourceTree = "<group>"; };
 		FC571F7D2AA3408A00024B78 /* CoinCapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCapAPI.swift; sourceTree = "<group>"; };
 		FC571F802AA3502E00024B78 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		FC571F822AA3592000024B78 /* CoinCapAPIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCapAPIEndpoints.swift; sourceTree = "<group>"; };
+		FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewController.swift; sourceTree = "<group>"; };
+		FC571F882AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewModel.swift; sourceTree = "<group>"; };
 		FC5E95D02A56B6A100CECAC1 /* Investopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Investopedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5E95D32A56B6A100CECAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5E95D52A56B6A100CECAC1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,20 +121,21 @@
 			path = "Dictionary Response";
 			sourceTree = "<group>";
 		};
-		FC571F752AA3386F00024B78 /* Crypto Currency Response */ = {
+		FC571F752AA3386F00024B78 /* CryptoCurrency Response */ = {
 			isa = PBXGroup;
 			children = (
 				FC571F762AA338A200024B78 /* CryptoCurrency.swift */,
 			);
-			path = "Crypto Currency Response";
+			path = "CryptoCurrency Response";
 			sourceTree = "<group>";
 		};
 		FC571F782AA33F6600024B78 /* Investopedia Client */ = {
 			isa = PBXGroup;
 			children = (
+				FC571F7D2AA3408A00024B78 /* CoinCapAPI.swift */,
+				FC571F822AA3592000024B78 /* CoinCapAPIEndpoints.swift */,
 				FC571F792AA33FD200024B78 /* HttpClient.swift */,
 				FC571F7B2AA3400C00024B78 /* HttpClientProtocol.swift */,
-				FC571F7D2AA3408A00024B78 /* CoinCapAPI.swift */,
 			);
 			path = "Investopedia Client";
 			sourceTree = "<group>";
@@ -139,6 +146,24 @@
 				FC571F802AA3502E00024B78 /* NetworkError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		FC571F842AA35ADC00024B78 /* CryptoCurrency View */ = {
+			isa = PBXGroup;
+			children = (
+				FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */,
+				FC571F882AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift */,
+			);
+			path = "CryptoCurrency View";
+			sourceTree = "<group>";
+		};
+		FC571F852AA35B0700024B78 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				FCB44A812A979AFB000E4AF2 /* Dictionary View */,
+				FC9A1B572A9E0DAD0019F714 /* Term View */,
+			);
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 		FC5E95C72A56B6A100CECAC1 = {
@@ -178,8 +203,8 @@
 		FC5E95E92A56BF5900CECAC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC9A1B572A9E0DAD0019F714 /* TermView */,
-				FCB44A812A979AFB000E4AF2 /* DictionaryView */,
+				FC571F852AA35B0700024B78 /* Dictionary */,
+				FC571F842AA35ADC00024B78 /* CryptoCurrency View */,
 				FC5E95D92A56B6A100CECAC1 /* Main.storyboard */,
 			);
 			path = View;
@@ -196,20 +221,20 @@
 		FC5E95F32A56DD0700CECAC1 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				FC571F752AA3386F00024B78 /* Crypto Currency Response */,
+				FC571F752AA3386F00024B78 /* CryptoCurrency Response */,
 				FC571F742AA337A600024B78 /* Dictionary Response */,
 			);
 			path = Response;
 			sourceTree = "<group>";
 		};
-		FC9A1B572A9E0DAD0019F714 /* TermView */ = {
+		FC9A1B572A9E0DAD0019F714 /* Term View */ = {
 			isa = PBXGroup;
 			children = (
 				FC5E95E72A56B88200CECAC1 /* TermDetailViewController.swift */,
 				FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */,
 				FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */,
 			);
-			path = TermView;
+			path = "Term View";
 			sourceTree = "<group>";
 		};
 		FCA918B52AA0CF1000BEC7D7 /* TermDetailViewTests */ = {
@@ -220,14 +245,14 @@
 			path = TermDetailViewTests;
 			sourceTree = "<group>";
 		};
-		FCB44A812A979AFB000E4AF2 /* DictionaryView */ = {
+		FCB44A812A979AFB000E4AF2 /* Dictionary View */ = {
 			isa = PBXGroup;
 			children = (
 				FC5E95D72A56B6A100CECAC1 /* DictionaryViewController.swift */,
 				FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */,
 				FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */,
 			);
-			path = DictionaryView;
+			path = "Dictionary View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC571F7C2AA3400C00024B78 /* HttpClientProtocol.swift in Sources */,
+				FC571F832AA3592000024B78 /* CoinCapAPIEndpoints.swift in Sources */,
 				FC571F812AA3502E00024B78 /* NetworkError.swift in Sources */,
 				FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */,
 				FCC276482A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift in Sources */,
@@ -352,6 +378,8 @@
 				FC5E95D42A56B6A100CECAC1 /* AppDelegate.swift in Sources */,
 				FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */,
 				FC5E95E82A56B88200CECAC1 /* TermDetailViewController.swift in Sources */,
+				FC571F872AA35B7100024B78 /* CryptoCurrencyListViewController.swift in Sources */,
+				FC571F892AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift in Sources */,
 				FC571F7E2AA3408A00024B78 /* CoinCapAPI.swift in Sources */,
 				FC571F7A2AA33FD200024B78 /* HttpClient.swift in Sources */,
 				FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */,

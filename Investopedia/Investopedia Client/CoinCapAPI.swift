@@ -15,32 +15,8 @@ class CoinCapAPI {
         self.client = client
     }
     
-    enum EndPoints {
-        
-        case getCryptoCurrency
-        case getFiatCurrency
-        
-        var stringValue: String {
-            switch self {
-                
-            case .getCryptoCurrency:
-                return "https://api.coincap.io/v2/assets"
-            case .getFiatCurrency:
-                return "https://api.coincap.io/v2/rates"
-            }
-        }
-        
-        var url: URL? {
-            guard let url = URL(string: stringValue) else {
-                return nil
-            }
-            return url
-        }
-    }
-    
     func getCryptoCurrency(completion: @escaping (Result<[CryptoCurrency],NetworkError>) -> Void) {
-        let endPoint = EndPoints.getCryptoCurrency
-        guard let url = endPoint.url else {
+        guard let url = URL(string: CoinCapAPIEndpoints.getCryptoCurrency) else {
             completion(.failure(.badURL))
             return
         }
@@ -55,6 +31,7 @@ class CoinCapAPI {
             }
             
             let cryptos = response.data
+            completion(.success(cryptos))
             
         }
     }
