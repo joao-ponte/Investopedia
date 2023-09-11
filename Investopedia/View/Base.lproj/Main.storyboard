@@ -209,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="78.625954198473281" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Crypto Currency List View Controller-->
         <scene sceneID="sxy-Rl-hcP">
             <objects>
-                <viewController id="Zg5-hD-1jr" sceneMemberID="viewController">
+                <viewController id="Zg5-hD-1jr" customClass="CryptoCurrencyListViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXY-j6-dKP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,30 +233,10 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermCell" id="id1-xA-wLe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cryptoCell" id="id1-xA-wLe">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="id1-xA-wLe" id="IB8-8f-3pj">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GkE-mm-bNu">
-                                <rect key="frame" x="0.0" y="121" width="393" height="610"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="yR8-YT-S5G">
-                                    <rect key="frame" x="0.0" y="121.66666793823242" width="393" height="274"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermCell" id="hz8-66-Ym5">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hz8-66-Ym5" id="fDF-l5-tcD">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -278,20 +258,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="unh-Ke-h47"/>
                     <connections>
-                        <outlet property="searchBar" destination="gg0-D6-Cmg" id="I9w-Z4-QAn"/>
-                        <outlet property="tableView" destination="r75-ki-4Kf" id="ezo-0F-HT1"/>
-                        <outlet property="wordNotFoundImage" destination="h3c-SG-oKG" id="f6v-Cd-pbi"/>
+                        <outlet property="tableView" destination="r75-ki-4Kf" id="9s4-9M-sNV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf6-fp-kzB" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005" y="668"/>
         </scene>
-        <!--Crypto Currency-->
+        <!--Cryptocurrency-->
         <scene sceneID="p12-1j-fhj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fw-xM-hjB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Crypto Currency" id="bbE-na-mXg"/>
+                    <tabBarItem key="tabBarItem" title="Cryptocurrency" id="bbE-na-mXg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K9n-9t-jXn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -318,9 +296,6 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="56"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="WlL-7Q-CK0" id="Oh2-e2-m4g"/>
-                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7G1-zt-qsG">
                                 <rect key="frame" x="0.0" y="159" width="393" height="659"/>
@@ -330,7 +305,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermCell" id="hS9-rf-eRX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hS9-rf-eRX">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hS9-rf-eRX" id="JvD-G6-ORL">
@@ -354,11 +329,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WMQ-PE-Y31"/>
-                    <connections>
-                        <outlet property="searchBar" destination="T6y-2M-x2M" id="jA1-Us-a7q"/>
-                        <outlet property="tableView" destination="7G1-zt-qsG" id="9yW-fE-hTZ"/>
-                        <outlet property="wordNotFoundImage" destination="fXX-Ka-My0" id="abK-b0-gBg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jjs-sv-b8M" sceneMemberID="firstResponder"/>
             </objects>
