@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct CoinCapAPIEndpoints {
-    static let baseUrl = "https://api.coincap.io/v2"
+struct APIEndpoint {
+    let urlString: String
     
-    static let getCryptoCurrency = "\(baseUrl)/assets"
-    static let getFiatCurrency = "\(baseUrl)/rates"
+    static let base = "https://api.coincap.io/v2"
+    static let cryptoCurrency = APIEndpoint(urlString: "https://api.coincap.io/v2/assets")
+    static let fiatCurrency = APIEndpoint(urlString: "\(base)/rates")
 }

@@ -10,19 +10,19 @@ import Foundation
 final class CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
     
     private(set) var cryptoCurrencies: [CryptoCurrency] = []
-    
-    private let apiClient: CoinCapAPI
-    
-    init(apiClient: CoinCapAPI) {
-        self.apiClient = apiClient
+    private let networkManager: NetworkManagerProtocol
+
+    init(networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
     }
-    
+
     func fetchData(completion: @escaping () -> Void) {
-        apiClient.getCryptoCurrency { result in
+        networkManager.request(APIEndpoint.cryptoCurrency, responseType: ResponseCryptos.self) { [weak self] result in
             switch result {
             case .success(let cryptos):
-                self.cryptoCurrencies = cryptos
+                self?.cryptoCurrencies = cryptos.data
                 completion()
+
             case .failure(let error):
                 print("Error fetching data: \(error)")
                 completion()
@@ -33,7 +33,7 @@ final class CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
     func numberOfItems() -> Int {
         return cryptoCurrencies.count
     }
-    
+
     func cryptoCurrency(atIndex index: Int) -> CryptoCurrency {
         return cryptoCurrencies[index]
     }

@@ -11,9 +11,6 @@
 		FC4545532A9F9E7F005A7D07 /* MockDictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4545522A9F9E7F005A7D07 /* MockDictionaryViewModel.swift */; };
 		FC4545552A9FA88B005A7D07 /* DictionaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4545542A9FA88B005A7D07 /* DictionaryViewControllerTests.swift */; };
 		FC571F772AA338A200024B78 /* CryptoCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F762AA338A200024B78 /* CryptoCurrency.swift */; };
-		FC571F7A2AA33FD200024B78 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F792AA33FD200024B78 /* HttpClient.swift */; };
-		FC571F7C2AA3400C00024B78 /* HttpClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F7B2AA3400C00024B78 /* HttpClientProtocol.swift */; };
-		FC571F7E2AA3408A00024B78 /* CoinCapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F7D2AA3408A00024B78 /* CoinCapAPI.swift */; };
 		FC571F812AA3502E00024B78 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F802AA3502E00024B78 /* NetworkError.swift */; };
 		FC571F832AA3592000024B78 /* CoinCapAPIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F822AA3592000024B78 /* CoinCapAPIEndpoints.swift */; };
 		FC571F872AA35B7100024B78 /* CryptoCurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */; };
@@ -27,6 +24,8 @@
 		FC5E95E82A56B88200CECAC1 /* TermDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95E72A56B88200CECAC1 /* TermDetailViewController.swift */; };
 		FC5E95F62A56DF6100CECAC1 /* FinancialTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */; };
 		FC9966492AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9966482AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift */; };
+		FC99664D2AAF1491001B6446 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99664C2AAF1491001B6446 /* NetworkManager.swift */; };
+		FC99664F2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99664E2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift */; };
 		FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */; };
 		FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */; };
 		FCA918B72AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA918B62AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift */; };
@@ -51,9 +50,6 @@
 		FC4545522A9F9E7F005A7D07 /* MockDictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDictionaryViewModel.swift; sourceTree = "<group>"; };
 		FC4545542A9FA88B005A7D07 /* DictionaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewControllerTests.swift; sourceTree = "<group>"; };
 		FC571F762AA338A200024B78 /* CryptoCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrency.swift; sourceTree = "<group>"; };
-		FC571F792AA33FD200024B78 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		FC571F7B2AA3400C00024B78 /* HttpClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientProtocol.swift; sourceTree = "<group>"; };
-		FC571F7D2AA3408A00024B78 /* CoinCapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCapAPI.swift; sourceTree = "<group>"; };
 		FC571F802AA3502E00024B78 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FC571F822AA3592000024B78 /* CoinCapAPIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCapAPIEndpoints.swift; sourceTree = "<group>"; };
 		FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +65,8 @@
 		FC5E95E72A56B88200CECAC1 /* TermDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewController.swift; sourceTree = "<group>"; };
 		FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialTerm.swift; sourceTree = "<group>"; };
 		FC9966482AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewModelProtocol.swift; sourceTree = "<group>"; };
+		FC99664C2AAF1491001B6446 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FC99664E2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModel.swift; sourceTree = "<group>"; };
 		FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewProtocol.swift; sourceTree = "<group>"; };
 		FCA918B62AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModelTests.swift; sourceTree = "<group>"; };
@@ -134,10 +132,8 @@
 		FC571F782AA33F6600024B78 /* Investopedia Client */ = {
 			isa = PBXGroup;
 			children = (
-				FC571F7D2AA3408A00024B78 /* CoinCapAPI.swift */,
 				FC571F822AA3592000024B78 /* CoinCapAPIEndpoints.swift */,
-				FC571F792AA33FD200024B78 /* HttpClient.swift */,
-				FC571F7B2AA3400C00024B78 /* HttpClientProtocol.swift */,
+				FC99664C2AAF1491001B6446 /* NetworkManager.swift */,
 			);
 			path = "Investopedia Client";
 			sourceTree = "<group>";
@@ -156,6 +152,7 @@
 				FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */,
 				FC571F882AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift */,
 				FC9966482AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift */,
+				FC99664E2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift */,
 			);
 			path = "CryptoCurrency View";
 			sourceTree = "<group>";
@@ -371,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC571F7C2AA3400C00024B78 /* HttpClientProtocol.swift in Sources */,
 				FC571F832AA3592000024B78 /* CoinCapAPIEndpoints.swift in Sources */,
 				FC571F812AA3502E00024B78 /* NetworkError.swift in Sources */,
 				FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */,
@@ -380,11 +376,11 @@
 				FC571F772AA338A200024B78 /* CryptoCurrency.swift in Sources */,
 				FC5E95D42A56B6A100CECAC1 /* AppDelegate.swift in Sources */,
 				FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */,
+				FC99664F2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift in Sources */,
 				FC5E95E82A56B88200CECAC1 /* TermDetailViewController.swift in Sources */,
 				FC571F872AA35B7100024B78 /* CryptoCurrencyListViewController.swift in Sources */,
 				FC571F892AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift in Sources */,
-				FC571F7E2AA3408A00024B78 /* CoinCapAPI.swift in Sources */,
-				FC571F7A2AA33FD200024B78 /* HttpClient.swift in Sources */,
+				FC99664D2AAF1491001B6446 /* NetworkManager.swift in Sources */,
 				FC9966492AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift in Sources */,
 				FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */,
 				FC5E95D62A56B6A100CECAC1 /* SceneDelegate.swift in Sources */,

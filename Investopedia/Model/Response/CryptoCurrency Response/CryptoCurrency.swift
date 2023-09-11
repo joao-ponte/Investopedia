@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoCurrency: Decodable {
+struct CryptoCurrency: Codable {
     let id: String
     let rank: String
     let symbol: String
@@ -19,9 +19,9 @@ struct CryptoCurrency: Decodable {
     let priceUsd: String
     let changePercent24Hr: String
     let vwap24Hr: String
-    let explorer: String
+    let explorer: String?
 }
 
-struct ResponseCryptos: Decodable {
+struct ResponseCryptos: Codable {
     let data: [CryptoCurrency]
 }
