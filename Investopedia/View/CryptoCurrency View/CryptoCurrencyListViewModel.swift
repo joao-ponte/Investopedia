@@ -17,6 +17,8 @@ final class CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
     }
 
     func fetchData(completion: @escaping () -> Void) {
+        print("Fetching data from the API...")
+        
         networkManager.request(APIEndpoint.cryptoCurrency, responseType: ResponseCryptos.self) { [weak self] result in
             switch result {
             case .success(let cryptos):

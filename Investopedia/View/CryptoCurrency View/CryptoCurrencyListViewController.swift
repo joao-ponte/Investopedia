@@ -17,6 +17,16 @@ class CryptoCurrencyListViewController: UIViewController {
         
         setupTableView()
         setupViewModel()
+        
+        let timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+            self?.viewModel.fetchData {
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+
+        timer.fire()
     }
     
     private func setupTableView() {
