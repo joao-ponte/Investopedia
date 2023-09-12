@@ -258,7 +258,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="unh-Ke-h47"/>
                     <connections>
+                        <outlet property="searchBar" destination="gg0-D6-Cmg" id="uQq-YE-CvB"/>
                         <outlet property="tableView" destination="r75-ki-4Kf" id="CFs-Ol-Hih"/>
+                        <outlet property="wordNotFoundImage" destination="h3c-SG-oKG" id="7vo-Wg-wsO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf6-fp-kzB" sceneMemberID="firstResponder"/>

@@ -22,28 +22,28 @@ class CryptoCurrencyTableViewCell: UITableViewCell {
         accessoryType = .disclosureIndicator
 
         let priceLabel = UILabel()
-        priceLabel.textColor = determinePriceColor(currentPrice: crypto.priceUsd,
-                                                   previousPrice: previousPrice)
+//        priceLabel.textColor = determinePriceColor(currentPrice: crypto.priceUsd,
+//                                                   previousPrice: previousPrice)
         priceLabel.text = formatPrice(price: crypto.priceUsd)
         priceLabel.sizeToFit()
         accessoryView = priceLabel
     }
 
-    private func determinePriceColor(currentPrice: String,
-                                     previousPrice: Double) -> UIColor {
-        
-        guard let currentPriceDouble = Double(currentPrice) else {
-            return .black // Default color
-        }
-
-        if currentPriceDouble > previousPrice {
-            return UIColor(red: 0, green: 0.5, blue: 0, alpha: 1.0) // Dark green for price increases
-        } else if currentPriceDouble < previousPrice {
-            return UIColor(red: 0.5, green: 0.0, blue: 0, alpha: 1.0) // Dark green for price increases
-        } else {
-            return .black // Price stays the same, set color to black
-        }
-    }
+//    private func determinePriceColor(currentPrice: String,
+//                                     previousPrice: Double) -> UIColor {
+//
+//        guard let currentPriceDouble = Double(currentPrice) else {
+//            return .black // Default color
+//        }
+//
+//        if currentPriceDouble > previousPrice {
+//            return UIColor(red: 0, green: 0.5, blue: 0, alpha: 1.0) // Dark green for price increases
+//        } else if currentPriceDouble < previousPrice {
+//            return UIColor(red: 0.5, green: 0.0, blue: 0, alpha: 1.0) // Dark green for price increases
+//        } else {
+//            return .black // Price stays the same, set color to black
+//        }
+//    }
 
     private func formatPrice(price: String) -> String {
         guard let priceDouble = Double(price) else {

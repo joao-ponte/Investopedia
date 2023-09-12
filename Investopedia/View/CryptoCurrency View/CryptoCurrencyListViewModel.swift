@@ -7,33 +7,73 @@
 
 import Foundation
 
-final class CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
+protocol CryptoCurrencyListViewModelDelegate: AnyObject {
+    func filteredCryptoCurrenciesUpdated()
+}
+
+final class CryptoCurrencyListViewModel {
     
     private(set) var cryptoCurrencies: [CryptoCurrency] = []
+    var filteredCryptoCurrencies: [CryptoCurrency] {
+        if searchQuery.isEmpty {
+            return cryptoCurrencies
+        } else {
+            let lowercaseQuery = searchQuery.lowercased()
+            return cryptoCurrencies.filter { crypto in
+                let nameMatch = crypto.name.lowercased().contains(lowercaseQuery)
+                let symbolMatch = crypto.symbol.lowercased().contains(lowercaseQuery)
+                return nameMatch || symbolMatch
+            }
+        }
+    }
+    
     private let networkManager: NetworkManagerProtocol
-
+    private var searchQuery: String = ""
+    
+    weak var delegate: CryptoCurrencyListViewModelDelegate?
+    
     init(networkManager: NetworkManagerProtocol) {
         self.networkManager = networkManager
     }
+}
 
+// MARK: - CryptoCurrencyListViewModelProtocol
+
+extension CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
+    
     func fetchData(completion: @escaping () -> Void) {
         print("Fetching data from the API...")
-        
-        networkManager.request(APIEndpoint.cryptoCurrency,
-                               responseType: ResponseCryptos.self) { [weak self] result in
+        networkManager.request(APIEndpoint.cryptoCurrency, responseType: ResponseCryptos.self) { [weak self] result in
             switch result {
             case .success(let cryptos):
-                self?.cryptoCurrencies = cryptos.data
+                self?.updateCryptoCurrencies(with: cryptos.data)
                 completion()
-
+                
             case .failure(let error):
-                print("Error fetching data: \(error)")
+                self?.handleError(error)
                 completion()
             }
         }
     }
+    
+    func updateFilteredCryptoCurrencies(with searchText: String) {
+        let trimmedSearchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        searchQuery = trimmedSearchText
+        delegate?.filteredCryptoCurrenciesUpdated()
+    }
+}
 
-    func cryptoCurrency(atIndex index: Int) -> CryptoCurrency {
-        return cryptoCurrencies[index]
+// MARK: - Private Helper Methods
+
+private extension CryptoCurrencyListViewModel {
+    
+    func updateCryptoCurrencies(with data: [CryptoCurrency]) {
+        cryptoCurrencies = data
+        delegate?.filteredCryptoCurrenciesUpdated()
+    }
+    
+    func handleError(_ error: Error) {
+        // Handle the error gracefully, e.g., show an alert or log it
+        print("Error fetching data: \(error)")
     }
 }
