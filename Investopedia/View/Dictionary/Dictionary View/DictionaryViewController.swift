@@ -67,20 +67,23 @@ class DictionaryViewController: UIViewController {
 
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         let numberOfFilteredTerms = viewModel.filteredTerms.count
         wordNotFoundImage.isHidden = numberOfFilteredTerms != 0
         return numberOfFilteredTerms
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath)
         let term = viewModel.filteredTerms[indexPath.row]
         configureCell(cell, with: term)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetails", sender: viewModel.filteredTerms[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }

@@ -49,10 +49,11 @@ class CryptoCurrencyListViewController: UIViewController {
 
 extension CryptoCurrencyListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItems()
+        return viewModel.cryptoCurrencies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CryptoCurrencyCell", for: indexPath) as! CryptoCurrencyTableViewCell
         let crypto = viewModel.cryptoCurrency(atIndex: indexPath.row)
         let previousPrice = previousPrices[crypto.symbol] ?? 0.0

@@ -9,7 +9,9 @@ import Foundation
 
 enum NetworkError: Error {
     case badURL
-    case noData
-    case decodingError
     case serviceError
+    case noData
+    case decodingError(DecodingError)
+    case unknownError
 }
+

@@ -22,13 +22,16 @@ class CryptoCurrencyTableViewCell: UITableViewCell {
         accessoryType = .disclosureIndicator
 
         let priceLabel = UILabel()
-        priceLabel.textColor = determinePriceColor(currentPrice: crypto.priceUsd, previousPrice: previousPrice)
+        priceLabel.textColor = determinePriceColor(currentPrice: crypto.priceUsd,
+                                                   previousPrice: previousPrice)
         priceLabel.text = formatPrice(price: crypto.priceUsd)
         priceLabel.sizeToFit()
         accessoryView = priceLabel
     }
 
-    private func determinePriceColor(currentPrice: String, previousPrice: Double) -> UIColor {
+    private func determinePriceColor(currentPrice: String,
+                                     previousPrice: Double) -> UIColor {
+        
         guard let currentPriceDouble = Double(currentPrice) else {
             return .black // Default color
         }
@@ -51,17 +54,21 @@ class CryptoCurrencyTableViewCell: UITableViewCell {
         
         switch priceDouble {
         case 0..<1.01:
-            formattedPrice = formatCurrency(priceDouble, minimumFractionDigits: 8)
+            formattedPrice = formatCurrency(priceDouble,
+                                            minimumFractionDigits: 8)
         case 1.01..<100:
-            formattedPrice = formatCurrency(priceDouble, minimumFractionDigits: 4)
+            formattedPrice = formatCurrency(priceDouble,
+                                            minimumFractionDigits: 4)
         default:
-            formattedPrice = formatCurrency(priceDouble, minimumFractionDigits: 2)
+            formattedPrice = formatCurrency(priceDouble,
+                                            minimumFractionDigits: 2)
         }
         
         return formattedPrice
     }
 
-    private func formatCurrency(_ value: Double, minimumFractionDigits: Int) -> String {
+    private func formatCurrency(_ value: Double,
+                                minimumFractionDigits: Int) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = Locale(identifier: "en_US")
         numberFormatter.numberStyle = .currency
@@ -70,4 +77,3 @@ class CryptoCurrencyTableViewCell: UITableViewCell {
         return numberFormatter.string(from: NSNumber(value: value)) ?? "$0.00"
     }
 }
-

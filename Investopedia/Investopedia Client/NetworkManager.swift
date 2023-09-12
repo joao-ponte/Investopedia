@@ -8,19 +8,16 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    func request<ResponseType: Decodable>(
-        _ endpoint: APIEndpoint,
-        responseType: ResponseType.Type,
-        completion: @escaping (Result<ResponseType, NetworkError>) -> Void
-    )
+    func request<ResponseType: Decodable>(_ endpoint: APIEndpoint,
+                                          responseType: ResponseType.Type,
+                                          completion: @escaping (Result<ResponseType, NetworkError>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
-    func request<ResponseType: Decodable>(
-        _ endpoint: APIEndpoint,
-        responseType: ResponseType.Type,
-        completion: @escaping (Result<ResponseType, NetworkError>) -> Void
-    ) {
+    func request<ResponseType: Decodable>(_ endpoint: APIEndpoint,
+                                          responseType: ResponseType.Type,
+                                          completion: @escaping (Result<ResponseType, NetworkError>) -> Void) {
+        
         guard let url = URL(string: endpoint.urlString) else {
             completion(.failure(.badURL))
             return
@@ -41,8 +38,10 @@ class NetworkManager: NetworkManagerProtocol {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 completion(.success(responseObject))
+            } catch let decodingError as DecodingError {
+                completion(.failure(.decodingError(decodingError)))
             } catch {
-                completion(.failure(.decodingError))
+                completion(.failure(.unknownError))
             }
         }
         

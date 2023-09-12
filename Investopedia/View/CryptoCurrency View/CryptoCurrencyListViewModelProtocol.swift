@@ -9,6 +9,6 @@ import Foundation
 
 protocol CryptoCurrencyListViewModelProtocol {
     func fetchData(completion: @escaping () -> Void)
-    func numberOfItems() -> Int
     func cryptoCurrency(atIndex index: Int) -> CryptoCurrency
+    var cryptoCurrencies: [CryptoCurrency] { get }
 }
