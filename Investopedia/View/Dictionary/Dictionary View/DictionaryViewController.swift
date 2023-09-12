@@ -102,7 +102,7 @@ extension DictionaryViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
 }
-// MARK: - UISearchBarDelegate
+// MARK: - UISrollViewDelegate
 extension DictionaryViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         searchBar.resignFirstResponder()

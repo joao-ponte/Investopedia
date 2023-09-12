@@ -28,6 +28,7 @@ class CryptoCurrencyListViewController: UIViewController {
         setupUI()
         setupViewModel()
         setupAutoRefreshTimer()
+        setupTableViewDelegate()
     }
     
     // MARK: - Private Methods
@@ -65,8 +66,12 @@ class CryptoCurrencyListViewController: UIViewController {
                 }
             }
         }
-
+        
         timer.fire()
+    }
+    
+    private func setupTableViewDelegate() {
+        tableView.delegate = self
     }
 }
 
@@ -90,11 +95,25 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
+extension CryptoCurrencyListViewController: UITableViewDelegate {
+    
+}
+
 // MARK: - UISearchBarDelegate
 
 extension CryptoCurrencyListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.updateFilteredCryptoCurrencies(with: searchText)
         tableView.reloadData()
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension CryptoCurrencyListViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
     }
 }
