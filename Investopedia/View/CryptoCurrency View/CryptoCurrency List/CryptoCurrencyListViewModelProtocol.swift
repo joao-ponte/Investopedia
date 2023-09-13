@@ -12,4 +12,5 @@ protocol CryptoCurrencyListViewModelProtocol {
     var cryptoCurrencies: [CryptoCurrency] { get }
     var filteredCryptoCurrencies: [CryptoCurrency] { get }
     func updateFilteredCryptoCurrencies(with searchText: String)
+    func checkNetworkConnection() -> Bool
 }

@@ -12,15 +12,17 @@ class CryptoCurrencyListViewModelTests: XCTestCase {
     
     var viewModel: CryptoCurrencyListViewModel!
     var mockNetworkManager: MockNetworkManager?
+    var networkUtility: NetworkUtility?
     
     override func setUp() {
         super.setUp()
         
         // Create a mock network manager for testing
         mockNetworkManager = MockNetworkManager()
+        networkUtility = NetworkUtility()
         
         // Initialize the view model with the mock network manager
-        viewModel = CryptoCurrencyListViewModel(networkManager: mockNetworkManager!)
+        viewModel = CryptoCurrencyListViewModel(networkManager: mockNetworkManager!, networkUtility: networkUtility!)
     }
     
     override func tearDown() {
