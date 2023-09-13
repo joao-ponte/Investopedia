@@ -17,8 +17,11 @@ class CryptoCurrencyListViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var viewModel: CryptoCurrencyListViewModelProtocol!
+    internal var viewModel: CryptoCurrencyListViewModelProtocol!
     private var previousPrices: [String: Double] = [:]
+    private let cellIdentifier = "CryptoCurrencyCell"
+    private let segueIdentifier = "showCryptoDetails"
+
     
     // MARK: - View Lifecycle
     
@@ -40,7 +43,7 @@ class CryptoCurrencyListViewController: UIViewController {
     
     private func setupTableView() {
         tableView.dataSource = self
-        tableView.register(CryptoCurrencyTableViewCell.self, forCellReuseIdentifier: "CryptoCurrencyCell")
+        tableView.register(CryptoCurrencyTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     private func setupSearchBar() {
@@ -84,7 +87,7 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CryptoCurrencyCell", for: indexPath) as! CryptoCurrencyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CryptoCurrencyTableViewCell
         let crypto = viewModel.filteredCryptoCurrencies[indexPath.row]
         let previousPrice = previousPrices[crypto.symbol] ?? 0.0
         
@@ -99,6 +102,11 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
 
 extension CryptoCurrencyListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: segueIdentifier, sender: viewModel.filteredCryptoCurrencies[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - UISearchBarDelegate

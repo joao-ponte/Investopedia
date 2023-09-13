@@ -212,7 +212,7 @@
         <!--Crypto Currency List View Controller-->
         <scene sceneID="sxy-Rl-hcP">
             <objects>
-                <viewController id="Zg5-hD-1jr" customClass="CryptoCurrencyListViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CryptoCurrencyListViewController" id="Zg5-hD-1jr" customClass="CryptoCurrencyListViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXY-j6-dKP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,7 +261,7 @@
                         <outlet property="searchBar" destination="gg0-D6-Cmg" id="uQq-YE-CvB"/>
                         <outlet property="tableView" destination="r75-ki-4Kf" id="CFs-Ol-Hih"/>
                         <outlet property="wordNotFoundImage" destination="h3c-SG-oKG" id="7vo-Wg-wsO"/>
-                        <segue destination="WAG-92-GKn" kind="show" id="GpG-Ql-j2Y"/>
+                        <segue destination="WAG-92-GKn" kind="show" identifier="showCryptoDetails" id="GpG-Ql-j2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf6-fp-kzB" sceneMemberID="firstResponder"/>
