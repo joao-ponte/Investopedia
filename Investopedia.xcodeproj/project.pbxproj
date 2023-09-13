@@ -149,10 +149,7 @@
 		FC571F842AA35ADC00024B78 /* CryptoCurrency View */ = {
 			isa = PBXGroup;
 			children = (
-				FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */,
-				FC571F882AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift */,
-				FC9966482AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift */,
-				FC99664E2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift */,
+				FC988D0D2AB1AE340046E0AC /* CryptoCurrency List */,
 			);
 			path = "CryptoCurrency View";
 			sourceTree = "<group>";
@@ -225,6 +222,17 @@
 				FC571F742AA337A600024B78 /* Dictionary Response */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		FC988D0D2AB1AE340046E0AC /* CryptoCurrency List */ = {
+			isa = PBXGroup;
+			children = (
+				FC571F862AA35B7100024B78 /* CryptoCurrencyListViewController.swift */,
+				FC571F882AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift */,
+				FC9966482AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift */,
+				FC99664E2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift */,
+			);
+			path = "CryptoCurrency List";
 			sourceTree = "<group>";
 		};
 		FC9A1B572A9E0DAD0019F714 /* Term View */ = {
