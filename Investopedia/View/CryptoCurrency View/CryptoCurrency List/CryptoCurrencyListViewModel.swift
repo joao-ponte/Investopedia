@@ -28,12 +28,18 @@ final class CryptoCurrencyListViewModel {
     }
     
     private let networkManager: NetworkManagerProtocol
+    private let networkUtility: NetworkUtility
     private var searchQuery: String = ""
     
     weak var delegate: CryptoCurrencyListViewModelDelegate?
     
-    init(networkManager: NetworkManagerProtocol) {
+    init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtility) {
         self.networkManager = networkManager
+        self.networkUtility = networkUtility
+    }
+    
+    func checkNetworkConnection() -> Bool {
+        return networkUtility.hasNetworkConnection()
     }
 }
 
@@ -73,7 +79,6 @@ private extension CryptoCurrencyListViewModel {
     }
     
     func handleError(_ error: Error) {
-        // Handle the error gracefully, e.g., show an alert or log it
         print("Error fetching data: \(error)")
     }
 }

@@ -258,9 +258,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="unh-Ke-h47"/>
                     <connections>
+                        <outlet property="cryptoNotFoundImage" destination="h3c-SG-oKG" id="7vo-Wg-wsO"/>
+                        <outlet property="noConnectionImage" destination="h3c-SG-oKG" id="2F4-Cc-nwB"/>
                         <outlet property="searchBar" destination="gg0-D6-Cmg" id="uQq-YE-CvB"/>
                         <outlet property="tableView" destination="r75-ki-4Kf" id="CFs-Ol-Hih"/>
-                        <outlet property="wordNotFoundImage" destination="h3c-SG-oKG" id="7vo-Wg-wsO"/>
                         <segue destination="WAG-92-GKn" kind="show" identifier="showCryptoDetails" id="GpG-Ql-j2Y"/>
                     </connections>
                 </viewController>

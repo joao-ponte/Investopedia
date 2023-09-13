@@ -35,7 +35,7 @@ class CryptoCurrencyListViewControllerTests: XCTestCase {
     func testUIComponentsConnected() {
         XCTAssertNotNil(viewController.tableView, "Table view should be connected")
         XCTAssertNotNil(viewController.searchBar, "Search bar should be connected")
-        XCTAssertNotNil(viewController.wordNotFoundImage, "Word not found image should be connected")
+        XCTAssertNotNil(viewController.cryptoNotFoundImage, "Word not found image should be connected")
     }
     
     // MARK: - Test UITableViewDataSource

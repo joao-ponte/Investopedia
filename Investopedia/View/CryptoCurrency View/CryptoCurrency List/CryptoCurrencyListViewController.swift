@@ -12,7 +12,8 @@ class CryptoCurrencyListViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var wordNotFoundImage: UIImageView!
+    @IBOutlet weak var cryptoNotFoundImage: UIImageView!
+    @IBOutlet weak var noConnectionImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Properties
@@ -21,7 +22,9 @@ class CryptoCurrencyListViewController: UIViewController {
     private var previousPrices: [String: Double] = [:]
     private let cellIdentifier = "CryptoCurrencyCell"
     private let segueIdentifier = "showCryptoDetails"
-
+    private let networkUtility: NetworkUtility = NetworkUtility()
+    private let noResultImage = UIImage(named: "NoResultImage")
+    private let noConnectionImageSmile = UIImage(named: "NoConnection")
     
     // MARK: - View Lifecycle
     
@@ -32,6 +35,7 @@ class CryptoCurrencyListViewController: UIViewController {
         setupViewModel()
         setupAutoRefreshTimer()
         setupTableViewDelegate()
+        updateImageVisibility()
     }
     
     // MARK: - Private Methods
@@ -52,7 +56,8 @@ class CryptoCurrencyListViewController: UIViewController {
     
     private func setupViewModel() {
         let apiClient = NetworkManager()
-        viewModel = CryptoCurrencyListViewModel(networkManager: apiClient)
+        let networkUtility = NetworkUtility()
+        viewModel = CryptoCurrencyListViewModel(networkManager: apiClient, networkUtility: networkUtility)
         
         viewModel.fetchData { [weak self] in
             DispatchQueue.main.async {
@@ -76,13 +81,24 @@ class CryptoCurrencyListViewController: UIViewController {
     private func setupTableViewDelegate() {
         tableView.delegate = self
     }
+    
+    private func updateImageVisibility() {
+        let isTableViewEmpty = viewModel.filteredCryptoCurrencies.isEmpty
+        cryptoNotFoundImage.image = isTableViewEmpty ? noResultImage : nil
+        cryptoNotFoundImage.isHidden = !isTableViewEmpty
+        noConnectionImage.isHidden = true
+    }
 }
 
 // MARK: - UITableViewDataSource
 
 extension CryptoCurrencyListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.filteredCryptoCurrencies.count
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        let numberOfCrypto = viewModel.filteredCryptoCurrencies.count
+        cryptoNotFoundImage.isHidden = numberOfCrypto != 0
+        return numberOfCrypto
+
     }
     
     func tableView(_ tableView: UITableView,
@@ -104,7 +120,8 @@ extension CryptoCurrencyListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: segueIdentifier, sender: viewModel.filteredCryptoCurrencies[indexPath.row])
+        performSegue(withIdentifier: segueIdentifier,
+                     sender: viewModel.filteredCryptoCurrencies[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -112,7 +129,8 @@ extension CryptoCurrencyListViewController: UITableViewDelegate {
 // MARK: - UISearchBarDelegate
 
 extension CryptoCurrencyListViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar,
+                   textDidChange searchText: String) {
         viewModel.updateFilteredCryptoCurrencies(with: searchText)
         tableView.reloadData()
     }

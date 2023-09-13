@@ -13,7 +13,6 @@ class MockCryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
     var filteredCryptoCurrencies: [CryptoCurrency] = []
     
     func fetchData(completion: @escaping () -> Void) {
-        // Mock implementation for testing
         let mockCryptos = [
             CryptoCurrency(id: "1", rank: "1", symbol: "BTC", name: "Bitcoin", supply: "1", maxSupply: "1", marketCapUsd: "1", volumeUsd24Hr: "1", priceUsd: "50000", changePercent24Hr: "1", vwap24Hr: "1", explorer: "1"),
             CryptoCurrency(id: "2", rank: "2", symbol: "ETH", name: "Ethereum", supply: "1", maxSupply: "1", marketCapUsd: "1", volumeUsd24Hr: "1", priceUsd: "3000", changePercent24Hr: "1", vwap24Hr: "1", explorer: "1")
