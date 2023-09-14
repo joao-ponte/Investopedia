@@ -8,6 +8,9 @@
 import UIKit
 
 class CryptoCurrencyTableViewCell: UITableViewCell {
+    
+    // MARK: - Initialization
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
@@ -16,35 +19,21 @@ class CryptoCurrencyTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
 
+    // MARK: - Configuration
+
     func configure(with crypto: CryptoCurrency, previousPrice: Double) {
         textLabel?.text = crypto.symbol
         detailTextLabel?.text = crypto.name
         accessoryType = .disclosureIndicator
 
         let priceLabel = UILabel()
-//        priceLabel.textColor = determinePriceColor(currentPrice: crypto.priceUsd,
-//                                                   previousPrice: previousPrice)
         priceLabel.text = formatPrice(price: crypto.priceUsd)
         priceLabel.sizeToFit()
         accessoryView = priceLabel
     }
 
-//    private func determinePriceColor(currentPrice: String,
-//                                     previousPrice: Double) -> UIColor {
-//
-//        guard let currentPriceDouble = Double(currentPrice) else {
-//            return .black // Default color
-//        }
-//
-//        if currentPriceDouble > previousPrice {
-//            return UIColor(red: 0, green: 0.5, blue: 0, alpha: 1.0) // Dark green for price increases
-//        } else if currentPriceDouble < previousPrice {
-//            return UIColor(red: 0.5, green: 0.0, blue: 0, alpha: 1.0) // Dark green for price increases
-//        } else {
-//            return .black // Price stays the same, set color to black
-//        }
-//    }
-
+    // MARK: - Private Helpers
+    
     private func formatPrice(price: String) -> String {
         guard let priceDouble = Double(price) else {
             return "$0.00"

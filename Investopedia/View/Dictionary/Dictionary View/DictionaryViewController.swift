@@ -38,7 +38,8 @@ class DictionaryViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TermCell")
+        tableView.register(UITableViewCell.self,
+                           forCellReuseIdentifier: "TermCell")
     }
     
     private func setupNavigationBar() {
@@ -76,7 +77,8 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell",
+                                                 for: indexPath)
         let term = viewModel.filteredTerms[indexPath.row]
         configureCell(cell, with: term)
         return cell
@@ -84,11 +86,13 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetails", sender: viewModel.filteredTerms[indexPath.row])
+        performSegue(withIdentifier: "showDetails",
+                     sender: viewModel.filteredTerms[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private func configureCell(_ cell: UITableViewCell, with term: FinancialTerm) {
+    private func configureCell(_ cell: UITableViewCell,
+                               with term: FinancialTerm) {
         cell.textLabel?.text = term.word
         cell.textLabel?.numberOfLines = 0
     }
@@ -97,7 +101,8 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UISearchBarDelegate
 
 extension DictionaryViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar,
+                   textDidChange searchText: String) {
         viewModel.updateFilteredTerms(with: searchText)
         tableView.reloadData()
     }

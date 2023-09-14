@@ -13,7 +13,19 @@ protocol CryptoCurrencyListViewModelDelegate: AnyObject {
 
 final class CryptoCurrencyListViewModel {
     
+    // MARK: - Properties
+    
     private(set) var cryptoCurrencies: [CryptoCurrency] = []
+    private let networkManager: NetworkManagerProtocol
+    private let networkUtility: NetworkUtilityProtocol
+    private var searchQuery: String = ""
+    
+    // MARK: - Delegate
+    
+    weak var delegate: CryptoCurrencyListViewModelDelegate?
+    
+    // MARK: - Computed Property
+    
     var filteredCryptoCurrencies: [CryptoCurrency] {
         if searchQuery.isEmpty {
             return cryptoCurrencies
@@ -27,21 +39,19 @@ final class CryptoCurrencyListViewModel {
         }
     }
     
-    private let networkManager: NetworkManagerProtocol
-    private let networkUtility: NetworkUtilityProtocol
-    private var searchQuery: String = ""
-    
-    weak var delegate: CryptoCurrencyListViewModelDelegate?
-    
-    init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtilityProtocol) {
-        self.networkManager = networkManager
-        self.networkUtility = networkUtility
-    }
-    
-    func checkNetworkConnection() -> Bool {
-        return networkUtility.hasNetworkConnection()
-    }
-}
+    // MARK: - Initialization
+     
+     init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtilityProtocol) {
+         self.networkManager = networkManager
+         self.networkUtility = networkUtility
+     }
+     
+     // MARK: - Public Methods
+     
+     func checkNetworkConnection() -> Bool {
+         return networkUtility.hasNetworkConnection()
+     }
+ }
 
 // MARK: - CryptoCurrencyListViewModelProtocol
 
@@ -49,7 +59,8 @@ extension CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
     
     func fetchData(completion: @escaping () -> Void) {
         print("Fetching data from the API...")
-        networkManager.request(APIEndpoint.cryptoCurrency, responseType: ResponseCryptos.self) { [weak self] result in
+        networkManager.request(APIEndpoint.cryptoCurrency,
+                               responseType: ResponseCryptos.self) { [weak self] result in
             switch result {
             case .success(let cryptos):
                 self?.updateCryptoCurrencies(with: cryptos.data)

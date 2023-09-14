@@ -216,8 +216,8 @@
 		FC5E95E92A56BF5900CECAC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC571F852AA35B0700024B78 /* Dictionary */,
 				FC571F842AA35ADC00024B78 /* CryptoCurrency View */,
+				FC571F852AA35B0700024B78 /* Dictionary */,
 				FC5E95D92A56B6A100CECAC1 /* Main.storyboard */,
 			);
 			path = View;

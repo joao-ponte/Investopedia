@@ -8,8 +8,13 @@
 import Foundation
 
 protocol CryptoCurrencyListViewModelProtocol {
+    // MARK: - Data Fetching
     func fetchData(completion: @escaping () -> Void)
+    
+    // MARK: - Properties
     var cryptoCurrencies: [CryptoCurrency] { get }
     var filteredCryptoCurrencies: [CryptoCurrency] { get }
+    
+    // MARK: - Filtering
     func updateFilteredCryptoCurrencies(with searchText: String)
 }

@@ -47,7 +47,8 @@ class CryptoCurrencyListViewController: UIViewController {
     
     private func setupTableView() {
         tableView.dataSource = self
-        tableView.register(CryptoCurrencyTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(CryptoCurrencyTableViewCell.self,
+                           forCellReuseIdentifier: cellIdentifier)
     }
     
     private func setupSearchBar() {
@@ -57,7 +58,8 @@ class CryptoCurrencyListViewController: UIViewController {
     private func setupViewModel() {
         let apiClient = NetworkManager()
         let networkUtility = NetworkUtility()
-        viewModel = CryptoCurrencyListViewModel(networkManager: apiClient, networkUtility: networkUtility)
+        viewModel = CryptoCurrencyListViewModel(networkManager: apiClient,
+                                                networkUtility: networkUtility)
         
         viewModel.fetchData { [weak self] in
             DispatchQueue.main.async {
