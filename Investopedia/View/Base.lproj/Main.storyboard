@@ -25,7 +25,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j1u-iR-zGJ">
-                                <rect key="frame" x="0.0" y="159" width="393" height="659"/>
+                                <rect key="frame" x="0.0" y="159" width="393" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoResultImage" id="MuN-AT-4e7">
                                     <rect key="frame" x="0.0" y="121.66666793823242" width="393" height="274"/>
@@ -77,6 +77,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="1fw-xM-hjB" kind="relationship" relationship="viewControllers" id="9qH-mV-jAm"/>
+                        <segue destination="OW4-cH-3gK" kind="relationship" relationship="viewControllers" id="ueY-6V-b87"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqM-3J-FCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -120,7 +121,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkX-Ko-eIO">
-                                <rect key="frame" x="115" y="775" width="163" height="35"/>
+                                <rect key="frame" x="115" y="726" width="163" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Back to Dictionary"/>
                                 <connections>
@@ -134,7 +135,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARD-YK-1vh">
-                                <rect key="frame" x="62" y="775" width="45" height="35"/>
+                                <rect key="frame" x="62" y="726" width="45" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="&lt;&lt;"/>
                                 <connections>
@@ -142,7 +143,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-6e-7cb">
-                                <rect key="frame" x="286" y="775" width="45" height="35"/>
+                                <rect key="frame" x="286" y="726" width="45" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="&gt;&gt;"/>
                                 <connections>
@@ -190,11 +191,11 @@
             </objects>
             <point key="canvasLocation" x="1820.6106870229007" y="3.5211267605633805"/>
         </scene>
-        <!--Item-->
+        <!--Dictionary-->
         <scene sceneID="ndW-xZ-zY0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OW4-cH-3gK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CXr-ld-CY6"/>
+                    <tabBarItem key="tabBarItem" title="Dictionary" id="CXr-ld-CY6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpH-p2-uAJ">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
