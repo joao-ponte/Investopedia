@@ -225,7 +225,7 @@
 				FC571F7F2AA3501E00024B78 /* Error */,
 				FC571F782AA33F6600024B78 /* Investopedia Client */,
 				FC5E95F22A56DCFC00CECAC1 /* Model */,
-				FC5E95E92A56BF5900CECAC1 /* View */,
+				FC5E95E92A56BF5900CECAC1 /* View-ViewModel */,
 				FC5E95D32A56B6A100CECAC1 /* AppDelegate.swift */,
 				FC5E95D52A56B6A100CECAC1 /* SceneDelegate.swift */,
 				FC5E95DC2A56B6A300CECAC1 /* Assets.xcassets */,
@@ -234,7 +234,7 @@
 			path = Investopedia;
 			sourceTree = "<group>";
 		};
-		FC5E95E92A56BF5900CECAC1 /* View */ = {
+		FC5E95E92A56BF5900CECAC1 /* View-ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				FC2745132AB35AFE007C0FC1 /* LaunchScreen */,
@@ -242,7 +242,7 @@
 				FC571F852AA35B0700024B78 /* Dictionary */,
 				FC5E95D92A56B6A100CECAC1 /* Main.storyboard */,
 			);
-			path = View;
+			path = "View-ViewModel";
 			sourceTree = "<group>";
 		};
 		FC5E95F22A56DCFC00CECAC1 /* Model */ = {
