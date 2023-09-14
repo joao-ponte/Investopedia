@@ -111,12 +111,12 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
 
 extension CryptoCurrencyListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: segueIdentifier,
-                     sender: viewModel.filteredCryptoCurrencies[indexPath.row])
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    func tableView(_ tableView: UITableView,
+//                   didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: segueIdentifier,
+//                     sender: viewModel.filteredCryptoCurrencies[indexPath.row])
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
 }
 
 // MARK: - UISearchBarDelegate
