@@ -191,11 +191,11 @@
             </objects>
             <point key="canvasLocation" x="1820.6106870229007" y="3.5211267605633805"/>
         </scene>
-        <!--Dictionary-->
+        <!--Navigation Controller-->
         <scene sceneID="ndW-xZ-zY0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OW4-cH-3gK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dictionary" id="CXr-ld-CY6"/>
+                    <tabBarItem key="tabBarItem" title="" image="text.book.closed" catalog="system" id="CXr-ld-CY6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpH-p2-uAJ">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -270,11 +270,11 @@
             </objects>
             <point key="canvasLocation" x="1005" y="668"/>
         </scene>
-        <!--Crypto Currency-->
+        <!--Navigation Controller-->
         <scene sceneID="p12-1j-fhj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fw-xM-hjB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Crypto Currency" id="bbE-na-mXg"/>
+                    <tabBarItem key="tabBarItem" title="" image="bitcoinsign" catalog="system" id="bbE-na-mXg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K9n-9t-jXn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -454,7 +454,9 @@
     </scenes>
     <resources>
         <image name="NoResultImage" width="500" height="500"/>
+        <image name="bitcoinsign" catalog="system" width="85" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="text.book.closed" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
