@@ -28,12 +28,12 @@ final class CryptoCurrencyListViewModel {
     }
     
     private let networkManager: NetworkManagerProtocol
-    private let networkUtility: NetworkUtility
+    private let networkUtility: NetworkUtilityProtocol
     private var searchQuery: String = ""
     
     weak var delegate: CryptoCurrencyListViewModelDelegate?
     
-    init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtility) {
+    init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtilityProtocol) {
         self.networkManager = networkManager
         self.networkUtility = networkUtility
     }

@@ -9,6 +9,7 @@ import Foundation
 @testable import Investopedia
 
 class MockCryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
+
     var cryptoCurrencies: [CryptoCurrency] = []
     var filteredCryptoCurrencies: [CryptoCurrency] = []
     

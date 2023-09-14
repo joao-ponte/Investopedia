@@ -81,34 +81,6 @@ class CryptoCurrencyListViewController: UIViewController {
     private func setupTableViewDelegate() {
         tableView.delegate = self
     }
-    
-//    private func updateImageVisibility() {
-//        let isTableViewEmpty = viewModel.filteredCryptoCurrencies.isEmpty
-//        let hasNetworkConnection = viewModel.checkNetworkConnection()
-//
-//        print("isTableViewEmpty: \(isTableViewEmpty)")
-//        print("hasNetworkConnection: \(hasNetworkConnection)")
-//
-//        if isTableViewEmpty {
-//            if hasNetworkConnection {
-//                // Display no results image
-//                cryptoNotFoundImage.image = noResultImage
-//                cryptoNotFoundImage.isHidden = false
-//            } else {
-//                // Display no connection image
-//                cryptoNotFoundImage.image = noConnectionImageSmile
-//                cryptoNotFoundImage.isHidden = false
-//            }
-//        } else {
-//            // Hide the image when there are results
-//            cryptoNotFoundImage.isHidden = true
-//        }
-//
-//        // Hide the no connection image when there is a connection
-//        noConnectionImage.isHidden = hasNetworkConnection
-//    }
-
-
 }
 
 // MARK: - UITableViewDataSource

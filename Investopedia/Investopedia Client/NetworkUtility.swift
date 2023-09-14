@@ -7,7 +7,7 @@
 
 import Network
 
-class NetworkUtility {
+class NetworkUtility: NetworkUtilityProtocol {
     func hasNetworkConnection() -> Bool {
         let monitor = NWPathMonitor()
         let networkStatus = monitor.currentPath.status

@@ -12,17 +12,17 @@ class CryptoCurrencyListViewModelTests: XCTestCase {
     
     var viewModel: CryptoCurrencyListViewModel!
     var mockNetworkManager: MockNetworkManager?
-    var networkUtility: NetworkUtility?
+    var mockNetworkUtility: NetworkUtility?
     
     override func setUp() {
         super.setUp()
         
         // Create a mock network manager for testing
         mockNetworkManager = MockNetworkManager()
-        networkUtility = NetworkUtility()
+        mockNetworkUtility = NetworkUtility()
         
         // Initialize the view model with the mock network manager
-        viewModel = CryptoCurrencyListViewModel(networkManager: mockNetworkManager!, networkUtility: networkUtility!)
+        viewModel = CryptoCurrencyListViewModel(networkManager: mockNetworkManager!, networkUtility: mockNetworkUtility!)
     }
     
     override func tearDown() {
@@ -30,6 +30,7 @@ class CryptoCurrencyListViewModelTests: XCTestCase {
         
         viewModel = nil
         mockNetworkManager = nil
+        mockNetworkUtility = nil
     }
     
     
@@ -107,48 +108,4 @@ class CryptoCurrencyListViewModelTests: XCTestCase {
         
         wait(for: [expectation], timeout: 1.0)
     }
-    
-//    private func makeCryptoCurrency(name: String, symbol: String, priceUsd: String) -> CryptoCurrency {
-//        return CryptoCurrency(id: "1", rank: "1", symbol: symbol, name: name, supply: "1", maxSupply: "1", marketCapUsd: "1", volumeUsd24Hr: "1", priceUsd: priceUsd, changePercent24Hr: "1", vwap24Hr: "1", explorer: "1")
-//    }
-
-//    func testSearchExistingCryptoCurrency() {
-//        // Given
-//        let crypto1 = makeCryptoCurrency(name: "Bitcoin", symbol: "BTC", priceUsd: "50000")
-//        let crypto2 = makeCryptoCurrency(name: "Ethereum", symbol: "ETH", priceUsd: "3000")
-//        viewModel.updateCryptoCurrencies(with: [crypto1, crypto2])
-//
-//        // When
-//        viewModel.updateFilteredCryptoCurrencies(with: "Bitcoin")
-//
-//        // Then
-//        XCTAssertEqual(viewModel.filteredCryptoCurrencies.count, 1)
-//        XCTAssertEqual(viewModel.filteredCryptoCurrencies[0].name, "Bitcoin")
-//    }
-//
-//    func testSearchNonExistingCryptoCurrency() {
-//        // Given
-//        let crypto1 = makeCryptoCurrency(name: "Bitcoin", symbol: "BTC", priceUsd: "50000")
-//        let crypto2 = makeCryptoCurrency(name: "Ethereum", symbol: "ETH", priceUsd: "3000")
-//        viewModel.updateCryptoCurrencies(with: [crypto1, crypto2])
-//
-//        // When
-//        viewModel.updateFilteredCryptoCurrencies(with: "Litecoin")
-//
-//        // Then
-//        XCTAssertTrue(viewModel.filteredCryptoCurrencies.isEmpty)
-//    }
-//
-//    func testSearchWithEmptyQuery() {
-//        // Given
-//        let crypto1 = makeCryptoCurrency(name: "Bitcoin", symbol: "BTC", priceUsd: "50000")
-//        let crypto2 = makeCryptoCurrency(name: "Ethereum", symbol: "ETH", priceUsd: "3000")
-//        viewModel.updateCryptoCurrencies(with: [crypto1, crypto2])
-//
-//        // When
-//        viewModel.updateFilteredCryptoCurrencies(with: "")
-//
-//        // Then it should return all cryptocurrencies
-//        XCTAssertEqual(viewModel.filteredCryptoCurrencies.count, 2)
-//    }
 }
