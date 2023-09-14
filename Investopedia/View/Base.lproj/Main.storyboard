@@ -45,6 +45,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="48o-Lz-fNw"/>
                             <constraint firstItem="j1u-iR-zGJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EOy-CQ-Fmf"/>
@@ -71,6 +72,7 @@
         <scene sceneID="VyA-9H-taW">
             <objects>
                 <tabBarController id="ZdJ-Bg-nzu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PRh-lf-23f"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K7L-aK-dkL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -82,7 +84,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqM-3J-FCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2839" y="630"/>
+            <point key="canvasLocation" x="-1076" y="668"/>
         </scene>
         <!--Term Detail View Controller-->
         <scene sceneID="alI-Yo-iiN">
@@ -101,7 +103,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-6e-7cb">
-                                <rect key="frame" x="286" y="726.66666666666663" width="45" height="34.333333333333371"/>
+                                <rect key="frame" x="286.33333333333331" y="726.66666666666663" width="44.666666666666686" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="&gt;&gt;"/>
                                 <connections>
@@ -229,6 +231,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HYW-07-2ej"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="r75-ki-4Kf" firstAttribute="trailing" secondItem="HYW-07-2ej" secondAttribute="trailing" id="DSL-W9-LS2"/>
                             <constraint firstItem="r75-ki-4Kf" firstAttribute="bottom" secondItem="HYW-07-2ej" secondAttribute="bottom" id="Mvp-hr-RJs"/>
@@ -305,6 +308,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZaV-Vw-rxo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="T6y-2M-x2M" firstAttribute="trailing" secondItem="ZaV-Vw-rxo" secondAttribute="trailing" id="2Gw-vq-iTR"/>
                             <constraint firstItem="7G1-zt-qsG" firstAttribute="leading" secondItem="ZaV-Vw-rxo" secondAttribute="leading" id="AQJ-CR-U5B"/>
