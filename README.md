@@ -14,7 +14,7 @@ Investopedia is your trusted financial companion. This comprehensive dictionary 
 As a user of the Investopedia app, 
 I want to be able to explore a financial dictionary with terms and their detailed definitions with examples, 
 access real-time cryptocurrency prices and market data to stay informed about the latest trends in the Crypto world, 
-and have a user-friendly and intuitive interface that makes it easy to navigate and find the information I need.
+so that I will have a user-friendly and intuitive interface that makes it easy to navigate and find the information I need.
 ```
 
 
@@ -54,7 +54,7 @@ Financial Term Dictionary:
 
 Handling Network Connectivity:
 
-Investopedia is designed to ensure a seamless user experience even when network connectivity is missing. If you find yourself without an internet connection, the app will automatically utilize the latest version of data available, allowing you to continue exploring cryptocurrencies and financial terms without interruption.
+Investopedia is designed to ensure a seamless user experience even when network connectivity is missing. If you find yourself without an internet connection, the app will automatically utilise the latest version of data available, allowing you to continue exploring cryptocurrencies and financial terms without interruption.
 
 Please Note:
 
@@ -79,7 +79,7 @@ Financial Term Dictionary:
 
 Network Resilience:
 - Seamlessly use the app even with a missing network connection.
-- The app intelligently utilizes the latest available data to ensure uninterrupted exploration of cryptocurrencies and financial terms.
+- The app intelligently utilises the latest available data to ensure uninterrupted exploration of cryptocurrencies and financial terms.
 
 Auto Data Refresh:
 - Stay up-to-date with the latest cryptocurrency market data.
@@ -87,7 +87,7 @@ Auto Data Refresh:
 - Ensures that you always have access to the most current market information.
 
 Search and Filtering:
-- Utilize a powerful search feature to find cryptocurrencies and financial terms.
+- Utilise a powerful search feature to find cryptocurrencies and financial terms.
 - Filter data based on your search queries to quickly find what you're looking for.
 - Easily navigate and locate specific information within the app.
 
@@ -100,7 +100,7 @@ The Investopedia app is built using the following technologies and tools:
 
 - UIKit: The app's user interface is designed using UIKit components, providing a native and responsive user experience.
 
-- Core Data: The app utilizes Core Data to manage and persist data, including pins' coordinates and photo metadata.
+- Core Data: The app utilises Core Data to manage and persist data, including pins' coordinates and photo metadata.
 
 - Networking: URLSession is employed for making network requests, enabling the app to fetch cryptocurrency data and financial term definitions.
 
@@ -114,7 +114,7 @@ The Investopedia app is built using the following technologies and tools:
 
 - Auto Data Refresh: The app employs an automatic data refresh mechanism, ensuring that users have access to the most current cryptocurrency market data.
 
-- GitHub: Version control and collaboration are managed using GitHub, allowing for effective teamwork and code management.
+- GitHub: Version control and collaboration are managed using GitHub, allowing code management.
 ## Screenshots
 ## Author
 
