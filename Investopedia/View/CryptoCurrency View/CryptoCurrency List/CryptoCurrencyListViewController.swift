@@ -35,7 +35,6 @@ class CryptoCurrencyListViewController: UIViewController {
         setupViewModel()
         setupAutoRefreshTimer()
         setupTableViewDelegate()
-        setupNavigationBar()
     }
     
     // MARK: - Private Methods
@@ -82,10 +81,6 @@ class CryptoCurrencyListViewController: UIViewController {
     
     private func setupTableViewDelegate() {
         tableView.delegate = self
-    }
-    
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
     }
 }
 

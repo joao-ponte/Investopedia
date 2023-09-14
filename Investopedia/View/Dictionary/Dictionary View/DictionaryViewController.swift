@@ -30,7 +30,6 @@ class DictionaryViewController: UIViewController {
     
     private func setupUI() {
         setupTableView()
-        setupNavigationBar()
         setupViewModel()
         searchBar.delegate = self
     }
@@ -40,10 +39,6 @@ class DictionaryViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "TermCell")
-    }
-    
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
     }
     
     private func setupViewModel() {

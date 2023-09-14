@@ -26,14 +26,9 @@ class TermDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - IBActions
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
     
     @IBAction func previousButtonTapped(_ sender: UIButton) {
         viewModel.selectPreviousTerm()
