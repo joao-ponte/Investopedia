@@ -8,5 +8,6 @@
 import Foundation
 
 protocol Database {
-    
+    func fetchData(completion: @escaping ([CryptoCurrency]?) -> Void)
+    func save()
 }

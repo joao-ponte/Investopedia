@@ -18,6 +18,7 @@ final class CryptoCurrencyListViewModel {
     private(set) var cryptoCurrencies: [CryptoCurrency] = []
     private let networkManager: NetworkManagerProtocol
     private let networkUtility: NetworkUtilityProtocol
+    private let database: Database
     private var searchQuery: String = ""
     
     // MARK: - Delegate
@@ -41,9 +42,10 @@ final class CryptoCurrencyListViewModel {
     
     // MARK: - Initialization
      
-     init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtilityProtocol) {
+    init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtilityProtocol, database: Database) {
          self.networkManager = networkManager
          self.networkUtility = networkUtility
+        self.database = database
      }
      
      // MARK: - Public Methods
@@ -56,20 +58,42 @@ final class CryptoCurrencyListViewModel {
 // MARK: - CryptoCurrencyListViewModelProtocol
 
 extension CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
-    
+
     func fetchData(completion: @escaping () -> Void) {
+        fetchCryptoCurrencies(completion: completion)
+    }
+
+    // MARK: - Private Methods
+
+    private func fetchCryptoCurrencies(completion: @escaping () -> Void) {
         print("Fetching data from the API...")
-        networkManager.request(APIEndpoint.cryptoCurrency,
-                               responseType: ResponseCryptos.self) { [weak self] result in
+        networkManager.request(APIEndpoint.cryptoCurrency, responseType: ResponseCryptos.self) { [weak self] result in
             switch result {
             case .success(let cryptos):
-                self?.updateCryptoCurrencies(with: cryptos.data)
-                completion()
-                
+                self?.processFetchedCryptoCurrencies(cryptos.data)
             case .failure(let error):
                 self?.handleError(error)
-                completion()
             }
+            completion()
+        }
+    }
+
+    private func processFetchedCryptoCurrencies(_ cryptos: [CryptoCurrency]) {
+        // Process the fetched data and update the ViewModel
+        let filteredCryptos = filterCryptos(with: searchQuery, from: cryptos)
+        updateCryptoCurrencies(with: filteredCryptos)
+    }
+
+    private func filterCryptos(with searchText: String, from cryptos: [CryptoCurrency]) -> [CryptoCurrency] {
+        guard !searchText.isEmpty else {
+            return cryptos
+        }
+
+        let lowercaseQuery = searchText.lowercased()
+        return cryptos.filter { crypto in
+            let nameMatch = crypto.name.lowercased().contains(lowercaseQuery)
+            let symbolMatch = crypto.symbol.lowercased().contains(lowercaseQuery)
+            return nameMatch || symbolMatch
         }
     }
     
