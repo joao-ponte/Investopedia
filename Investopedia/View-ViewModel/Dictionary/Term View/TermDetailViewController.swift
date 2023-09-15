@@ -33,11 +33,13 @@ class TermDetailViewController: UIViewController {
     @IBAction func previousButtonTapped(_ sender: UIButton) {
         viewModel.selectPreviousTerm()
         setupUI()
+        updateButtonTitles()
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         viewModel.selectNextTerm()
         setupUI()
+        updateButtonTitles()
     }
     
     // MARK: - Private Methods
@@ -55,5 +57,10 @@ class TermDetailViewController: UIViewController {
     private func updateButtonStates() {
         previousButton.isEnabled = viewModel.canSelectPreviousTerm
         nextButton.isEnabled = viewModel.canSelectNextTerm
+    }
+    
+    private func updateButtonTitles() {
+        previousButton.setTitle(viewModel.previousTerm()?.word, for: .normal)
+        nextButton.setTitle(viewModel.nextTerm()?.word, for: .normal)
     }
 }

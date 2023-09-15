@@ -58,4 +58,18 @@ final class TermDetailViewModel: TermDetailViewModelProtocol {
             currentTermIndex -= 1
         }
     }
+    
+    func nextTerm() -> FinancialTerm? {
+        guard currentTermIndex < terms.count - 1 else {
+            return nil
+        }
+        return terms[currentTermIndex + 1]
+    }
+
+    func previousTerm() -> FinancialTerm? {
+        guard currentTermIndex > 0 else {
+            return nil
+        }
+        return terms[currentTermIndex - 1]
+    }
 }
