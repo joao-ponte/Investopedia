@@ -20,5 +20,7 @@ protocol TermDetailViewModelProtocol {
     func configure(with term: FinancialTerm)
     func selectNextTerm()
     func selectPreviousTerm()
+    func previousTerm() -> FinancialTerm?
+    func nextTerm() -> FinancialTerm?
 }
 

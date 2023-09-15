@@ -95,17 +95,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARD-YK-1vh">
-                                <rect key="frame" x="62" y="726.66666666666663" width="44.666666666666657" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="&lt;&lt;"/>
+                                <rect key="frame" x="62" y="710.66666666666663" width="51" height="34.333333333333371"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="arrowshape.left.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="arrowshape.left.fill" catalog="system"/>
                                 <connections>
                                     <action selector="previousButtonTapped:" destination="MCI-Gc-MDB" eventType="touchUpInside" id="RTo-1d-ZbL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-6e-7cb">
-                                <rect key="frame" x="286.33333333333331" y="726.66666666666663" width="44.666666666666686" height="34.333333333333371"/>
+                                <rect key="frame" x="280" y="710.66666666666663" width="51" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="&gt;&gt;"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="arrowshape.right.fill" catalog="system"/>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="MCI-Gc-MDB" eventType="touchUpInside" id="hYT-Vg-VFx"/>
                                 </connections>
@@ -155,7 +156,7 @@
                         <constraints>
                             <constraint firstItem="qMk-BV-6RX" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="16" id="00m-4w-lmH"/>
                             <constraint firstItem="ARD-YK-1vh" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="62" id="C70-nu-eZh"/>
-                            <constraint firstItem="u8A-Uj-vOk" firstAttribute="bottom" secondItem="ARD-YK-1vh" secondAttribute="bottom" constant="8" id="PPR-uf-VFw"/>
+                            <constraint firstItem="u8A-Uj-vOk" firstAttribute="bottom" secondItem="ARD-YK-1vh" secondAttribute="bottom" constant="24" id="PPR-uf-VFw"/>
                             <constraint firstItem="u8A-Uj-vOk" firstAttribute="trailing" secondItem="qMk-BV-6RX" secondAttribute="trailing" constant="16" id="ang-Vl-ObI"/>
                             <constraint firstItem="u8A-Uj-vOk" firstAttribute="trailing" secondItem="1TH-6e-7cb" secondAttribute="trailing" constant="62" id="kbT-FW-ieX"/>
                             <constraint firstItem="ARD-YK-1vh" firstAttribute="baseline" secondItem="1TH-6e-7cb" secondAttribute="baseline" id="sSk-HW-aSY"/>
@@ -175,11 +176,13 @@
             </objects>
             <point key="canvasLocation" x="1820.6106870229007" y="3.5211267605633805"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Fin-Dictionary-->
         <scene sceneID="ndW-xZ-zY0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OW4-cH-3gK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="text.book.closed" catalog="system" id="CXr-ld-CY6"/>
+                    <tabBarItem key="tabBarItem" title="Fin-Dictionary" image="text.book.closed" catalog="system" id="CXr-ld-CY6">
+                        <color key="badgeColor" systemColor="systemGroupedBackgroundColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpH-p2-uAJ">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -255,11 +258,13 @@
             </objects>
             <point key="canvasLocation" x="1005" y="668"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Crypto List-->
         <scene sceneID="p12-1j-fhj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fw-xM-hjB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bitcoinsign" catalog="system" id="bbE-na-mXg"/>
+                    <tabBarItem key="tabBarItem" title="Crypto List" image="bitcoinsign" catalog="system" id="bbE-na-mXg">
+                        <color key="badgeColor" systemColor="systemGroupedBackgroundColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K9n-9t-jXn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -440,6 +445,8 @@
     </scenes>
     <resources>
         <image name="NoResultImage" width="500" height="500"/>
+        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="bitcoinsign" catalog="system" width="85" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="text.book.closed" catalog="system" width="115" height="128"/>
