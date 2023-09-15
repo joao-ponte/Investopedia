@@ -95,20 +95,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARD-YK-1vh">
-                                <rect key="frame" x="62" y="710.66666666666663" width="51" height="34.333333333333371"/>
+                                <rect key="frame" x="16" y="729" width="361" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="4sO-iY-BHb"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="arrowshape.left.fill" catalog="system"/>
-                                <buttonConfiguration key="configuration" style="tinted" image="arrowshape.left.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="tinted"/>
                                 <connections>
                                     <action selector="previousButtonTapped:" destination="MCI-Gc-MDB" eventType="touchUpInside" id="RTo-1d-ZbL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-6e-7cb">
-                                <rect key="frame" x="280" y="710.66666666666663" width="51" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" image="arrowshape.right.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="nextButtonTapped:" destination="MCI-Gc-MDB" eventType="touchUpInside" id="hYT-Vg-VFx"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qMk-BV-6RX">
@@ -141,7 +136,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wci-3X-Dck">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wci-3X-Dck">
                                         <rect key="frame" x="0.0" y="106" width="361" height="24"/>
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -150,16 +145,31 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-6e-7cb">
+                                <rect key="frame" x="16" y="697" width="361" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="75g-Nd-4hq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title=""/>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="MCI-Gc-MDB" eventType="touchUpInside" id="hYT-Vg-VFx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u8A-Uj-vOk"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qMk-BV-6RX" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="16" id="00m-4w-lmH"/>
-                            <constraint firstItem="ARD-YK-1vh" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="62" id="C70-nu-eZh"/>
-                            <constraint firstItem="u8A-Uj-vOk" firstAttribute="bottom" secondItem="ARD-YK-1vh" secondAttribute="bottom" constant="24" id="PPR-uf-VFw"/>
+                            <constraint firstItem="u8A-Uj-vOk" firstAttribute="trailing" secondItem="1TH-6e-7cb" secondAttribute="trailing" constant="16" id="2LD-7i-hbD"/>
+                            <constraint firstItem="1TH-6e-7cb" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="16" id="Yjt-7H-tl7"/>
+                            <constraint firstItem="ARD-YK-1vh" firstAttribute="centerX" secondItem="u8A-Uj-vOk" secondAttribute="centerX" id="ZfC-dA-lS3"/>
                             <constraint firstItem="u8A-Uj-vOk" firstAttribute="trailing" secondItem="qMk-BV-6RX" secondAttribute="trailing" constant="16" id="ang-Vl-ObI"/>
-                            <constraint firstItem="u8A-Uj-vOk" firstAttribute="trailing" secondItem="1TH-6e-7cb" secondAttribute="trailing" constant="62" id="kbT-FW-ieX"/>
-                            <constraint firstItem="ARD-YK-1vh" firstAttribute="baseline" secondItem="1TH-6e-7cb" secondAttribute="baseline" id="sSk-HW-aSY"/>
+                            <constraint firstItem="u8A-Uj-vOk" firstAttribute="bottom" secondItem="ARD-YK-1vh" secondAttribute="bottom" constant="16" id="cXu-ZZ-Tuk"/>
+                            <constraint firstItem="ARD-YK-1vh" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="16" id="ciP-df-sga"/>
+                            <constraint firstItem="1TH-6e-7cb" firstAttribute="centerX" secondItem="u8A-Uj-vOk" secondAttribute="centerX" id="kbp-Zu-Xb0"/>
+                            <constraint firstItem="u8A-Uj-vOk" firstAttribute="trailing" secondItem="ARD-YK-1vh" secondAttribute="trailing" constant="16" id="mbA-HN-yLa"/>
+                            <constraint firstItem="ARD-YK-1vh" firstAttribute="top" secondItem="1TH-6e-7cb" secondAttribute="bottom" constant="8" id="qAc-fk-4rQ"/>
                             <constraint firstItem="qMk-BV-6RX" firstAttribute="top" secondItem="u8A-Uj-vOk" secondAttribute="top" id="ywg-3a-kD7"/>
                         </constraints>
                     </view>
@@ -446,7 +456,6 @@
     <resources>
         <image name="NoResultImage" width="500" height="500"/>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
-        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="bitcoinsign" catalog="system" width="85" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="text.book.closed" catalog="system" width="115" height="128"/>
