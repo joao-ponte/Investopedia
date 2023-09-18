@@ -21,7 +21,7 @@ class CryptoCurrencyListViewController: UIViewController {
     internal var viewModel: CryptoCurrencyListViewModelProtocol!
     private var previousPrices: [String: Double] = [:]
     private let cellIdentifier = "CryptoCurrencyCell"
-    private let segueIdentifier = "showCryptoDetails"
+    private let segueIdentifier = "showCryptoStatistics"
     private let networkUtility: NetworkUtility = NetworkUtility()
     private let noResultImage = UIImage(named: "NoResultImage")
     private let noConnectionImageSmile = UIImage(named: "NoConnection")
@@ -94,7 +94,7 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
         let numberOfCrypto = viewModel.filteredCryptoCurrencies.count
         cryptoNotFoundImage.isHidden = numberOfCrypto != 0
         return numberOfCrypto
-
+        
     }
     
     func tableView(_ tableView: UITableView,
@@ -114,12 +114,23 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
 
 extension CryptoCurrencyListViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView,
-//                   didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: segueIdentifier,
-//                     sender: viewModel.filteredCryptoCurrencies[indexPath.row])
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            guard let selectedCrypto = viewModel?.filteredCryptoCurrencies[indexPath.row] else {
+                return
+            }
+            
+            performSegue(withIdentifier: segueIdentifier, sender: selectedCrypto)
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == segueIdentifier,
+               let destinationVC = segue.destination as? CryptoCurrencyStatisticsViewController,
+               let selectedCrypto = sender as? CryptoCurrency {
+                let viewModel = CryptoCurrencyStatisticsViewModel()
+                viewModel.setSelectedCrypto(selectedCrypto)
+                destinationVC.viewModel = viewModel
+            }
+        }
 }
 
 // MARK: - UISearchBarDelegate

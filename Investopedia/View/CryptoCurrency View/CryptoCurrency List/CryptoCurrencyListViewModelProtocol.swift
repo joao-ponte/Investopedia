@@ -14,7 +14,10 @@ protocol CryptoCurrencyListViewModelProtocol {
     // MARK: - Properties
     var cryptoCurrencies: [CryptoCurrency] { get }
     var filteredCryptoCurrencies: [CryptoCurrency] { get }
+    var selectedCrypto: CryptoCurrency? { get }
     
     // MARK: - Filtering
     func updateFilteredCryptoCurrencies(with searchText: String)
+    func setSelectedCrypto(_ crypto: CryptoCurrency)
+    func getSelectedCrypto() -> CryptoCurrency?
 }

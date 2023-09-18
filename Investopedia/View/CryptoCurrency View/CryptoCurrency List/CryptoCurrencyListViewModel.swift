@@ -20,6 +20,7 @@ final class CryptoCurrencyListViewModel {
     private let networkUtility: NetworkUtilityProtocol
     private let database: Database
     private var searchQuery: String = ""
+    private(set) var selectedCrypto: CryptoCurrency?
     
     // MARK: - Delegate
     
@@ -53,6 +54,14 @@ final class CryptoCurrencyListViewModel {
      func checkNetworkConnection() -> Bool {
          return networkUtility.hasNetworkConnection()
      }
+    
+    func setSelectedCrypto(_ crypto: CryptoCurrency) {
+        self.selectedCrypto = crypto
+    }
+    
+    func getSelectedCrypto() -> CryptoCurrency? {
+        return selectedCrypto
+    }
  }
 
 // MARK: - CryptoCurrencyListViewModelProtocol
