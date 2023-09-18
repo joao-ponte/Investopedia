@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dictionary View Controller-->
+        <!--Fin-Dictionary-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="DictionaryViewController" id="BYZ-38-t0r" customClass="DictionaryViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
                             <constraint firstItem="oet-mb-LMT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tWZ-Lb-yVl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5Db-ti-PhR"/>
+                    <navigationItem key="navigationItem" title="Fin-Dictionary" id="5Db-ti-PhR"/>
                     <connections>
                         <outlet property="searchBar" destination="oet-mb-LMT" id="G5Z-Zr-fju"/>
                         <outlet property="tableView" destination="j1u-iR-zGJ" id="EzG-y7-d10"/>
@@ -207,7 +207,7 @@
             </objects>
             <point key="canvasLocation" x="78.625954198473281" y="3.5211267605633805"/>
         </scene>
-        <!--Crypto Currency List View Controller-->
+        <!--Cryptocurrency List-->
         <scene sceneID="sxy-Rl-hcP">
             <objects>
                 <viewController storyboardIdentifier="CryptoCurrencyListViewController" id="Zg5-hD-1jr" customClass="CryptoCurrencyListViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -255,7 +255,7 @@
                             <constraint firstItem="r75-ki-4Kf" firstAttribute="leading" secondItem="HYW-07-2ej" secondAttribute="leading" id="qif-wD-CLE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="unh-Ke-h47"/>
+                    <navigationItem key="navigationItem" title="Cryptocurrency List" id="unh-Ke-h47"/>
                     <connections>
                         <outlet property="cryptoNotFoundImage" destination="h3c-SG-oKG" id="7vo-Wg-wsO"/>
                         <outlet property="noConnectionImage" destination="h3c-SG-oKG" id="Rf7-cY-eJp"/>
