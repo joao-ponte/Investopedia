@@ -51,6 +51,7 @@ class TermDetailViewController: UIViewController {
             wordLabel.text = term.word
             
             updateButtonStates()
+            updateButtonTitles()
         }
     }
     
