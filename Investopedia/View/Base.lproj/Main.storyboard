@@ -182,6 +182,7 @@
                             <constraint firstItem="7x3-2C-9TK" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="16" id="rre-3S-vBS"/>
                             <constraint firstItem="Qcj-sK-ggK" firstAttribute="leading" secondItem="u8A-Uj-vOk" secondAttribute="leading" constant="16" id="sYb-9f-PxX"/>
                             <constraint firstItem="u8A-Uj-vOk" firstAttribute="trailing" secondItem="7x3-2C-9TK" secondAttribute="trailing" constant="16" id="ve1-CQ-rgS"/>
+                            <constraint firstItem="7x3-2C-9TK" firstAttribute="height" secondItem="Wci-3X-Dck" secondAttribute="height" id="xlr-1s-g0w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PH8-IN-RzK"/>
