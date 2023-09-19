@@ -13,9 +13,11 @@ protocol CryptoCurrencyStatisticsViewModelDelegate: AnyObject {
 }
 
 class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtocol {
+    // MARK: - Properties
     private var _selectedCrypto: CryptoCurrency?
     weak var delegate: CryptoCurrencyStatisticsViewModelDelegate?
     
+    // MARK: - CryptoCurrencyStatisticsViewModelProtocol
     var selectedCrypto: CryptoCurrency? {
         return _selectedCrypto
     }

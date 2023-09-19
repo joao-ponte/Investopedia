@@ -8,42 +8,75 @@
 import UIKit
 
 class CryptoCurrencyStatisticsViewController: UIViewController {
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Properties
     var viewModel: CryptoCurrencyStatisticsViewModelProtocol?
 
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
+        setupTableView()
         viewModel?.delegate = self
+    }
+
+    // MARK: - Private Methods
+    private func setupTableView() {
+        tableView.dataSource = self
     }
 }
 
+// MARK: - UITableViewDataSource
 extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CryptoStatisticsCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cryptoStatisticsCell", for: indexPath) as! CryptoStatisticsCell
+
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "Rank: \(viewModel?.selectedCrypto?.rank ?? "-")"
+            if let selectedCrypto = viewModel?.selectedCrypto {
+                cell.configureRank(with: selectedCrypto)
+            } else {
+                cell.configureNoData(title: "Rank", value: "N/A")
+            }
         case 1:
-            cell.textLabel?.text = "Market Cap: \(viewModel?.selectedCrypto?.marketCapUsd ?? "-")"
+            if let selectedCrypto = viewModel?.selectedCrypto {
+                cell.configureMarketCap(with: selectedCrypto)
+            } else {
+                cell.configureNoData(title: "Market Cap", value: "N/A")
+            }
         case 2:
-            cell.textLabel?.text = "Supply: \(viewModel?.selectedCrypto?.supply ?? "-")"
+            if let selectedCrypto = viewModel?.selectedCrypto {
+                cell.configureSupply(with: selectedCrypto)
+            } else {
+                cell.configureNoData(title: "Supply", value: "N/A")
+            }
         case 3:
-            cell.textLabel?.text = "Volume (24Hr): \(viewModel?.selectedCrypto?.volumeUsd24Hr ?? "-")"
+            if let selectedCrypto = viewModel?.selectedCrypto {
+                cell.configureVolume24Hr(with: selectedCrypto)
+            } else {
+                cell.configureNoData(title: "Volume (24Hr)", value: "N/A")
+            }
         case 4:
-            cell.textLabel?.text = "Change (24Hr): \(viewModel?.selectedCrypto?.changePercent24Hr ?? "-")"
+            if let selectedCrypto = viewModel?.selectedCrypto {
+                cell.configureChange24Hr(with: selectedCrypto)
+            } else {
+                cell.configureNoData(title: "Change (24Hr)", value: "N/A")
+            }
         default:
-            cell.textLabel?.text = ""
+            cell.configureNoData(title: "", value: "")
         }
+
         return cell
     }
 }
 
+
+// MARK: - CryptoCurrencyStatisticsViewModelDelegate
 extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewModelDelegate {
     func selectedCryptoDidChange() {
         tableView.reloadData()
