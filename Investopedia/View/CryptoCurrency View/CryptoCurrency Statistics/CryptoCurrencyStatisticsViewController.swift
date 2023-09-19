@@ -30,7 +30,7 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,17 +51,23 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
             }
         case 2:
             if let selectedCrypto = viewModel?.selectedCrypto {
+                cell.configureUsdPrice(with: selectedCrypto)
+            } else {
+                cell.configureNoData(title: "Price", value: "N/A")
+            }
+        case 3:
+            if let selectedCrypto = viewModel?.selectedCrypto {
                 cell.configureSupply(with: selectedCrypto)
             } else {
                 cell.configureNoData(title: "Supply", value: "N/A")
             }
-        case 3:
+        case 4:
             if let selectedCrypto = viewModel?.selectedCrypto {
                 cell.configureVolume24Hr(with: selectedCrypto)
             } else {
                 cell.configureNoData(title: "Volume (24Hr)", value: "N/A")
             }
-        case 4:
+        case 5:
             if let selectedCrypto = viewModel?.selectedCrypto {
                 cell.configureChange24Hr(with: selectedCrypto)
             } else {

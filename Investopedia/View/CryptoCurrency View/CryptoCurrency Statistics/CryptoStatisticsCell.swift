@@ -36,14 +36,14 @@ class CryptoStatisticsCell: UITableViewCell {
     func configureMarketCap(with crypto: CryptoCurrency) {
         textLabel?.text = "Market Cap"
         accessoryType = .disclosureIndicator
-        
+
         let marketCapLabel = UILabel()
         if let marketCapUsd = crypto.marketCapUsd, let marketCap = Double(marketCapUsd) {
-            marketCapLabel.text = formatCurrency(marketCap, showDecimal: false)
+            marketCapLabel.text = formatCurrency(marketCap, decimalPlaces: 0)
         } else {
             marketCapLabel.text = "N/A"
         }
-        
+
         marketCapLabel.sizeToFit()
         accessoryView = marketCapLabel
     }
@@ -51,16 +51,28 @@ class CryptoStatisticsCell: UITableViewCell {
     func configureSupply(with crypto: CryptoCurrency) {
         textLabel?.text = "Supply"
         accessoryType = .disclosureIndicator
-        
+
         let supplyLabel = UILabel()
         if let supply = crypto.supply, let supplyValue = Double(supply) {
-            supplyLabel.text = formatCurrency(supplyValue, showDecimal: false)
+            supplyLabel.text = formatNumber(supplyValue)
         } else {
             supplyLabel.text = "N/A"
         }
-        
+
         supplyLabel.sizeToFit()
         accessoryView = supplyLabel
+    }
+    
+    func configureUsdPrice(with crypto: CryptoCurrency) {
+        textLabel?.text = "Price"
+        accessoryType = .disclosureIndicator
+        
+        let priceUsdLabel = UILabel()
+        let priceUsd = crypto.priceUsd
+        priceUsdLabel.text = formatPrice(price: priceUsd)
+        
+        priceUsdLabel.sizeToFit()
+        accessoryView = priceUsdLabel
     }
     
     func configureVolume24Hr(with crypto: CryptoCurrency) {
@@ -69,9 +81,9 @@ class CryptoStatisticsCell: UITableViewCell {
         
         let volume24HrLabel = UILabel()
         if let volumeUsd24Hr = crypto.volumeUsd24Hr, let volume = Double(volumeUsd24Hr) {
-            volume24HrLabel.text = formatCurrency(volume, showDecimal: false)
+            volume24HrLabel.text = formatCurrency(volume, decimalPlaces: 0)
         } else {
-            volume24HrLabel.text = formatCurrency(0.0, showDecimal: false)
+            volume24HrLabel.text = "N/A"
         }
         
         volume24HrLabel.sizeToFit()
@@ -84,9 +96,17 @@ class CryptoStatisticsCell: UITableViewCell {
         
         let change24HrLabel = UILabel()
         if let changePercentage = Double(crypto.changePercent24Hr ?? "0.0") {
-            change24HrLabel.text = formatCurrency(changePercentage, showDecimal: true, isPercentage: true)
+            let formattedChange = formatAsPercentage(changePercentage)
+            change24HrLabel.text = formattedChange
+            
+            if changePercentage >= 0 {
+                change24HrLabel.textColor = .darkGreen
+            } else {
+                change24HrLabel.textColor = .darkRed
+            }
         } else {
             change24HrLabel.text = "N/A"
+            change24HrLabel.textColor = .black
         }
         
         change24HrLabel.sizeToFit()
@@ -104,20 +124,65 @@ class CryptoStatisticsCell: UITableViewCell {
     }
     
     // Helper method to format currency based on conditions
-    private func formatCurrency(_ value: Double, showDecimal: Bool, isPercentage: Bool = false) -> String {
+    private func formatCurrency(_ value: Double, decimalPlaces: Int) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = Locale(identifier: "en_US")
-        
-        if isPercentage {
-            numberFormatter.numberStyle = .percent
-            numberFormatter.minimumFractionDigits = 2
-            numberFormatter.maximumFractionDigits = 2
-        } else {
-            numberFormatter.numberStyle = .currency
-            numberFormatter.minimumFractionDigits = showDecimal ? 2 : 0
-            numberFormatter.maximumFractionDigits = showDecimal ? 2 : 0
-        }
+        numberFormatter.numberStyle = .currency
+        numberFormatter.minimumFractionDigits = decimalPlaces
+        numberFormatter.maximumFractionDigits = decimalPlaces
         
         return numberFormatter.string(from: NSNumber(value: value)) ?? "N/A"
     }
+    
+    private func formatAsPercentage(_ value: Double) -> String {
+        // Divide the value by 100
+        let adjustedValue = value / 100.0
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = Locale(identifier: "en_US")
+        numberFormatter.numberStyle = .percent
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        
+        return numberFormatter.string(from: NSNumber(value: adjustedValue)) ?? "N/A"
+    }
+    
+    private func formatNumber(_ value: Double) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = Locale(identifier: "en_US")
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 0
+        numberFormatter.maximumFractionDigits = 0
+        
+        return numberFormatter.string(from: NSNumber(value: value)) ?? "N/A"
+    }
+    
+    private func formatPrice(price: String) -> String {
+        guard let priceDouble = Double(price) else {
+            return "$0.00"
+        }
+        
+        let formattedPrice: String
+        
+        switch priceDouble {
+        case 0..<1.01:
+            formattedPrice = formatCurrency(priceDouble, decimalPlaces: 8)
+        case 1.01..<100:
+            formattedPrice = formatCurrency(priceDouble, decimalPlaces: 4)
+        default:
+            formattedPrice = formatCurrency(priceDouble, decimalPlaces: 2)
+        }
+        return formattedPrice
+    }
 }
+
+extension UIColor {
+    static var darkGreen: UIColor {
+        return UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 1.0)
+    }
+
+    static var darkRed: UIColor {
+        return UIColor(red: 0.5, green: 0.0, blue: 0.0, alpha: 1.0)
+    }
+}
+
