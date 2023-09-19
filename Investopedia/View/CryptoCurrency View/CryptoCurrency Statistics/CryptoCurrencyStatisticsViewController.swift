@@ -45,31 +45,31 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
             }
         case 1:
             if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureMarketCap(with: selectedCrypto)
+                cell.configureMarketCap(with: selectedCrypto, viewModel: viewModel)
             } else {
                 cell.configureNoData(title: "Market Cap", value: "N/A")
             }
         case 2:
             if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureUsdPrice(with: selectedCrypto)
+                cell.configureUsdPrice(with: selectedCrypto, viewModel: viewModel)
             } else {
                 cell.configureNoData(title: "Price", value: "N/A")
             }
         case 3:
             if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureSupply(with: selectedCrypto)
+                cell.configureSupply(with: selectedCrypto, viewModel: viewModel)
             } else {
                 cell.configureNoData(title: "Supply", value: "N/A")
             }
         case 4:
             if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureVolume24Hr(with: selectedCrypto)
+                cell.configureVolume24Hr(with: selectedCrypto, viewModel: viewModel)
             } else {
                 cell.configureNoData(title: "Volume (24Hr)", value: "N/A")
             }
         case 5:
             if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureChange24Hr(with: selectedCrypto)
+                cell.configureChange24Hr(with: selectedCrypto, viewModel: viewModel)
             } else {
                 cell.configureNoData(title: "Change (24Hr)", value: "N/A")
             }
@@ -81,7 +81,6 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
     }
 }
 
-
 // MARK: - CryptoCurrencyStatisticsViewModelDelegate
 extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewModelDelegate {
     func selectedCryptoDidChange() {
@@ -92,3 +91,4 @@ extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewMo
         tableView.reloadData()
     }
 }
+

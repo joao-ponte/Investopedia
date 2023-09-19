@@ -43,25 +43,24 @@ class CryptoCurrencyTableViewCell: UITableViewCell {
         
         switch priceDouble {
         case 0..<1.01:
-            formattedPrice = formatCurrency(priceDouble,
-                                            minimumFractionDigits: 8)
+            formattedPrice = formatCurrency(value: priceDouble,
+                                            decimalPlaces: 8)
         case 1.01..<100:
-            formattedPrice = formatCurrency(priceDouble,
-                                            minimumFractionDigits: 4)
+            formattedPrice = formatCurrency(value: priceDouble,
+                                            decimalPlaces: 4)
         default:
-            formattedPrice = formatCurrency(priceDouble,
-                                            minimumFractionDigits: 2)
+            formattedPrice = formatCurrency(value: priceDouble,
+                                            decimalPlaces: 2)
         }
         
         return formattedPrice
     }
 
-    private func formatCurrency(_ value: Double,
-                                minimumFractionDigits: Int) -> String {
-        let numberFormatter = NumberFormatter()
+    private func formatCurrency(value: Double, decimalPlaces: Int) -> String {
+        let numberFormatter = Foundation.NumberFormatter()
         numberFormatter.locale = Locale(identifier: "en_US")
         numberFormatter.numberStyle = .currency
-        numberFormatter.minimumFractionDigits = minimumFractionDigits
+        numberFormatter.minimumFractionDigits = decimalPlaces
         
         return numberFormatter.string(from: NSNumber(value: value)) ?? "$0.00"
     }

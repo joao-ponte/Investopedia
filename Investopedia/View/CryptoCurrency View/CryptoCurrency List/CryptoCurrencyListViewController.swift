@@ -115,24 +115,23 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
 extension CryptoCurrencyListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedCrypto = viewModel?.filteredCryptoCurrencies[indexPath.row] else {
-            return
-        }
-        
-        performSegue(withIdentifier: segueIdentifier, sender: selectedCrypto)
+            guard let selectedCrypto = viewModel?.filteredCryptoCurrencies[indexPath.row] else {
+                return
+            }
+            
+            performSegue(withIdentifier: segueIdentifier, sender: selectedCrypto)
         tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
+        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier,
-           let destinationVC = segue.destination as? CryptoCurrencyStatisticsViewController,
-           let selectedCrypto = sender as? CryptoCurrency {
-            let viewModel = CryptoCurrencyStatisticsViewModel()
-            viewModel.setSelectedCrypto(selectedCrypto)
-            destinationVC.viewModel = viewModel
+            if segue.identifier == segueIdentifier,
+               let destinationVC = segue.destination as? CryptoCurrencyStatisticsViewController,
+               let selectedCrypto = sender as? CryptoCurrency {
+                let viewModel = CryptoCurrencyStatisticsViewModel()
+                viewModel.setSelectedCrypto(selectedCrypto)
+                destinationVC.viewModel = viewModel
+            }
         }
-    }
 }
 
 // MARK: - UISearchBarDelegate

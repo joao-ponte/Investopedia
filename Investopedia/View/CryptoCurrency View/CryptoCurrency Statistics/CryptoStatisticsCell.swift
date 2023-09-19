@@ -8,7 +8,6 @@
 import UIKit
 
 class CryptoStatisticsCell: UITableViewCell {
-    
     // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -32,29 +31,24 @@ class CryptoStatisticsCell: UITableViewCell {
         accessoryView = rankLabel
     }
     
-    // Configure for general data
-    func configureMarketCap(with crypto: CryptoCurrency) {
+    func configureMarketCap(with crypto: CryptoCurrency, viewModel: CryptoCurrencyStatisticsViewModelProtocol?) {
         textLabel?.text = "Market Cap"
         accessoryType = .disclosureIndicator
 
         let marketCapLabel = UILabel()
-        if let marketCapUsd = crypto.marketCapUsd, let marketCap = Double(marketCapUsd) {
-            marketCapLabel.text = formatCurrency(marketCap, decimalPlaces: 0)
-        } else {
-            marketCapLabel.text = "N/A"
-        }
+        marketCapLabel.text = viewModel?.formattedMarketCap(for: crypto) ?? "N/A"
 
         marketCapLabel.sizeToFit()
         accessoryView = marketCapLabel
     }
     
-    func configureSupply(with crypto: CryptoCurrency) {
+    func configureSupply(with crypto: CryptoCurrency, viewModel: CryptoCurrencyStatisticsViewModelProtocol?) {
         textLabel?.text = "Supply"
         accessoryType = .disclosureIndicator
 
         let supplyLabel = UILabel()
-        if let supply = crypto.supply, let supplyValue = Double(supply) {
-            supplyLabel.text = formatNumber(supplyValue)
+        if crypto.supply != nil {
+            supplyLabel.text = viewModel?.formattedSupply(for: crypto) ?? "N/A"
         } else {
             supplyLabel.text = "N/A"
         }
@@ -63,25 +57,24 @@ class CryptoStatisticsCell: UITableViewCell {
         accessoryView = supplyLabel
     }
     
-    func configureUsdPrice(with crypto: CryptoCurrency) {
+    func configureUsdPrice(with crypto: CryptoCurrency, viewModel: CryptoCurrencyStatisticsViewModelProtocol?) {
         textLabel?.text = "Price"
         accessoryType = .disclosureIndicator
         
         let priceUsdLabel = UILabel()
-        let priceUsd = crypto.priceUsd
-        priceUsdLabel.text = formatPrice(price: priceUsd)
+        priceUsdLabel.text = viewModel?.formattedUsdPrice(for: crypto) ?? "N/A"
         
         priceUsdLabel.sizeToFit()
         accessoryView = priceUsdLabel
     }
     
-    func configureVolume24Hr(with crypto: CryptoCurrency) {
+    func configureVolume24Hr(with crypto: CryptoCurrency, viewModel: CryptoCurrencyStatisticsViewModelProtocol?) {
         textLabel?.text = "Volume (24Hr)"
         accessoryType = .disclosureIndicator
         
         let volume24HrLabel = UILabel()
-        if let volumeUsd24Hr = crypto.volumeUsd24Hr, let volume = Double(volumeUsd24Hr) {
-            volume24HrLabel.text = formatCurrency(volume, decimalPlaces: 0)
+        if let volumeUsd24Hr = crypto.volumeUsd24Hr {
+            volume24HrLabel.text = viewModel?.formattedVolume24Hr(for: crypto) ?? "N/A"
         } else {
             volume24HrLabel.text = "N/A"
         }
@@ -90,13 +83,13 @@ class CryptoStatisticsCell: UITableViewCell {
         accessoryView = volume24HrLabel
     }
     
-    func configureChange24Hr(with crypto: CryptoCurrency) {
+    func configureChange24Hr(with crypto: CryptoCurrency, viewModel: CryptoCurrencyStatisticsViewModelProtocol?) {
         textLabel?.text = "Change (24Hr)"
         accessoryType = .disclosureIndicator
         
         let change24HrLabel = UILabel()
         if let changePercentage = Double(crypto.changePercent24Hr ?? "0.0") {
-            let formattedChange = formatAsPercentage(changePercentage)
+            let formattedChange = viewModel?.formattedChange24Hr(for: crypto)
             change24HrLabel.text = formattedChange
             
             if changePercentage >= 0 {
@@ -117,64 +110,13 @@ class CryptoStatisticsCell: UITableViewCell {
         textLabel?.text = title
         accessoryType = .disclosureIndicator
         
-        let noDataLable = UILabel()
-        noDataLable.text = "N/A"
-        noDataLable.sizeToFit()
-        accessoryView = noDataLable
-    }
-    
-    // Helper method to format currency based on conditions
-    private func formatCurrency(_ value: Double, decimalPlaces: Int) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.locale = Locale(identifier: "en_US")
-        numberFormatter.numberStyle = .currency
-        numberFormatter.minimumFractionDigits = decimalPlaces
-        numberFormatter.maximumFractionDigits = decimalPlaces
-        
-        return numberFormatter.string(from: NSNumber(value: value)) ?? "N/A"
-    }
-    
-    private func formatAsPercentage(_ value: Double) -> String {
-        // Divide the value by 100
-        let adjustedValue = value / 100.0
-        
-        let numberFormatter = NumberFormatter()
-        numberFormatter.locale = Locale(identifier: "en_US")
-        numberFormatter.numberStyle = .percent
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.maximumFractionDigits = 2
-        
-        return numberFormatter.string(from: NSNumber(value: adjustedValue)) ?? "N/A"
-    }
-    
-    private func formatNumber(_ value: Double) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.locale = Locale(identifier: "en_US")
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.minimumFractionDigits = 0
-        numberFormatter.maximumFractionDigits = 0
-        
-        return numberFormatter.string(from: NSNumber(value: value)) ?? "N/A"
-    }
-    
-    private func formatPrice(price: String) -> String {
-        guard let priceDouble = Double(price) else {
-            return "$0.00"
-        }
-        
-        let formattedPrice: String
-        
-        switch priceDouble {
-        case 0..<1.01:
-            formattedPrice = formatCurrency(priceDouble, decimalPlaces: 8)
-        case 1.01..<100:
-            formattedPrice = formatCurrency(priceDouble, decimalPlaces: 4)
-        default:
-            formattedPrice = formatCurrency(priceDouble, decimalPlaces: 2)
-        }
-        return formattedPrice
+        let noDataLabel = UILabel()
+        noDataLabel.text = "N/A"
+        noDataLabel.sizeToFit()
+        accessoryView = noDataLabel
     }
 }
+
 
 extension UIColor {
     static var darkGreen: UIColor {
