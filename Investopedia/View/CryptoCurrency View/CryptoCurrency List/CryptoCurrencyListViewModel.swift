@@ -18,7 +18,6 @@ final class CryptoCurrencyListViewModel {
     private(set) var cryptoCurrencies: [CryptoCurrency] = []
     private let networkManager: NetworkManagerProtocol
     private let networkUtility: NetworkUtilityProtocol
-    private let database: Database
     private var searchQuery: String = ""
     private(set) var selectedCrypto: CryptoCurrency?
     
@@ -43,10 +42,9 @@ final class CryptoCurrencyListViewModel {
     
     // MARK: - Initialization
      
-    init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtilityProtocol, database: Database) {
+    init(networkManager: NetworkManagerProtocol, networkUtility: NetworkUtilityProtocol) {
          self.networkManager = networkManager
          self.networkUtility = networkUtility
-        self.database = database
      }
      
      // MARK: - Public Methods

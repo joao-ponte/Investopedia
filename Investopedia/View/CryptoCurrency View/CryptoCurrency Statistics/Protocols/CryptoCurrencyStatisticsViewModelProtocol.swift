@@ -9,7 +9,7 @@ import Foundation
 
 protocol CryptoCurrencyStatisticsViewModelProtocol {
     var selectedCrypto: CryptoCurrency? { get }
-    func setSelectedCrypto(_ crypto: CryptoCurrency)
+    func setSelectedCrypto(_ crypto: CryptoCurrency?)
     func reloadData()
     var delegate: CryptoCurrencyStatisticsViewModelDelegate? { get set }
     var coinTitleText: String { get }

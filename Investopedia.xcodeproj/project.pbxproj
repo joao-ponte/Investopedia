@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		FC0A5A6B2ABB311300FC47D5 /* CryptoCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A6A2ABB311300FC47D5 /* CryptoCellType.swift */; };
+		FC0A5A6F2ABB343F00FC47D5 /* CryptoCurrencyStatisticsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A6E2ABB343F00FC47D5 /* CryptoCurrencyStatisticsViewModelTests.swift */; };
+		FC0A5A742ABB496800FC47D5 /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A732ABB496800FC47D5 /* PriceFormatter.swift */; };
+		FC0A5A762ABB49A800FC47D5 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A752ABB49A800FC47D5 /* NumberFormatter.swift */; };
+		FC0A5A782ABB4C0400FC47D5 /* CryptoCurrencyStatisticsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A772ABB4C0400FC47D5 /* CryptoCurrencyStatisticsViewControllerTests.swift */; };
+		FC0A5A7A2ABB4C8400FC47D5 /* MockCryptoCurrencyStatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A792ABB4C8400FC47D5 /* MockCryptoCurrencyStatisticsViewModel.swift */; };
 		FC11320E2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11320D2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift */; };
 		FC1132102AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11320F2AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift */; };
 		FC1132122AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */; };
@@ -65,6 +70,11 @@
 
 /* Begin PBXFileReference section */
 		FC0A5A6A2ABB311300FC47D5 /* CryptoCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCellType.swift; sourceTree = "<group>"; };
+		FC0A5A6E2ABB343F00FC47D5 /* CryptoCurrencyStatisticsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewModelTests.swift; sourceTree = "<group>"; };
+		FC0A5A732ABB496800FC47D5 /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
+		FC0A5A752ABB49A800FC47D5 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		FC0A5A772ABB4C0400FC47D5 /* CryptoCurrencyStatisticsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewControllerTests.swift; sourceTree = "<group>"; };
+		FC0A5A792ABB4C8400FC47D5 /* MockCryptoCurrencyStatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoCurrencyStatisticsViewModel.swift; sourceTree = "<group>"; };
 		FC11320D2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewController.swift; sourceTree = "<group>"; };
 		FC11320F2AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewModel.swift; sourceTree = "<group>"; };
 		FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -131,15 +141,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC0A5A6C2ABB338200FC47D5 /* CryptoCurrencyStatisticsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FC0A5A6E2ABB343F00FC47D5 /* CryptoCurrencyStatisticsViewModelTests.swift */,
+				FC0A5A772ABB4C0400FC47D5 /* CryptoCurrencyStatisticsViewControllerTests.swift */,
+				FC0A5A792ABB4C8400FC47D5 /* MockCryptoCurrencyStatisticsViewModel.swift */,
+			);
+			path = CryptoCurrencyStatisticsTests;
+			sourceTree = "<group>";
+		};
+		FC0A5A6D2ABB33C800FC47D5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FC1132132AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift */,
+				FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FC0A5A722ABB493A00FC47D5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FC0A5A732ABB496800FC47D5 /* PriceFormatter.swift */,
+				FC0A5A752ABB49A800FC47D5 /* NumberFormatter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FC11320C2AB8647E00A306A8 /* CryptoCurrency Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				FC0A5A6A2ABB311300FC47D5 /* CryptoCellType.swift */,
 				FC11320D2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift */,
 				FC11320F2AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift */,
-				FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */,
-				FC1132132AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift */,
 				FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */,
-				FC0A5A6A2ABB311300FC47D5 /* CryptoCellType.swift */,
+				FC0A5A6D2ABB33C800FC47D5 /* Protocols */,
 			);
 			path = "CryptoCurrency Statistics";
 			sourceTree = "<group>";
@@ -217,7 +254,7 @@
 			path = "CryptoCurrency Response";
 			sourceTree = "<group>";
 		};
-		FC571F782AA33F6600024B78 /* Investopedia Client */ = {
+		FC571F782AA33F6600024B78 /* Client */ = {
 			isa = PBXGroup;
 			children = (
 				FC571F822AA3592000024B78 /* CoinCapAPIEndpoints.swift */,
@@ -225,7 +262,7 @@
 				FCF529AE2AB1F31A00149169 /* NetworkUtility.swift */,
 				FC27450F2AB30298007C0FC1 /* NetworkUtilityProtocol.swift */,
 			);
-			path = "Investopedia Client";
+			path = Client;
 			sourceTree = "<group>";
 		};
 		FC571F7F2AA3501E00024B78 /* Error */ = {
@@ -245,13 +282,13 @@
 			path = "CryptoCurrency View";
 			sourceTree = "<group>";
 		};
-		FC571F852AA35B0700024B78 /* Dictionary */ = {
+		FC571F852AA35B0700024B78 /* Dictionary View */ = {
 			isa = PBXGroup;
 			children = (
-				FCB44A812A979AFB000E4AF2 /* Dictionary View */,
-				FC9A1B572A9E0DAD0019F714 /* Term View */,
+				FCB44A812A979AFB000E4AF2 /* Dictionary List */,
+				FC9A1B572A9E0DAD0019F714 /* Term */,
 			);
-			path = Dictionary;
+			path = "Dictionary View";
 			sourceTree = "<group>";
 		};
 		FC5E95C72A56B6A100CECAC1 = {
@@ -275,9 +312,10 @@
 		FC5E95D22A56B6A100CECAC1 /* Investopedia */ = {
 			isa = PBXGroup;
 			children = (
+				FC571F782AA33F6600024B78 /* Client */,
 				FC2745192AB451A0007C0FC1 /* Database */,
 				FC571F7F2AA3501E00024B78 /* Error */,
-				FC571F782AA33F6600024B78 /* Investopedia Client */,
+				FC0A5A722ABB493A00FC47D5 /* Helpers */,
 				FC5E95F22A56DCFC00CECAC1 /* Model */,
 				FC5E95E92A56BF5900CECAC1 /* View */,
 				FC5E95D32A56B6A100CECAC1 /* AppDelegate.swift */,
@@ -293,7 +331,7 @@
 			children = (
 				FC2745132AB35AFE007C0FC1 /* LaunchScreen */,
 				FC571F842AA35ADC00024B78 /* CryptoCurrency View */,
-				FC571F852AA35B0700024B78 /* Dictionary */,
+				FC571F852AA35B0700024B78 /* Dictionary View */,
 				FC5E95D92A56B6A100CECAC1 /* Main.storyboard */,
 			);
 			path = View;
@@ -327,14 +365,14 @@
 			path = "CryptoCurrency List";
 			sourceTree = "<group>";
 		};
-		FC9A1B572A9E0DAD0019F714 /* Term View */ = {
+		FC9A1B572A9E0DAD0019F714 /* Term */ = {
 			isa = PBXGroup;
 			children = (
 				FC5E95E72A56B88200CECAC1 /* TermDetailViewController.swift */,
 				FC9A1B5A2A9E0DFA0019F714 /* TermDetailViewModel.swift */,
 				FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */,
 			);
-			path = "Term View";
+			path = Term;
 			sourceTree = "<group>";
 		};
 		FCA918B52AA0CF1000BEC7D7 /* TermDetailViewTests */ = {
@@ -345,14 +383,14 @@
 			path = TermDetailViewTests;
 			sourceTree = "<group>";
 		};
-		FCB44A812A979AFB000E4AF2 /* Dictionary View */ = {
+		FCB44A812A979AFB000E4AF2 /* Dictionary List */ = {
 			isa = PBXGroup;
 			children = (
 				FC5E95D72A56B6A100CECAC1 /* DictionaryViewController.swift */,
 				FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */,
 				FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */,
 			);
-			path = "Dictionary View";
+			path = "Dictionary List";
 			sourceTree = "<group>";
 		};
 		FCF5299F2AB1CBA200149169 /* Dictionary */ = {
@@ -368,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF529A12AB1CBBF00149169 /* CryptoCurrencyListViewTests */,
+				FC0A5A6C2ABB338200FC47D5 /* CryptoCurrencyStatisticsTests */,
 			);
 			path = Cryptocurrency;
 			sourceTree = "<group>";
@@ -504,10 +543,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF529A52AB1D00A00149169 /* MockNetworkManager.swift in Sources */,
+				FC0A5A6F2ABB343F00FC47D5 /* CryptoCurrencyStatisticsViewModelTests.swift in Sources */,
 				FC4545532A9F9E7F005A7D07 /* MockDictionaryViewModel.swift in Sources */,
 				FC45454D2A9F8811005A7D07 /* DictionaryViewModelTests.swift in Sources */,
 				FC4545552A9FA88B005A7D07 /* DictionaryViewControllerTests.swift in Sources */,
+				FC0A5A782ABB4C0400FC47D5 /* CryptoCurrencyStatisticsViewControllerTests.swift in Sources */,
 				FC27450E2AB30200007C0FC1 /* MockNetworkUtility.swift in Sources */,
+				FC0A5A7A2ABB4C8400FC47D5 /* MockCryptoCurrencyStatisticsViewModel.swift in Sources */,
 				FCA918B72AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift in Sources */,
 				FCF529A32AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift in Sources */,
 				FCF529AC2AB1DBD400149169 /* MockCryptoCurrencyListViewModel.swift in Sources */,
@@ -532,9 +574,11 @@
 				FCF529AF2AB1F31A00149169 /* NetworkUtility.swift in Sources */,
 				FC2745102AB30298007C0FC1 /* NetworkUtilityProtocol.swift in Sources */,
 				FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */,
+				FC0A5A762ABB49A800FC47D5 /* NumberFormatter.swift in Sources */,
 				FC99664F2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift in Sources */,
 				FC11320E2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift in Sources */,
 				FC1132122AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift in Sources */,
+				FC0A5A742ABB496800FC47D5 /* PriceFormatter.swift in Sources */,
 				FC27451E2AB45283007C0FC1 /* Database.swift in Sources */,
 				FC5E95E82A56B88200CECAC1 /* TermDetailViewController.swift in Sources */,
 				FC2745212AB45428007C0FC1 /* Investopedia.xcdatamodeld in Sources */,

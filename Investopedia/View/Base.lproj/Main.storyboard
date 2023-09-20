@@ -374,7 +374,7 @@
         <!--Crypto Currency Statistics View Controller-->
         <scene sceneID="THD-RB-eLA">
             <objects>
-                <viewController id="WAG-92-GKn" customClass="CryptoCurrencyStatisticsViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CryptoCurrencyStatisticsViewController" id="WAG-92-GKn" customClass="CryptoCurrencyStatisticsViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1QL-2N-k1r">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -57,10 +57,8 @@ class CryptoCurrencyListViewController: UIViewController {
     private func setupViewModel() {
         let apiClient = NetworkManager()
         let networkUtility = NetworkUtility()
-        let database = CoreDataManager()
         viewModel = CryptoCurrencyListViewModel(networkManager: apiClient,
-                                                networkUtility: networkUtility,
-                                                database: database)
+                                                networkUtility: networkUtility)
         
         viewModel.fetchData { [weak self] in
             DispatchQueue.main.async {

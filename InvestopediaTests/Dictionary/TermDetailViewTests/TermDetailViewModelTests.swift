@@ -12,11 +12,6 @@ final class TermDetailViewModelTests: XCTestCase {
 
     var viewModel: TermDetailViewModel!
 
-//    override func setUp() {
-//        super.setUp()
-//        viewModel = TermDetailViewModel(terms: <#T##[FinancialTerm]#>, selectedTerm: <#T##FinancialTerm#>)
-//    }
-
     override func tearDown() {
         viewModel = nil
         super.tearDown()
