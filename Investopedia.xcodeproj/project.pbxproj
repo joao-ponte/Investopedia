@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC0A5A6B2ABB311300FC47D5 /* CryptoCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A6A2ABB311300FC47D5 /* CryptoCellType.swift */; };
 		FC11320E2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11320D2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift */; };
 		FC1132102AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11320F2AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift */; };
 		FC1132122AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC0A5A6A2ABB311300FC47D5 /* CryptoCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCellType.swift; sourceTree = "<group>"; };
 		FC11320D2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewController.swift; sourceTree = "<group>"; };
 		FC11320F2AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewModel.swift; sourceTree = "<group>"; };
 		FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */,
 				FC1132132AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift */,
 				FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */,
+				FC0A5A6A2ABB311300FC47D5 /* CryptoCellType.swift */,
 			);
 			path = "CryptoCurrency Statistics";
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				FC1132142AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift in Sources */,
 				FC2745152AB35B24007C0FC1 /* LaunchScreenViewController.swift in Sources */,
 				FC571F872AA35B7100024B78 /* CryptoCurrencyListViewController.swift in Sources */,
+				FC0A5A6B2ABB311300FC47D5 /* CryptoCellType.swift in Sources */,
 				FC571F892AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift in Sources */,
 				FC99664D2AAF1491001B6446 /* NetworkManager.swift in Sources */,
 				FC9966492AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift in Sources */,

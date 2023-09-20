@@ -9,6 +9,7 @@ import UIKit
 
 class CryptoCurrencyStatisticsViewController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet weak var coinTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
@@ -19,11 +20,15 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         viewModel?.delegate = self
+        updateUI()
     }
 
     // MARK: - Private Methods
     private func setupTableView() {
         tableView.dataSource = self
+    }
+    private func updateUI() {
+        coinTitle.text = viewModel?.coinTitleText
     }
 }
 
@@ -34,56 +39,42 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellType = CryptoCellType(rawValue: indexPath.row),
+            let selectedCrypto = viewModel?.selectedCrypto else {
+                return UITableViewCell()
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "cryptoStatisticsCell", for: indexPath) as! CryptoStatisticsCell
 
-        switch indexPath.row {
-        case 0:
-            if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureRank(with: selectedCrypto)
-            } else {
-                cell.configureNoData(title: "Rank", value: "N/A")
-            }
-        case 1:
-            if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureMarketCap(with: selectedCrypto, viewModel: viewModel)
-            } else {
-                cell.configureNoData(title: "Market Cap", value: "N/A")
-            }
-        case 2:
-            if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureUsdPrice(with: selectedCrypto, viewModel: viewModel)
-            } else {
-                cell.configureNoData(title: "Price", value: "N/A")
-            }
-        case 3:
-            if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureSupply(with: selectedCrypto, viewModel: viewModel)
-            } else {
-                cell.configureNoData(title: "Supply", value: "N/A")
-            }
-        case 4:
-            if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureVolume24Hr(with: selectedCrypto, viewModel: viewModel)
-            } else {
-                cell.configureNoData(title: "Volume (24Hr)", value: "N/A")
-            }
-        case 5:
-            if let selectedCrypto = viewModel?.selectedCrypto {
-                cell.configureChange24Hr(with: selectedCrypto, viewModel: viewModel)
-            } else {
-                cell.configureNoData(title: "Change (24Hr)", value: "N/A")
-            }
-        default:
-            cell.configureNoData(title: "", value: "")
+        switch cellType {
+        case .rank:
+            cell.configureRank(with: selectedCrypto)
+        case .marketCap:
+            cell.configureMarketCap(with: selectedCrypto, viewModel: viewModel)
+        case .usdPrice:
+            cell.configureUsdPrice(with: selectedCrypto, viewModel: viewModel)
+        case .supply:
+            cell.configureSupply(with: selectedCrypto, viewModel: viewModel)
+        case .volume24Hr:
+            cell.configureVolume24Hr(with: selectedCrypto, viewModel: viewModel)
+        case .change24Hr:
+            cell.configureChange24Hr(with: selectedCrypto, viewModel: viewModel)
         }
 
         return cell
     }
+
 }
 
 // MARK: - CryptoCurrencyStatisticsViewModelDelegate
 extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewModelDelegate {
     func selectedCryptoDidChange() {
+        if let selectedCrypto = viewModel?.selectedCrypto {
+            coinTitle.text = "\(selectedCrypto.name) (\(selectedCrypto.symbol))"
+        } else {
+            coinTitle.text = "N/A"
+        }
+        
         tableView.reloadData()
     }
     
@@ -91,4 +82,3 @@ extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewMo
         tableView.reloadData()
     }
 }
-

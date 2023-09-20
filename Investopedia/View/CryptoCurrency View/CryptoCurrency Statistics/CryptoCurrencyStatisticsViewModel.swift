@@ -20,6 +20,14 @@ class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtoc
         return _selectedCrypto
     }
     
+    var coinTitleText: String {
+        if let selectedCrypto = selectedCrypto {
+            return "\(selectedCrypto.name) (\(selectedCrypto.symbol))"
+        } else {
+            return "N/A"
+        }
+    }
+    
     func setSelectedCrypto(_ crypto: CryptoCurrency) {
         _selectedCrypto = crypto
         delegate?.selectedCryptoDidChange()

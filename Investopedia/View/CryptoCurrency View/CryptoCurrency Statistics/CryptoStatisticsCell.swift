@@ -117,7 +117,6 @@ class CryptoStatisticsCell: UITableViewCell {
     }
 }
 
-
 extension UIColor {
     static var darkGreen: UIColor {
         return UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 1.0)
@@ -127,4 +126,3 @@ extension UIColor {
         return UIColor(red: 0.5, green: 0.0, blue: 0.0, alpha: 1.0)
     }
 }
-

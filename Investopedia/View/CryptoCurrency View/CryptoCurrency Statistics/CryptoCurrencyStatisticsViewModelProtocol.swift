@@ -12,6 +12,7 @@ protocol CryptoCurrencyStatisticsViewModelProtocol {
     func setSelectedCrypto(_ crypto: CryptoCurrency)
     func reloadData()
     var delegate: CryptoCurrencyStatisticsViewModelDelegate? { get set }
+    var coinTitleText: String { get }
     
     func formattedMarketCap(for crypto: CryptoCurrency) -> String
     func formattedUsdPrice(for crypto: CryptoCurrency) -> String
