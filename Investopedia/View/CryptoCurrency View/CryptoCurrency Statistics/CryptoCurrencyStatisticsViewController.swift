@@ -21,6 +21,7 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
         setupTableView()
         viewModel?.delegate = self
         updateUI()
+        setTableViewFooter()
     }
 
     // MARK: - Private Methods
@@ -29,6 +30,12 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
     }
     private func updateUI() {
         coinTitle.text = viewModel?.coinTitleText
+    }
+    
+    private func setTableViewFooter() {
+        // Create an empty footer view to hide extra empty cells
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
+        tableView.tableFooterView = footerView
     }
 }
 
