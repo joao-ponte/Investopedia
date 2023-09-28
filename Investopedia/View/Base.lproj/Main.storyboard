@@ -80,6 +80,7 @@
                     <connections>
                         <segue destination="1fw-xM-hjB" kind="relationship" relationship="viewControllers" id="9qH-mV-jAm"/>
                         <segue destination="OW4-cH-3gK" kind="relationship" relationship="viewControllers" id="ueY-6V-b87"/>
+                        <segue destination="wKY-13-cJf" kind="relationship" relationship="viewControllers" id="98B-wD-RYj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqM-3J-FCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -301,7 +302,7 @@
             </objects>
             <point key="canvasLocation" x="79" y="668"/>
         </scene>
-        <!--View Controller-->
+        <!--Favourites-->
         <scene sceneID="90d-zf-JyK">
             <objects>
                 <viewController id="WlL-7Q-CK0" sceneMemberID="viewController">
@@ -315,9 +316,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7G1-zt-qsG">
-                                <rect key="frame" x="0.0" y="159" width="393" height="659"/>
+                                <rect key="frame" x="0.0" y="159" width="393" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fXX-Ka-My0">
+                                <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoResultImage" id="fXX-Ka-My0">
                                     <rect key="frame" x="0.0" y="121.66666793823242" width="393" height="274"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
@@ -346,17 +347,20 @@
                             <constraint firstItem="T6y-2M-x2M" firstAttribute="top" secondItem="ZaV-Vw-rxo" secondAttribute="top" id="Uus-iQ-jbK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WMQ-PE-Y31"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="WMQ-PE-Y31"/>
+                    <connections>
+                        <segue destination="WAG-92-GKn" kind="show" identifier="showCryptoStatistics" id="iTU-SY-RQN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jjs-sv-b8M" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005" y="1369"/>
         </scene>
-        <!--Item-->
+        <!--Favourites-->
         <scene sceneID="MOp-3O-NHR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wKY-13-cJf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Ubp-Jn-6II"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="star" catalog="system" id="Ubp-Jn-6II"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7X1-C9-LRo">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -438,11 +442,15 @@
             <point key="canvasLocation" x="2195" y="854"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GpG-Ql-j2Y"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="NoResultImage" width="500" height="500"/>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="bitcoinsign" catalog="system" width="85" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="text.book.closed" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

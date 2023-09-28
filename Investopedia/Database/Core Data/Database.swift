@@ -8,6 +8,9 @@
 import Foundation
 
 protocol Database {
-    func fetchData(completion: @escaping ([CryptoCurrency]?) -> Void)
-    func save()
+    func addCryptoToFavorites(crypto: CryptoCurrency)
+    func getFavorites() -> [CryptoCurrencyEntity]?
+    func removeCryptoFromFavorites(crypto: CryptoCurrencyEntity)
+    func updateFavoriteCrypto(updatedCrypto: CryptoCurrency, existingCrypto: CryptoCurrencyEntity)
 }
+
