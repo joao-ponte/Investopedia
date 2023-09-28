@@ -19,10 +19,10 @@ class CryptoCurrencyListViewController: UIViewController {
     // MARK: - Properties
     
     internal var viewModel: CryptoCurrencyListViewModelProtocol!
+    private let networkUtility: NetworkUtility = NetworkUtility()
     private var previousPrices: [String: Double] = [:]
     private let cellIdentifier = "CryptoCurrencyCell"
     private let segueIdentifier = "showCryptoStatistics"
-    private let networkUtility: NetworkUtility = NetworkUtility()
     private let noResultImage = UIImage(named: "NoResultImage")
     private let noConnectionImageSmile = UIImage(named: "NoConnection")
     
@@ -55,17 +55,18 @@ class CryptoCurrencyListViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        let apiClient = NetworkManager()
-        let networkUtility = NetworkUtility()
-        viewModel = CryptoCurrencyListViewModel(networkManager: apiClient,
-                                                networkUtility: networkUtility)
-        
-        viewModel.fetchData { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+            let apiClient = NetworkManager()
+            let networkUtility = NetworkUtility()
+            
+            viewModel = CryptoCurrencyListViewModel(networkManager: apiClient,
+                                                    networkUtility: networkUtility)
+            
+            viewModel.fetchData { [weak self] in
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
             }
         }
-    }
     
     private func setupAutoRefreshTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true) { [weak self] _ in
@@ -122,14 +123,16 @@ extension CryptoCurrencyListViewController: UITableViewDelegate {
         }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == segueIdentifier,
-               let destinationVC = segue.destination as? CryptoCurrencyStatisticsViewController,
-               let selectedCrypto = sender as? CryptoCurrency {
-                let viewModel = CryptoCurrencyStatisticsViewModel()
-                viewModel.setSelectedCrypto(selectedCrypto)
-                destinationVC.viewModel = viewModel
-            }
+        if segue.identifier == segueIdentifier,
+           let destinationVC = segue.destination as? CryptoCurrencyStatisticsViewController,
+           let selectedCrypto = sender as? CryptoCurrency {
+            let database: Database = CoreDataManager()
+            let viewModel = CryptoCurrencyStatisticsViewModel(database: database)
+            viewModel.setSelectedCrypto(selectedCrypto)
+            destinationVC.viewModel = viewModel
         }
+    }
+
 }
 
 // MARK: - UISearchBarDelegate

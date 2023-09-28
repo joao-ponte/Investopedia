@@ -387,7 +387,11 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5Gb-Tw-JuU"/>
-                                    <barButtonItem title="Favorite" image="heart" catalog="system" id="MlC-XK-FNR"/>
+                                    <barButtonItem title="Favorite" image="heart" catalog="system" id="MlC-XK-FNR">
+                                        <connections>
+                                            <action selector="tapFavouriteButton:" destination="WAG-92-GKn" id="NsR-GZ-oaN"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elA-nf-Ucp">
@@ -434,6 +438,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="coinTitle" destination="elA-nf-Ucp" id="LQx-q1-Lhz"/>
+                        <outlet property="favouriteButton" destination="MlC-XK-FNR" id="Wsh-Zh-rRz"/>
                         <outlet property="tableView" destination="HaQ-th-Eok" id="WOu-qn-84T"/>
                     </connections>
                 </viewController>

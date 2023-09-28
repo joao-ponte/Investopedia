@@ -15,6 +15,11 @@ protocol CryptoCurrencyStatisticsViewModelDelegate: AnyObject {
 class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtocol {
     // MARK: - Properties
     private var _selectedCrypto: CryptoCurrency?
+    private let database: Database
+    
+    init(database: Database) {
+        self.database = database
+    }
     
     // MARK: - Delegate
 
@@ -42,6 +47,38 @@ class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtoc
     
     func reloadData() {
         delegate?.reloadData()
+    }
+    
+    func toggleFavorite() {
+        guard let selectedCrypto = selectedCrypto else { return }
+        let cryptoEntity = CryptoCurrencyEntity()
+        cryptoEntity.id = selectedCrypto.id
+        cryptoEntity.rank = selectedCrypto.rank
+        cryptoEntity.symbol = selectedCrypto.symbol
+        cryptoEntity.name = selectedCrypto.name
+        cryptoEntity.supply = selectedCrypto.supply
+        cryptoEntity.maxSupply = selectedCrypto.maxSupply
+        cryptoEntity.marketCapUsd = selectedCrypto.marketCapUsd
+        cryptoEntity.volumeUsd24Hr = selectedCrypto.volumeUsd24Hr
+        cryptoEntity.priceUsd = selectedCrypto.priceUsd
+        cryptoEntity.changePercent24Hr = selectedCrypto.changePercent24Hr
+        cryptoEntity.vwap24Hr = selectedCrypto.vwap24Hr
+        cryptoEntity.explorer = selectedCrypto.explorer
+        
+        
+
+        if isFavorite(crypto: selectedCrypto) {
+            database.addCryptoToFavorites(crypto: selectedCrypto)
+        } else {
+            database.removeCryptoFromFavorites(crypto: cryptoEntity)
+        }
+    }
+    
+    func isFavorite(crypto: CryptoCurrency) -> Bool {
+        guard let favorites = database.getFavorites() else {
+            return false
+        }
+        return favorites.contains { $0.id == crypto.id }
     }
 }
 

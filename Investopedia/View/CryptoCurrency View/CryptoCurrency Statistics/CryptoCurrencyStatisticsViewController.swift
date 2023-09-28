@@ -10,11 +10,12 @@ import UIKit
 class CryptoCurrencyStatisticsViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var coinTitle: UILabel!
+    @IBOutlet weak var favouriteButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
     var viewModel: CryptoCurrencyStatisticsViewModelProtocol?
-
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,12 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
         updateUI()
         setTableViewFooter()
     }
-
+    
+    @IBAction func tapFavouriteButton(_ sender: Any) {
+        viewModel?.toggleFavorite()
+        updateFavoriteButtonUI()
+    }
+    
     // MARK: - Private Methods
     private func setupTableView() {
         tableView.dataSource = self
@@ -37,6 +43,14 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
         tableView.tableFooterView = footerView
     }
+    
+    private func updateFavoriteButtonUI() {
+        if let viewModel = viewModel, let selectedCrypto = viewModel.selectedCrypto, viewModel.isFavorite(crypto: selectedCrypto) {
+            favouriteButton.image = UIImage(systemName: "heart.fill")
+        } else {
+            favouriteButton.image = UIImage(systemName: "heart")
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -47,12 +61,12 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cellType = CryptoCellType(rawValue: indexPath.row),
-            let selectedCrypto = viewModel?.selectedCrypto else {
-                return UITableViewCell()
+              let selectedCrypto = viewModel?.selectedCrypto else {
+            return UITableViewCell()
         }
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cryptoStatisticsCell", for: indexPath) as! CryptoStatisticsCell
-
+        
         switch cellType {
         case .rank:
             cell.configureRank(with: selectedCrypto)
@@ -67,10 +81,10 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
         case .change24Hr:
             cell.configureChange24Hr(with: selectedCrypto, viewModel: viewModel)
         }
-
+        
         return cell
     }
-
+    
 }
 
 // MARK: - CryptoCurrencyStatisticsViewModelDelegate

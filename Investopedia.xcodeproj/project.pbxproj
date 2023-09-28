@@ -203,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				FC27451C2AB4525D007C0FC1 /* Core Data */,
+				FC27451D2AB45283007C0FC1 /* Database.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -212,7 +213,6 @@
 			children = (
 				FC27451F2AB45428007C0FC1 /* Investopedia.xcdatamodeld */,
 				FC27451A2AB451D8007C0FC1 /* CoreDataStack.swift */,
-				FC27451D2AB45283007C0FC1 /* Database.swift */,
 				FC2745222AB45C7E007C0FC1 /* CoreDataManager.swift */,
 			);
 			path = "Core Data";

@@ -19,4 +19,6 @@ protocol CryptoCurrencyStatisticsViewModelProtocol {
     func formattedSupply(for crypto: CryptoCurrency) -> String
     func formattedVolume24Hr(for crypto: CryptoCurrency) -> String
     func formattedChange24Hr(for crypto: CryptoCurrency) -> String
+    func toggleFavorite()
+    func isFavorite(crypto: CryptoCurrency) -> Bool
 }
