@@ -43,7 +43,7 @@ class CoreDataManager: Database {
         print("Crypto removed from favorites: \(crypto.name ?? "Unknown Crypto")")
     }
     
-    func getFavorites() -> [CryptoCurrencyEntity]? {
+    func getFavourites() -> [CryptoCurrencyEntity]? {
         return cryptoCurrencies
     }
     

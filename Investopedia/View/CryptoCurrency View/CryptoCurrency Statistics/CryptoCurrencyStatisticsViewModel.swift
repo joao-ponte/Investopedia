@@ -65,7 +65,7 @@ class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtoc
     }
 
     private func findCryptoEntity(for crypto: CryptoCurrency) -> CryptoCurrencyEntity? {
-        guard let favorites = database.getFavorites() else {
+        guard let favorites = database.getFavourites() else {
             return nil
         }
         
@@ -73,7 +73,7 @@ class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtoc
     }
 
     func isFavorite(crypto: CryptoCurrency) -> Bool {
-        guard let favorites = database.getFavorites() else {
+        guard let favorites = database.getFavourites() else {
             print("Favorites array is nil.")
             return false
         }

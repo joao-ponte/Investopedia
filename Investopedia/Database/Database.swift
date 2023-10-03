@@ -9,6 +9,6 @@ import Foundation
 
 protocol Database {
     func addCryptoToFavorites(crypto: CryptoCurrency)
-    func getFavorites() -> [CryptoCurrencyEntity]?
+    func getFavourites() -> [CryptoCurrencyEntity]?
     func removeCryptoFromFavorites(crypto: CryptoCurrencyEntity)
 }
