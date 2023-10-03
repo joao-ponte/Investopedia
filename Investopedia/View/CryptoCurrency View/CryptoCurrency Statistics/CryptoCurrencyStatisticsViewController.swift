@@ -23,6 +23,7 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
         viewModel?.delegate = self
         updateUI()
         setTableViewFooter()
+        updateFavoriteButtonUI()
     }
     
     @IBAction func tapFavouriteButton(_ sender: Any) {
@@ -45,8 +46,13 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
     }
     
     private func updateFavoriteButtonUI() {
-        if let viewModel = viewModel, let selectedCrypto = viewModel.selectedCrypto, viewModel.isFavorite(crypto: selectedCrypto) {
-            favouriteButton.image = UIImage(systemName: "heart.fill")
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        if let selectedCrypto = viewModel.selectedCrypto {
+            let isFavorite = viewModel.isFavorite(crypto: selectedCrypto)
+            favouriteButton.image = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
         } else {
             favouriteButton.image = UIImage(systemName: "heart")
         }
@@ -96,7 +102,7 @@ extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewMo
             coinTitle.text = "N/A"
         }
         
-        tableView.reloadData()
+        reloadData()
     }
     
     func reloadData() {

@@ -51,34 +51,42 @@ class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtoc
     
     func toggleFavorite() {
         guard let selectedCrypto = selectedCrypto else { return }
-        let cryptoEntity = CryptoCurrencyEntity()
-        cryptoEntity.id = selectedCrypto.id
-        cryptoEntity.rank = selectedCrypto.rank
-        cryptoEntity.symbol = selectedCrypto.symbol
-        cryptoEntity.name = selectedCrypto.name
-        cryptoEntity.supply = selectedCrypto.supply
-        cryptoEntity.maxSupply = selectedCrypto.maxSupply
-        cryptoEntity.marketCapUsd = selectedCrypto.marketCapUsd
-        cryptoEntity.volumeUsd24Hr = selectedCrypto.volumeUsd24Hr
-        cryptoEntity.priceUsd = selectedCrypto.priceUsd
-        cryptoEntity.changePercent24Hr = selectedCrypto.changePercent24Hr
-        cryptoEntity.vwap24Hr = selectedCrypto.vwap24Hr
-        cryptoEntity.explorer = selectedCrypto.explorer
         
-        
-
         if isFavorite(crypto: selectedCrypto) {
-            database.addCryptoToFavorites(crypto: selectedCrypto)
+            if let cryptoEntity = findCryptoEntity(for: selectedCrypto) {
+                database.removeCryptoFromFavorites(crypto: cryptoEntity)
+            }
         } else {
-            database.removeCryptoFromFavorites(crypto: cryptoEntity)
+            print("Adding \(selectedCrypto.name) to favorites.")
+            database.addCryptoToFavorites(crypto: selectedCrypto)
         }
+        
+        delegate?.selectedCryptoDidChange()
     }
-    
+
+    private func findCryptoEntity(for crypto: CryptoCurrency) -> CryptoCurrencyEntity? {
+        guard let favorites = database.getFavorites() else {
+            return nil
+        }
+        
+        return favorites.first { $0.id == crypto.id }
+    }
+
     func isFavorite(crypto: CryptoCurrency) -> Bool {
         guard let favorites = database.getFavorites() else {
+            print("Favorites array is nil.")
             return false
         }
-        return favorites.contains { $0.id == crypto.id }
+
+        let isFavorite = favorites.contains { $0.id == crypto.id }
+
+        if isFavorite {
+            print("\(crypto.name) is a favorite.")
+        } else {
+            print("\(crypto.name) is not a favorite.")
+        }
+
+        return isFavorite
     }
 }
 

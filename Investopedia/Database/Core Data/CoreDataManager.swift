@@ -9,7 +9,8 @@ import CoreData
 
 class CoreDataManager: Database {
     
-    var favourites: [CryptoCurrencyEntity]? { try? context.fetch(CryptoCurrencyEntity.fetchRequest()) }
+    var cryptoCurrencies: [CryptoCurrencyEntity]? { try? context.fetch(CryptoCurrencyEntity.fetchRequest()) }
+    
     private let context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext = CoreDataStack.context) {
@@ -32,32 +33,18 @@ class CoreDataManager: Database {
         newCrypto.explorer = crypto.explorer
         
         save()
+        print("Crypto added to favorites: \(newCrypto.name ?? "Unknown Crypto")")
     }
     
     func removeCryptoFromFavorites(crypto: CryptoCurrencyEntity) {
+        print("Crypto removing from favorites: \(crypto.name ?? "Unknown Crypto")")
         context.delete(crypto)
         save()
+        print("Crypto removed from favorites: \(crypto.name ?? "Unknown Crypto")")
     }
     
     func getFavorites() -> [CryptoCurrencyEntity]? {
-        return favourites
-    }
-    
-    func updateFavoriteCrypto(updatedCrypto: CryptoCurrency, existingCrypto: CryptoCurrencyEntity) {
-        existingCrypto.id = updatedCrypto.id
-        existingCrypto.rank = updatedCrypto.rank
-        existingCrypto.symbol = updatedCrypto.symbol
-        existingCrypto.name = updatedCrypto.name
-        existingCrypto.supply = updatedCrypto.supply
-        existingCrypto.maxSupply = updatedCrypto.maxSupply
-        existingCrypto.marketCapUsd = updatedCrypto.marketCapUsd
-        existingCrypto.volumeUsd24Hr = updatedCrypto.volumeUsd24Hr
-        existingCrypto.priceUsd = updatedCrypto.priceUsd
-        existingCrypto.changePercent24Hr = updatedCrypto.changePercent24Hr
-        existingCrypto.vwap24Hr = updatedCrypto.vwap24Hr
-        existingCrypto.explorer = updatedCrypto.explorer
-        
-        save()
+        return cryptoCurrencies
     }
     
     // MARK: - Helper functions
