@@ -51,6 +51,12 @@
 		FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */; };
 		FCC276442A98AF05005A63D8 /* FinancialDictionaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */; };
 		FCC276482A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */; };
+		FCD375F42ACD662B0057E0D3 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375F32ACD662B0057E0D3 /* FavouritesViewController.swift */; };
+		FCD375F62ACD663D0057E0D3 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375F52ACD663D0057E0D3 /* FavouritesViewModel.swift */; };
+		FCD375F82ACD66930057E0D3 /* FavouritesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375F72ACD66930057E0D3 /* FavouritesViewModelProtocol.swift */; };
+		FCD375FB2ACD677C0057E0D3 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375FA2ACD677C0057E0D3 /* FavouritesCollectionViewCell.swift */; };
+		FCD375FD2ACD67CD0057E0D3 /* FavouritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375FC2ACD67CD0057E0D3 /* FavouritesDataSource.swift */; };
+		FCD375FF2ACD681C0057E0D3 /* FavouritesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375FE2ACD681C0057E0D3 /* FavouritesDelegate.swift */; };
 		FCF529A32AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529A22AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift */; };
 		FCF529A52AB1D00A00149169 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529A42AB1D00A00149169 /* MockNetworkManager.swift */; };
 		FCF529A92AB1DB3E00149169 /* CryptoCurrencyListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529A82AB1DB3E00149169 /* CryptoCurrencyListViewControllerTests.swift */; };
@@ -116,6 +122,12 @@
 		FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
 		FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FinancialDictionaryData.json; sourceTree = "<group>"; };
 		FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModelProtocol.swift; sourceTree = "<group>"; };
+		FCD375F32ACD662B0057E0D3 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		FCD375F52ACD663D0057E0D3 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		FCD375F72ACD66930057E0D3 /* FavouritesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModelProtocol.swift; sourceTree = "<group>"; };
+		FCD375FA2ACD677C0057E0D3 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		FCD375FC2ACD67CD0057E0D3 /* FavouritesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDataSource.swift; sourceTree = "<group>"; };
+		FCD375FE2ACD681C0057E0D3 /* FavouritesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDelegate.swift; sourceTree = "<group>"; };
 		FCF529A22AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewModelTests.swift; sourceTree = "<group>"; };
 		FCF529A42AB1D00A00149169 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		FCF529A82AB1DB3E00149169 /* CryptoCurrencyListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewControllerTests.swift; sourceTree = "<group>"; };
@@ -329,9 +341,10 @@
 		FC5E95E92A56BF5900CECAC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC2745132AB35AFE007C0FC1 /* LaunchScreen */,
 				FC571F842AA35ADC00024B78 /* CryptoCurrency View */,
 				FC571F852AA35B0700024B78 /* Dictionary View */,
+				FCD375F22ACD65F90057E0D3 /* Favourites View */,
+				FC2745132AB35AFE007C0FC1 /* LaunchScreen */,
 				FC5E95D92A56B6A100CECAC1 /* Main.storyboard */,
 			);
 			path = View;
@@ -391,6 +404,27 @@
 				FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */,
 			);
 			path = "Dictionary List";
+			sourceTree = "<group>";
+		};
+		FCD375F22ACD65F90057E0D3 /* Favourites View */ = {
+			isa = PBXGroup;
+			children = (
+				FCD375F32ACD662B0057E0D3 /* FavouritesViewController.swift */,
+				FCD375F52ACD663D0057E0D3 /* FavouritesViewModel.swift */,
+				FCD375F72ACD66930057E0D3 /* FavouritesViewModelProtocol.swift */,
+				FCD375F92ACD67160057E0D3 /* Favourites Cell */,
+			);
+			path = "Favourites View";
+			sourceTree = "<group>";
+		};
+		FCD375F92ACD67160057E0D3 /* Favourites Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FCD375FA2ACD677C0057E0D3 /* FavouritesCollectionViewCell.swift */,
+				FCD375FC2ACD67CD0057E0D3 /* FavouritesDataSource.swift */,
+				FCD375FE2ACD681C0057E0D3 /* FavouritesDelegate.swift */,
+			);
+			path = "Favourites Cell";
 			sourceTree = "<group>";
 		};
 		FCF5299F2AB1CBA200149169 /* Dictionary */ = {
@@ -564,6 +598,8 @@
 				FC27451B2AB451D8007C0FC1 /* CoreDataStack.swift in Sources */,
 				FC571F832AA3592000024B78 /* CoinCapAPIEndpoints.swift in Sources */,
 				FC571F812AA3502E00024B78 /* NetworkError.swift in Sources */,
+				FCD375F42ACD662B0057E0D3 /* FavouritesViewController.swift in Sources */,
+				FCD375FB2ACD677C0057E0D3 /* FavouritesCollectionViewCell.swift in Sources */,
 				FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */,
 				FCC276482A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift in Sources */,
 				FC1132102AB864DD00A306A8 /* CryptoCurrencyStatisticsViewModel.swift in Sources */,
@@ -582,16 +618,20 @@
 				FC27451E2AB45283007C0FC1 /* Database.swift in Sources */,
 				FC5E95E82A56B88200CECAC1 /* TermDetailViewController.swift in Sources */,
 				FC2745212AB45428007C0FC1 /* Investopedia.xcdatamodeld in Sources */,
+				FCD375F82ACD66930057E0D3 /* FavouritesViewModelProtocol.swift in Sources */,
 				FC1132142AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift in Sources */,
 				FC2745152AB35B24007C0FC1 /* LaunchScreenViewController.swift in Sources */,
 				FC571F872AA35B7100024B78 /* CryptoCurrencyListViewController.swift in Sources */,
 				FC0A5A6B2ABB311300FC47D5 /* CryptoCellType.swift in Sources */,
+				FCD375F62ACD663D0057E0D3 /* FavouritesViewModel.swift in Sources */,
 				FC571F892AA35B7E00024B78 /* CryptoCurrencyListViewModel.swift in Sources */,
 				FC99664D2AAF1491001B6446 /* NetworkManager.swift in Sources */,
 				FC9966492AAF09BC001B6446 /* CryptoCurrencyListViewModelProtocol.swift in Sources */,
 				FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */,
 				FC5E95D62A56B6A100CECAC1 /* SceneDelegate.swift in Sources */,
 				FC5E95F62A56DF6100CECAC1 /* FinancialTerm.swift in Sources */,
+				FCD375FD2ACD67CD0057E0D3 /* FavouritesDataSource.swift in Sources */,
+				FCD375FF2ACD681C0057E0D3 /* FavouritesDelegate.swift in Sources */,
 				FC1132162AB8A78100A306A8 /* CryptoStatisticsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

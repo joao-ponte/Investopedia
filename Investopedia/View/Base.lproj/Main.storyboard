@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -306,7 +305,7 @@
         <!--Favourites-->
         <scene sceneID="90d-zf-JyK">
             <objects>
-                <viewController id="WlL-7Q-CK0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavouritesStoryboard" id="WlL-7Q-CK0" customClass="FavouritesViewController" customModule="Investopedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B4G-rh-fRi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,52 +315,68 @@
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N3p-XU-UEd">
+                                <rect key="frame" x="0.0" y="159" width="393" height="610"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zIw-uD-l5O">
                                 <rect key="frame" x="0.0" y="159" width="393" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cDm-d6-Uug">
-                                    <size key="itemSize" width="176" height="159"/>
+                                    <size key="itemSize" width="345" height="149"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="j9f-PT-Gax">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="159"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCell" id="j9f-PT-Gax" customClass="FavouritesCollectionViewCell" customModule="Investopedia" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OYk-QI-hiQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="176" height="159"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cryptoName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piJ-R1-Zdn">
-                                                    <rect key="frame" x="8" y="8" width="160" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="change24Hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87A-u4-QWe">
-                                                    <rect key="frame" x="8" y="108" width="160" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-tG-yUX">
-                                                    <rect key="frame" x="8" y="69" width="160" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-yZ-Quz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cryptoName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piJ-R1-Zdn">
+                                                            <rect key="frame" x="8.0000000000000071" y="7.9999999999999982" width="117.66666666666669" height="26.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="change24Hrs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87A-u4-QWe">
+                                                            <rect key="frame" x="8" y="90.333333333333329" width="119" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-tG-yUX">
+                                                            <rect key="frame" x="8" y="50.333333333333336" width="44" height="24.000000000000007"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="piJ-R1-Zdn" firstAttribute="leading" secondItem="rQn-yZ-Quz" secondAttribute="leading" constant="8" id="5KH-IO-ACi"/>
+                                                        <constraint firstItem="87A-u4-QWe" firstAttribute="leading" secondItem="5LH-tG-yUX" secondAttribute="leading" id="YDx-ff-1yk"/>
+                                                        <constraint firstItem="5LH-tG-yUX" firstAttribute="top" secondItem="piJ-R1-Zdn" secondAttribute="bottom" constant="16" id="gSg-bE-Wwg"/>
+                                                        <constraint firstItem="piJ-R1-Zdn" firstAttribute="top" secondItem="rQn-yZ-Quz" secondAttribute="top" constant="8" id="knU-1s-4vQ"/>
+                                                        <constraint firstItem="5LH-tG-yUX" firstAttribute="leading" secondItem="piJ-R1-Zdn" secondAttribute="leading" id="vnv-d8-fNH"/>
+                                                        <constraint firstItem="87A-u4-QWe" firstAttribute="top" secondItem="5LH-tG-yUX" secondAttribute="bottom" constant="16" id="yeF-k8-NRg"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="piJ-R1-Zdn" firstAttribute="top" secondItem="OYk-QI-hiQ" secondAttribute="top" constant="8" id="HPh-pS-UIm"/>
-                                                <constraint firstAttribute="trailing" secondItem="piJ-R1-Zdn" secondAttribute="trailing" constant="8" id="Ie4-yz-TDE"/>
-                                                <constraint firstItem="piJ-R1-Zdn" firstAttribute="centerX" secondItem="OYk-QI-hiQ" secondAttribute="centerX" id="Pp6-Kb-f80"/>
-                                                <constraint firstItem="piJ-R1-Zdn" firstAttribute="leading" secondItem="OYk-QI-hiQ" secondAttribute="leading" constant="8" id="qHd-DQ-ETq"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="176" height="159"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="160" height="160"/>
+                                        <connections>
+                                            <outlet property="background" destination="rQn-yZ-Quz" id="yd4-Fy-rLa"/>
+                                            <outlet property="cryptoChange24Hrs" destination="87A-u4-QWe" id="me8-7n-LlO"/>
+                                            <outlet property="cryptoName" destination="piJ-R1-Zdn" id="Eu2-LR-Tb8"/>
+                                            <outlet property="cryptoPrice" destination="5LH-tG-yUX" id="qFB-JN-Ye8"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -370,16 +385,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="T6y-2M-x2M" firstAttribute="trailing" secondItem="ZaV-Vw-rxo" secondAttribute="trailing" id="2Gw-vq-iTR"/>
+                            <constraint firstItem="N3p-XU-UEd" firstAttribute="top" secondItem="T6y-2M-x2M" secondAttribute="bottom" id="7a7-e8-TnX"/>
                             <constraint firstItem="T6y-2M-x2M" firstAttribute="leading" secondItem="ZaV-Vw-rxo" secondAttribute="leading" id="Sjv-cS-LkF"/>
                             <constraint firstItem="T6y-2M-x2M" firstAttribute="top" secondItem="ZaV-Vw-rxo" secondAttribute="top" id="Uus-iQ-jbK"/>
+                            <constraint firstItem="N3p-XU-UEd" firstAttribute="leading" secondItem="ZaV-Vw-rxo" secondAttribute="leading" id="alq-NC-iH5"/>
                             <constraint firstItem="ZaV-Vw-rxo" firstAttribute="bottom" secondItem="zIw-uD-l5O" secondAttribute="bottom" id="gZn-zd-7Ge"/>
                             <constraint firstItem="ZaV-Vw-rxo" firstAttribute="trailing" secondItem="zIw-uD-l5O" secondAttribute="trailing" id="gmr-TK-Onf"/>
                             <constraint firstItem="zIw-uD-l5O" firstAttribute="top" secondItem="T6y-2M-x2M" secondAttribute="bottom" id="hyZ-eT-nxh"/>
+                            <constraint firstItem="ZaV-Vw-rxo" firstAttribute="bottom" secondItem="N3p-XU-UEd" secondAttribute="bottom" id="khI-h3-nrP"/>
+                            <constraint firstItem="ZaV-Vw-rxo" firstAttribute="trailing" secondItem="N3p-XU-UEd" secondAttribute="trailing" id="r6X-je-EGl"/>
                             <constraint firstItem="zIw-uD-l5O" firstAttribute="leading" secondItem="ZaV-Vw-rxo" secondAttribute="leading" id="ylh-Th-uoq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favourites" id="WMQ-PE-Y31"/>
                     <connections>
+                        <outlet property="collectionView" destination="zIw-uD-l5O" id="sCV-dR-YTd"/>
+                        <outlet property="flowLayout" destination="cDm-d6-Uug" id="YnP-Z7-RHf"/>
+                        <outlet property="noFavouritesImage" destination="N3p-XU-UEd" id="Xlu-rb-5Mi"/>
                         <segue destination="WAG-92-GKn" kind="show" identifier="showCryptoStatistics" id="iTU-SY-RQN"/>
                     </connections>
                 </viewController>

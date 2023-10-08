@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol FavouritesViewModelProtocol {
+    var favouriteCryptoCurrencies: [CryptoCurrencyEntity]? { get }
+}

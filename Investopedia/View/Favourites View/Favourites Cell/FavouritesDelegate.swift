@@ -5,4 +5,13 @@
 //  Created by João Ponte on 04/10/2023.
 //
 
-import Foundation
+import UIKit
+
+class FavouritesDelegate: NSObject, UICollectionViewDelegate {
+    
+    private let viewModel: FavouritesViewModelProtocol
+
+    init(viewModel: FavouritesViewModelProtocol) {
+        self.viewModel = viewModel
+    }
+}

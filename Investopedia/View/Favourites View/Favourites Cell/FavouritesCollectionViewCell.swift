@@ -9,4 +9,8 @@ import UIKit
 
 class FavouritesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var background: UIView!
+    @IBOutlet weak var cryptoChange24Hrs: UILabel!
+    @IBOutlet weak var cryptoPrice: UILabel!
+    @IBOutlet weak var cryptoName: UILabel!
 }
