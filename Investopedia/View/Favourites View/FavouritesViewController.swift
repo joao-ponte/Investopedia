@@ -55,6 +55,16 @@ class FavouritesViewController: UIViewController {
         viewModel.updateFavourites()
         collectionView.reloadData()
         noFavouritesImage.isHidden = viewModel.favouriteCryptoCurrencies?.isEmpty ?? true
+        updateNoFavouritesImageVisibility()
+
+    }
+    
+    private func updateNoFavouritesImageVisibility() {
+        if let favouriteCryptoCurrencies = viewModel.favouriteCryptoCurrencies, !favouriteCryptoCurrencies.isEmpty {
+            noFavouritesImage.isHidden = true
+        } else {
+            noFavouritesImage.isHidden = false
+        }
     }
     
     private func setupSearchBar() {
