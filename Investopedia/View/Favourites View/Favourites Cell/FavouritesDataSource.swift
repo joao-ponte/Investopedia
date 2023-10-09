@@ -17,7 +17,7 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return viewModel.favouriteCryptoCurrencies?.count ?? 0
+        return viewModel.filteredCryptoCurrencies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
