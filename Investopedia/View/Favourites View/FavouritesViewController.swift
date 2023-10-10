@@ -8,16 +8,18 @@
 import UIKit
 
 class FavouritesViewController: UIViewController {
-    
+    // MARK: - IBOutlets
     @IBOutlet weak var noFavouritesImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // MARK: - Properties
     internal var viewModel: FavouritesViewModelProtocol!
     private lazy var favouritesDataSource = FavouritesDataSource(viewModel: viewModel)
     private lazy var favouritesDelegate = FavouritesDelegate(viewModel: viewModel, viewController: self)
     
+    // MARK: - View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadFavouriteCryptocurrencies()
@@ -31,7 +33,9 @@ class FavouritesViewController: UIViewController {
         setupSearchBar()
         collectionView.delegate = favouritesDelegate
     }
-    
+}
+// MARK: - UI Setup and Layout
+extension FavouritesViewController {
     private func configureFavouritesLayout() {
         let space: CGFloat = 2
         let dimension = (view.frame.size.width - (2 * space)) / 2 // Display 2 cells in a row
@@ -46,18 +50,24 @@ class FavouritesViewController: UIViewController {
         collectionView.delegate = favouritesDelegate
     }
     
+    private func setupSearchBar() {
+        searchBar.delegate = self
+    }
+}
+// MARK: - ViewModel Setup
+extension FavouritesViewController {
     private func setupViewModel() {
         let database = CoreDataManager()
         viewModel = FavouritesViewModel(database: database)
         viewModel.delegate = self
     }
-    
+}
+// MARK: - Data Handling
+extension FavouritesViewController {
     private func loadFavouriteCryptocurrencies() {
         viewModel.updateFavourites()
         collectionView.reloadData()
-        noFavouritesImage.isHidden = viewModel.favouriteCryptoCurrencies?.isEmpty ?? true
         updateNoFavouritesImageVisibility()
-        
     }
     
     private func updateNoFavouritesImageVisibility() {
@@ -67,16 +77,13 @@ class FavouritesViewController: UIViewController {
             noFavouritesImage.isHidden = false
         }
     }
-    
-    private func setupSearchBar() {
-        searchBar.delegate = self
-    }
-    
+}
+// MARK: - Navigation
+extension FavouritesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCryptoStatistics",
            let cryptoStatisticsViewController = segue.destination as? CryptoCurrencyStatisticsViewController,
            let crypto = sender as? CryptoCurrency {
-            
             let database = CoreDataManager()
             let networkManager = NetworkManager()
             
@@ -85,13 +92,14 @@ class FavouritesViewController: UIViewController {
         }
     }
 }
-
+// MARK: - FavouritesViewModelDelegate
 extension FavouritesViewController: FavouritesViewModelDelegate {
     func filteredCryptoCurrenciesUpdated() {
         collectionView.reloadData()
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension FavouritesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.updateFilteredCryptoCurrencies(with: searchText)
