@@ -16,7 +16,7 @@ class FavouritesViewController: UIViewController {
     
     internal var viewModel: FavouritesViewModelProtocol!
     private lazy var favouritesDataSource = FavouritesDataSource(viewModel: viewModel)
-    private lazy var favouritesDelegate = FavouritesDelegate(viewModel: viewModel)
+    private lazy var favouritesDelegate = FavouritesDelegate(viewModel: viewModel, viewController: self)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,6 +29,7 @@ class FavouritesViewController: UIViewController {
         setupUI()
         configureFavouritesLayout()
         setupSearchBar()
+        collectionView.delegate = favouritesDelegate
     }
     
     private func configureFavouritesLayout() {
@@ -56,7 +57,7 @@ class FavouritesViewController: UIViewController {
         collectionView.reloadData()
         noFavouritesImage.isHidden = viewModel.favouriteCryptoCurrencies?.isEmpty ?? true
         updateNoFavouritesImageVisibility()
-
+        
     }
     
     private func updateNoFavouritesImageVisibility() {
@@ -69,6 +70,19 @@ class FavouritesViewController: UIViewController {
     
     private func setupSearchBar() {
         searchBar.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCryptoStatistics",
+           let cryptoStatisticsViewController = segue.destination as? CryptoCurrencyStatisticsViewController,
+           let crypto = sender as? CryptoCurrency {
+            
+            let database = CoreDataManager()
+            let networkManager = NetworkManager()
+            
+            cryptoStatisticsViewController.viewModel = CryptoCurrencyStatisticsViewModel(database: database, networkManager: networkManager)
+            cryptoStatisticsViewController.viewModel?.setSelectedCrypto(crypto)
+        }
     }
 }
 
