@@ -16,6 +16,10 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: CryptoCurrencyStatisticsViewModelProtocol?
     
+    deinit {
+        viewModel?.stopRefreshTimer()
+    }
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,7 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
         updateUI()
         setTableViewFooter()
         updateFavoriteButtonUI()
+        viewModel?.fetchData()
     }
     
     @IBAction func tapFavouriteButton(_ sender: Any) {
@@ -52,9 +57,9 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
         
         if let selectedCrypto = viewModel.selectedCrypto {
             let isFavorite = viewModel.isFavorite(crypto: selectedCrypto)
-            favouriteButton.image = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+            favouriteButton.image = isFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
         } else {
-            favouriteButton.image = UIImage(systemName: "heart")
+            favouriteButton.image = UIImage(systemName: "star")
         }
     }
 }
@@ -96,16 +101,20 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
 // MARK: - CryptoCurrencyStatisticsViewModelDelegate
 extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewModelDelegate {
     func selectedCryptoDidChange() {
-        if let selectedCrypto = viewModel?.selectedCrypto {
-            coinTitle.text = "\(selectedCrypto.name) (\(selectedCrypto.symbol))"
-        } else {
-            coinTitle.text = "N/A"
+        DispatchQueue.main.async { [weak self] in
+            if let selectedCrypto = self?.viewModel?.selectedCrypto {
+                self?.coinTitle.text = "\(selectedCrypto.name) (\(selectedCrypto.symbol))"
+            } else {
+                self?.coinTitle.text = "N/A"
+            }
+            
+            self?.reloadData()
         }
-        
-        reloadData()
     }
     
     func reloadData() {
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }

@@ -25,3 +25,8 @@ struct CryptoCurrency: Codable, Equatable {
 struct ResponseCryptos: Codable {
     let data: [CryptoCurrency]
 }
+
+struct ResponseOneCrypto: Codable {
+    let data: CryptoCurrency
+    let timestamp: Int
+}

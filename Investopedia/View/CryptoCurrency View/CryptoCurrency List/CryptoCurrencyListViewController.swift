@@ -127,7 +127,8 @@ extension CryptoCurrencyListViewController: UITableViewDelegate {
            let destinationVC = segue.destination as? CryptoCurrencyStatisticsViewController,
            let selectedCrypto = sender as? CryptoCurrency {
             let database: Database = CoreDataManager()
-            let viewModel = CryptoCurrencyStatisticsViewModel(database: database)
+            let networkManager = NetworkManager()
+            let viewModel = CryptoCurrencyStatisticsViewModel(database: database, networkManager: networkManager)
             viewModel.setSelectedCrypto(selectedCrypto)
             destinationVC.viewModel = viewModel
         }

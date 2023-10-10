@@ -442,7 +442,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5Gb-Tw-JuU"/>
-                                    <barButtonItem title="Favorite" image="heart" catalog="system" id="MlC-XK-FNR">
+                                    <barButtonItem title="Favorite" image="star" catalog="system" id="MlC-XK-FNR">
                                         <connections>
                                             <action selector="tapFavouriteButton:" destination="WAG-92-GKn" id="NsR-GZ-oaN"/>
                                         </connections>
@@ -510,7 +510,6 @@
         <image name="NoResultImage" width="500" height="500"/>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="bitcoinsign" catalog="system" width="85" height="128"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="text.book.closed" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">

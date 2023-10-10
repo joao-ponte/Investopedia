@@ -21,4 +21,6 @@ protocol CryptoCurrencyStatisticsViewModelProtocol {
     func formattedChange24Hr(for crypto: CryptoCurrency) -> String
     func toggleFavorite()
     func isFavorite(crypto: CryptoCurrency) -> Bool
+    func fetchData()
+    func stopRefreshTimer()
 }
