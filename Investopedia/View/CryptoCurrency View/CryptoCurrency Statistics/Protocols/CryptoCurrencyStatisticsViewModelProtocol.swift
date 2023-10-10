@@ -8,19 +8,25 @@
 import Foundation
 
 protocol CryptoCurrencyStatisticsViewModelProtocol {
+    // MARK: - Properties
     var selectedCrypto: CryptoCurrency? { get }
-    func setSelectedCrypto(_ crypto: CryptoCurrency?)
-    func reloadData()
     var delegate: CryptoCurrencyStatisticsViewModelDelegate? { get set }
     var coinTitleText: String { get }
-    
+
+    // MARK: - Public Methods
+    func setSelectedCrypto(_ crypto: CryptoCurrency?)
+    func reloadData()
+    func toggleFavorite()
+    func fetchData()
+    func stopRefreshTimer()
+
+    // MARK: - Formatting Methods
     func formattedMarketCap(for crypto: CryptoCurrency) -> String
     func formattedUsdPrice(for crypto: CryptoCurrency) -> String
     func formattedSupply(for crypto: CryptoCurrency) -> String
     func formattedVolume24Hr(for crypto: CryptoCurrency) -> String
     func formattedChange24Hr(for crypto: CryptoCurrency) -> String
-    func toggleFavorite()
+
+    // MARK: - Private Methods
     func isFavorite(crypto: CryptoCurrency) -> Bool
-    func fetchData()
-    func stopRefreshTimer()
 }

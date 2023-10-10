@@ -39,6 +39,7 @@ class CryptoCurrencyStatisticsViewController: UIViewController {
     // MARK: - Private Methods
     private func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
     }
     private func updateUI() {
         coinTitle.text = viewModel?.coinTitleText
@@ -97,7 +98,11 @@ extension CryptoCurrencyStatisticsViewController: UITableViewDataSource {
     }
     
 }
-
+extension CryptoCurrencyStatisticsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+}
 // MARK: - CryptoCurrencyStatisticsViewModelDelegate
 extension CryptoCurrencyStatisticsViewController: CryptoCurrencyStatisticsViewModelDelegate {
     func selectedCryptoDidChange() {
