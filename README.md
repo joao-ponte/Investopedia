@@ -30,15 +30,15 @@ To use the Investopedia, follow these steps:
 
 Exploring Cryptocurrencies:
 
-- The home screen presents you with a table view of cryptocurrencies, providing you with a quick overview of the latest market data. 
+- The home screen presents a table view of cryptocurrencies, providing a quick overview of the latest market data. 
 
-- To learn more about a specific cryptocurrency, simply tap on its row in the table view. Note: The "click on the table view to get more information" feature is currently under development.
+- To learn more about a specific cryptocurrency, tap its row in the table view. Note: The "click on the table view to get more information".
 
 - This will open a detailed view with comprehensive information about the selected cryptocurrency.
 
-- In this detailed view, you can find key details such as its name, symbol, market cap, trading volume, and price.
+- In this detailed view, you can find critical details such as its name, symbol, market cap, trading volume, and price.
 
-- To save a cryptocurrency to your favorites for quick access, use the heart icon or equivalent feature (please note that the "save to favorites" functionality is currently under development).
+- Use the star icon or equivalent feature to save a cryptocurrency to your favourites for quick access.
 
 Financial Term Dictionary:
 
@@ -46,7 +46,7 @@ Financial Term Dictionary:
 
 - Here, you can browse a curated collection of financial terms and their definitions.
 
-- To learn more about a specific term, simply tap on its entry in the dictionary.
+- To learn more about a specific term, tap on its entry in the dictionary.
 
 - You'll be presented with a detailed view containing the term's meaning and an example of its usage.
 
@@ -54,7 +54,7 @@ Financial Term Dictionary:
 
 Handling Network Connectivity:
 
-Investopedia is designed to ensure a seamless user experience even when network connectivity is missing. If you find yourself without an internet connection, the app will automatically utilise the latest version of data available, allowing you to continue exploring cryptocurrencies and financial terms without interruption.
+Investopedia is designed to ensure a seamless user experience even when network connectivity is missing. If you find yourself without an internet connection, the app will automatically utilise the latest data available, allowing you to continue exploring cryptocurrencies and financial terms without interruption.
 
 Please Note:
 
@@ -63,13 +63,13 @@ We hope you find Investopedia to be your trusted financial companion, helping yo
 
 
 ## Features
-The Ivestopedia app provides the following features:
+The Investopedia app provides the following features:
 
 Cryptocurrency Overview:
 - Explore a comprehensive table view of cryptocurrencies.
 - Click on a cryptocurrency to access detailed information.
 - View essential data such as name, symbol, market cap, volume, and price.
-- Save cryptocurrencies to your favorites for quick access (feature in development).
+- Save cryptocurrencies to your favourites for quick access.
 
 Financial Term Dictionary:
 - Browse a curated collection of financial terms and their definitions.
