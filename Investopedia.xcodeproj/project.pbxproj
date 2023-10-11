@@ -289,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				FC988D0D2AB1AE340046E0AC /* CryptoCurrency List */,
-				FC11320C2AB8647E00A306A8 /* CryptoCurrency Statistics */,
 			);
 			path = "CryptoCurrency View";
 			sourceTree = "<group>";
@@ -341,6 +340,7 @@
 		FC5E95E92A56BF5900CECAC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC11320C2AB8647E00A306A8 /* CryptoCurrency Statistics */,
 				FC571F842AA35ADC00024B78 /* CryptoCurrency View */,
 				FC571F852AA35B0700024B78 /* Dictionary View */,
 				FCD375F22ACD65F90057E0D3 /* Favourites View */,

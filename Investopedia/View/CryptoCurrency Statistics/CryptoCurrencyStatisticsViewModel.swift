@@ -85,9 +85,7 @@ class CryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtoc
     @objc private func fetchCryptoData() {
         guard let crypto = selectedCrypto else { return }
         
-        let endpoint = APIEndpoint.cryptoCurrency(withID: crypto.id)
-        
-        networkManager.request(endpoint, responseType: ResponseOneCrypto.self) { [weak self] result in
+        networkManager.requestCryptoCurrencyData(for: crypto.id) { [weak self] result in
             switch result {
             case .success(let cryptoApiResponse):
                 self?.handleCryptoDataResponse(cryptoApiResponse.data)
