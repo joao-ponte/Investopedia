@@ -34,13 +34,18 @@ class FavouritesViewController: UIViewController {
 }
 // MARK: - UI Setup and Layout
 extension FavouritesViewController {
+    
     private func configureFavouritesLayout() {
-        let space: CGFloat = 2
-        let dimension = (view.frame.size.width - (2 * space)) / 2 // Display 2 cells in a row
+        let spacing: CGFloat = 10
+        let itemWidth = (collectionView.frame.width - 3 * spacing) / 2
+        let itemHeight = itemWidth
         
-        flowLayout.minimumLineSpacing = space
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumInteritemSpacing = spacing
+        layout.minimumLineSpacing = spacing
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        collectionView.collectionViewLayout = layout
     }
     
     private func setupUI() {

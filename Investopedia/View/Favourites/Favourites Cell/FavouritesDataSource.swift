@@ -36,11 +36,30 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
     }
     
     private func configureCell(_ cell: FavouritesCollectionViewCell, with crypto: CryptoCurrencyEntity) {
-        let formattedPrice = PriceFormatter.formatUsdPrice(price: crypto.priceUsd ?? "N/A")
-        let formattedPercentage = NumberFormatter.formatPercentage(crypto.changePercent24Hr)
+        if let priceUsd = crypto.priceUsd {
+            let formattedPrice = PriceFormatter.formatUsdPrice(price: priceUsd)
+            cell.cryptoPrice.text = "Price: \(formattedPrice)"
+        } else {
+            cell.cryptoPrice.text = "Price: N/A"
+        }
         
-        cell.cryptoName.text = crypto.name
-        cell.cryptoPrice.text = "Price: \(formattedPrice)"
-        cell.cryptoChange24Hrs.text = "Change 24Hrs: \(formattedPercentage)"
+        if let changePercent24Hr = crypto.changePercent24Hr {
+            let formattedPercentage = NumberFormatter.formatPercentage(changePercent24Hr)
+            cell.cryptoChange24Hrs.text = "Change 24Hrs: \n\(formattedPercentage)"
+        } else {
+            cell.cryptoChange24Hrs.text = "Change 24Hrs: N/A"
+        }
+        
+        if let name = crypto.name, let symbol = crypto.symbol {
+            cell.cryptoName.text = "\(symbol) (\(name))"
+        } else {
+            cell.cryptoName.text = "N/A"
+        }
+        cell.cryptoName.numberOfLines = 0
+        cell.cryptoPrice.numberOfLines = 0
+        cell.cryptoChange24Hrs.numberOfLines = 0
+        cell.cryptoName.preferredMaxLayoutWidth = cell.cryptoName.frame.size.width
+//        cell.cryptoName.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+
     }
 }
