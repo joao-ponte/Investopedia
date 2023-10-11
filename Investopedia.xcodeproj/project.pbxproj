@@ -285,21 +285,13 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		FC571F842AA35ADC00024B78 /* CryptoCurrency View */ = {
-			isa = PBXGroup;
-			children = (
-				FC988D0D2AB1AE340046E0AC /* CryptoCurrency List */,
-			);
-			path = "CryptoCurrency View";
-			sourceTree = "<group>";
-		};
-		FC571F852AA35B0700024B78 /* Dictionary View */ = {
+		FC571F852AA35B0700024B78 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
 				FCB44A812A979AFB000E4AF2 /* Dictionary List */,
 				FC9A1B572A9E0DAD0019F714 /* Term */,
 			);
-			path = "Dictionary View";
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 		FC5E95C72A56B6A100CECAC1 = {
@@ -340,10 +332,10 @@
 		FC5E95E92A56BF5900CECAC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC988D0D2AB1AE340046E0AC /* CryptoCurrency List */,
 				FC11320C2AB8647E00A306A8 /* CryptoCurrency Statistics */,
-				FC571F842AA35ADC00024B78 /* CryptoCurrency View */,
-				FC571F852AA35B0700024B78 /* Dictionary View */,
-				FCD375F22ACD65F90057E0D3 /* Favourites View */,
+				FC571F852AA35B0700024B78 /* Dictionary */,
+				FCD375F22ACD65F90057E0D3 /* Favourites */,
 				FC2745132AB35AFE007C0FC1 /* LaunchScreen */,
 				FC5E95D92A56B6A100CECAC1 /* Main.storyboard */,
 			);
@@ -406,7 +398,7 @@
 			path = "Dictionary List";
 			sourceTree = "<group>";
 		};
-		FCD375F22ACD65F90057E0D3 /* Favourites View */ = {
+		FCD375F22ACD65F90057E0D3 /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
 				FCD375F32ACD662B0057E0D3 /* FavouritesViewController.swift */,
@@ -414,7 +406,7 @@
 				FCD375F72ACD66930057E0D3 /* FavouritesViewModelProtocol.swift */,
 				FCD375F92ACD67160057E0D3 /* Favourites Cell */,
 			);
-			path = "Favourites View";
+			path = Favourites;
 			sourceTree = "<group>";
 		};
 		FCD375F92ACD67160057E0D3 /* Favourites Cell */ = {

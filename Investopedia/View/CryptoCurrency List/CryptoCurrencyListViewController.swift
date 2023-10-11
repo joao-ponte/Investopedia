@@ -14,6 +14,7 @@ class CryptoCurrencyListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cryptoNotFoundImage: UIImageView!
     @IBOutlet weak var noConnectionImage: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Properties
@@ -55,18 +56,22 @@ class CryptoCurrencyListViewController: UIViewController {
     }
     
     private func setupViewModel() {
-            let apiClient = NetworkManager()
-            let networkUtility = NetworkUtility()
-            
-            viewModel = CryptoCurrencyListViewModel(networkManager: apiClient,
-                                                    networkUtility: networkUtility)
-            
-            viewModel.fetchData { [weak self] in
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
+        let apiClient = NetworkManager()
+        let networkUtility = NetworkUtility()
+        
+        viewModel = CryptoCurrencyListViewModel(networkManager: apiClient,
+                                                networkUtility: networkUtility)
+        
+        activityIndicator.startAnimating()
+        
+        
+        viewModel.fetchData { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.tableView.reloadData()
             }
         }
+    }
     
     private func setupAutoRefreshTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true) { [weak self] _ in
@@ -114,13 +119,13 @@ extension CryptoCurrencyListViewController: UITableViewDataSource {
 extension CryptoCurrencyListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            guard let selectedCrypto = viewModel?.filteredCryptoCurrencies[indexPath.row] else {
-                return
-            }
-            
-            performSegue(withIdentifier: segueIdentifier, sender: selectedCrypto)
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let selectedCrypto = viewModel?.filteredCryptoCurrencies[indexPath.row] else {
+            return
         }
+        
+        performSegue(withIdentifier: segueIdentifier, sender: selectedCrypto)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier,
@@ -133,7 +138,7 @@ extension CryptoCurrencyListViewController: UITableViewDelegate {
             destinationVC.viewModel = viewModel
         }
     }
-
+    
 }
 
 // MARK: - UISearchBarDelegate

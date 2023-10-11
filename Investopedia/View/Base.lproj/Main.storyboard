@@ -27,10 +27,6 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j1u-iR-zGJ">
                                 <rect key="frame" x="0.0" y="159" width="393" height="610"/>
-                                <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoResultImage" id="MuN-AT-4e7">
-                                    <rect key="frame" x="0.0" y="121.66666793823242" width="393" height="274"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermCell" id="YnH-c8-mSZ">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -60,7 +56,6 @@
                     <connections>
                         <outlet property="searchBar" destination="oet-mb-LMT" id="G5Z-Zr-fju"/>
                         <outlet property="tableView" destination="j1u-iR-zGJ" id="EzG-y7-d10"/>
-                        <outlet property="wordNotFoundImage" destination="MuN-AT-4e7" id="8wx-UR-ud1"/>
                         <segue destination="MCI-Gc-MDB" kind="show" identifier="showDetails" id="XEo-tY-fvR"/>
                     </connections>
                 </viewController>
@@ -255,6 +250,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" id="l2S-tf-Ml6">
+                                <rect key="frame" x="0.0" y="404" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HYW-07-2ej"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
@@ -270,6 +269,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Cryptocurrency List" id="unh-Ke-h47"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="l2S-tf-Ml6" id="mc4-3u-awy"/>
                         <outlet property="cryptoNotFoundImage" destination="h3c-SG-oKG" id="7vo-Wg-wsO"/>
                         <outlet property="noConnectionImage" destination="h3c-SG-oKG" id="Rf7-cY-eJp"/>
                         <outlet property="searchBar" destination="gg0-D6-Cmg" id="uQq-YE-CvB"/>
@@ -279,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf6-fp-kzB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005" y="668"/>
+            <point key="canvasLocation" x="1003.8167938931298" y="667.6056338028169"/>
         </scene>
         <!--Crypto List-->
         <scene sceneID="p12-1j-fhj">
@@ -490,7 +490,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iTU-SY-RQN"/>
+        <segue reference="GpG-Ql-j2Y"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NoFavourites" width="500" height="500"/>
