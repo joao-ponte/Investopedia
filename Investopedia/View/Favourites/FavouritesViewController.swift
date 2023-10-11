@@ -17,6 +17,7 @@ class FavouritesViewController: UIViewController {
     internal var viewModel: FavouritesViewModelProtocol!
     private lazy var favouritesDataSource = FavouritesDataSource(viewModel: viewModel)
     private lazy var favouritesDelegate = FavouritesDelegate(viewModel: viewModel, viewController: self)
+    private var autoRefreshTimer: Timer?
     
     // MARK: - View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +31,27 @@ class FavouritesViewController: UIViewController {
         setupUI()
         configureFavouritesLayout()
         collectionView.delegate = favouritesDelegate
+        setupAutoRefreshTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        autoRefreshTimer?.invalidate()
+    }
+    
+    private func setupAutoRefreshTimer() {
+        // Invalidate the existing timer to avoid multiple timers running simultaneously
+        autoRefreshTimer?.invalidate()
+        
+        // Create a new timer that fires every 40 seconds
+        autoRefreshTimer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true) { [weak self] _ in
+            // Update favourites and reload collection view
+            self?.loadFavouriteCryptocurrencies()
+        }
+        
+        // Fire the timer immediately (optional)
+        autoRefreshTimer?.fire()
     }
 }
 // MARK: - UI Setup and Layout

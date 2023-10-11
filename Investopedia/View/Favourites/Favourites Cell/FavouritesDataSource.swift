@@ -76,5 +76,4 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
         cell.cryptoName.preferredMaxLayoutWidth = cell.cryptoName.frame.size.width
         cell.cryptoName.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
-
 }
