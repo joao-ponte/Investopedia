@@ -11,6 +11,8 @@ protocol NetworkManagerProtocol {
     func request<ResponseType: Decodable>(_ endpoint: APIEndpoint,
                                           responseType: ResponseType.Type,
                                           completion: @escaping (Result<ResponseType, NetworkError>) -> Void)
+    func requestCryptoCurrencyData(for cryptoID: String, completion: @escaping (Result<ResponseOneCrypto, NetworkError>) -> Void)
+
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -47,4 +49,11 @@ class NetworkManager: NetworkManagerProtocol {
         
         task.resume()
     }
+    
+    func requestCryptoCurrencyData(for cryptoID: String, completion: @escaping (Result<ResponseOneCrypto, NetworkError>) -> Void) {
+            let endpoint = APIEndpoint.cryptoCurrency(withID: cryptoID)
+            request(endpoint, responseType: ResponseOneCrypto.self) { result in
+                completion(result)
+            }
+        }
 }

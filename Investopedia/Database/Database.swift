@@ -11,4 +11,5 @@ protocol Database {
     func addCryptoToFavorites(crypto: CryptoCurrency)
     func getFavourites() -> [CryptoCurrencyEntity]?
     func removeCryptoFromFavorites(crypto: CryptoCurrencyEntity)
+    func updateCoreData(with cryptoData: CryptoCurrency)
 }
