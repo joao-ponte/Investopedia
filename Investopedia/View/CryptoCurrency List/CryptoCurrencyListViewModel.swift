@@ -86,7 +86,6 @@ extension CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
     }
 
     private func processFetchedCryptoCurrencies(_ cryptos: [CryptoCurrency]) {
-        // Process the fetched data and update the ViewModel
         let filteredCryptos = filterCryptos(with: searchQuery, from: cryptos)
         updateCryptoCurrencies(with: filteredCryptos)
     }

@@ -42,7 +42,7 @@ class CryptoCurrencyListViewController: UIViewController {
     
     private func setupUI() {
         setupTableView()
-        setupSearchBar()
+        setupSearchBar()      
     }
     
     private func setupTableView() {
@@ -63,7 +63,6 @@ class CryptoCurrencyListViewController: UIViewController {
                                                 networkUtility: networkUtility)
         
         activityIndicator.startAnimating()
-        
         
         viewModel.fetchData { [weak self] in
             DispatchQueue.main.async {

@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func startDataUpdateTimer() {
+        // Schedule a timer to update data every 40 seconds
         timer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true) { [weak self] _ in
             // Fetch data for specific cryptocurrencies and update Core Data
             if let cryptoIDsToUpdate = self?.database?.getFavourites()?.compactMap({ $0.id }) {

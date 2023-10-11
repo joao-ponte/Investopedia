@@ -46,7 +46,6 @@ class DictionaryViewController: UIViewController {
         viewModel.fetchTerms()
         viewModel.updateFilteredTerms(with: "")
     }
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
