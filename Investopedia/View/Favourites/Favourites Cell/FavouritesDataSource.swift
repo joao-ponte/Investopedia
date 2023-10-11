@@ -44,10 +44,23 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
         }
         
         if let changePercent24Hr = crypto.changePercent24Hr {
-            let formattedPercentage = NumberFormatter.formatPercentage(changePercent24Hr)
-            cell.cryptoChange24Hrs.text = "Change 24Hrs: \n\(formattedPercentage)"
+            if let percentage = Double(changePercent24Hr) {
+                let formattedPercentage = NumberFormatter.formatPercentage(percentage)
+                cell.cryptoChange24Hrs.text = formattedPercentage
+                
+                // Determine text color based on the sign of the percentage
+                if percentage >= 0 {
+                    cell.cryptoChange24Hrs.textColor = .darkGreen
+                } else {
+                    cell.cryptoChange24Hrs.textColor = .darkRed
+                }
+            } else {
+                cell.cryptoChange24Hrs.text = "N/A"
+                cell.cryptoChange24Hrs.textColor = .black
+            }
         } else {
-            cell.cryptoChange24Hrs.text = "Change 24Hrs: N/A"
+            cell.cryptoChange24Hrs.text = "N/A"
+            cell.cryptoChange24Hrs.textColor = .black
         }
         
         if let name = crypto.name, let symbol = crypto.symbol {
@@ -55,11 +68,13 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
         } else {
             cell.cryptoName.text = "N/A"
         }
+        
+        // Configure label to have multiple lines
         cell.cryptoName.numberOfLines = 0
         cell.cryptoPrice.numberOfLines = 0
         cell.cryptoChange24Hrs.numberOfLines = 0
         cell.cryptoName.preferredMaxLayoutWidth = cell.cryptoName.frame.size.width
-//        cell.cryptoName.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-
+        cell.cryptoName.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
+
 }
