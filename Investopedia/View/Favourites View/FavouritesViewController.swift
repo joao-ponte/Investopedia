@@ -12,7 +12,6 @@ class FavouritesViewController: UIViewController {
     @IBOutlet weak var noFavouritesImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Properties
     internal var viewModel: FavouritesViewModelProtocol!
@@ -30,7 +29,6 @@ class FavouritesViewController: UIViewController {
         setupViewModel()
         setupUI()
         configureFavouritesLayout()
-        setupSearchBar()
         collectionView.delegate = favouritesDelegate
     }
 }
@@ -49,17 +47,12 @@ extension FavouritesViewController {
         collectionView.dataSource = favouritesDataSource
         collectionView.delegate = favouritesDelegate
     }
-    
-    private func setupSearchBar() {
-        searchBar.delegate = self
-    }
 }
 // MARK: - ViewModel Setup
 extension FavouritesViewController {
     private func setupViewModel() {
         let database = CoreDataManager()
         viewModel = FavouritesViewModel(database: database)
-        viewModel.delegate = self
     }
 }
 // MARK: - Data Handling
@@ -90,18 +83,5 @@ extension FavouritesViewController {
             cryptoStatisticsViewController.viewModel = CryptoCurrencyStatisticsViewModel(database: database, networkManager: networkManager)
             cryptoStatisticsViewController.viewModel?.setSelectedCrypto(crypto)
         }
-    }
-}
-// MARK: - FavouritesViewModelDelegate
-extension FavouritesViewController: FavouritesViewModelDelegate {
-    func filteredCryptoCurrenciesUpdated() {
-        collectionView.reloadData()
-    }
-}
-
-// MARK: - UISearchBarDelegate
-extension FavouritesViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.updateFilteredCryptoCurrencies(with: searchText)
     }
 }

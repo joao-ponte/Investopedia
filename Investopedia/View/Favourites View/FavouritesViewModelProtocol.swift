@@ -7,14 +7,9 @@
 
 import Foundation
 
-protocol FavouritesViewModelDelegate: AnyObject {
-    func filteredCryptoCurrenciesUpdated()
-}
-
 protocol FavouritesViewModelProtocol {
-    var delegate: FavouritesViewModelDelegate? { get set }
-    var filteredCryptoCurrencies: [CryptoCurrencyEntity]? { get }
+
+    var favoriteCryptoCurrencies: [CryptoCurrencyEntity]? { get }
     var favouriteCryptoCurrencies: [CryptoCurrencyEntity]? { get }
     func updateFavourites()
-    func updateFilteredCryptoCurrencies(with searchText: String)
 }

@@ -17,7 +17,7 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return viewModel.filteredCryptoCurrencies?.count ?? 0
+        return viewModel.favoriteCryptoCurrencies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -36,7 +36,6 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
     }
     
     private func configureCell(_ cell: FavouritesCollectionViewCell, with crypto: CryptoCurrencyEntity) {
-        // Safely unwrap and provide a default value for priceUsd
         let formattedPrice = PriceFormatter.formatUsdPrice(price: crypto.priceUsd ?? "N/A")
         let formattedPercentage = NumberFormatter.formatPercentage(crypto.changePercent24Hr)
         
