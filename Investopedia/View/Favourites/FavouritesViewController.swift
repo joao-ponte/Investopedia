@@ -41,16 +41,11 @@ class FavouritesViewController: UIViewController {
     }
     
     private func setupAutoRefreshTimer() {
-        // Invalidate the existing timer to avoid multiple timers running simultaneously
         autoRefreshTimer?.invalidate()
         
-        // Create a new timer that fires every 40 seconds
         autoRefreshTimer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true) { [weak self] _ in
-            // Update favourites and reload collection view
             self?.loadFavouriteCryptocurrencies()
         }
-        
-        // Fire the timer immediately (optional)
         autoRefreshTimer?.fire()
     }
 }

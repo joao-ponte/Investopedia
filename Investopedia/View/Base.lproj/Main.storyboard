@@ -320,7 +320,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cDm-d6-Uug">
-                                    <size key="itemSize" width="188" height="149"/>
+                                    <size key="itemSize" width="152" height="137"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -331,32 +331,32 @@
                                 </imageView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCell" id="Xvx-LC-2UP" userLabel="FavouritesCell" customClass="FavouritesCollectionViewCell" customModule="Investopedia" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="188" height="149"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="137"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FYO-zZ-lgo">
-                                            <rect key="frame" x="0.0" y="0.0" width="188" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="152" height="137"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cryptoName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-0n-IDY">
-                                                    <rect key="frame" x="4" y="8" width="180" height="24"/>
+                                                    <rect key="frame" x="4" y="8" width="144" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change 24Hrs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pK-rc-7Kl">
-                                                    <rect key="frame" x="4" y="72" width="180" height="24"/>
+                                                    <rect key="frame" x="4" y="72" width="144" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQ5-MB-lsl">
-                                                    <rect key="frame" x="4" y="40" width="180" height="24"/>
+                                                    <rect key="frame" x="4" y="40" width="144" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="change24Hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuI-lt-I2v">
-                                                    <rect key="frame" x="4" y="104" width="180" height="24"/>
+                                                    <rect key="frame" x="4" y="104" width="144" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -378,7 +378,7 @@
                                                 <constraint firstItem="XuI-lt-I2v" firstAttribute="leading" secondItem="FYO-zZ-lgo" secondAttribute="leading" constant="4" id="xLG-no-Q0v"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="188" height="149"/>
+                                        <size key="customSize" width="152" height="137"/>
                                         <connections>
                                             <outlet property="cryptoChange24Hrs" destination="XuI-lt-I2v" id="yrr-Cz-qQn"/>
                                             <outlet property="cryptoName" destination="9Aw-0n-IDY" id="VCO-2j-ndr"/>
