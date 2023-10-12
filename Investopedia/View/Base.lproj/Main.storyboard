@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZdJ-Bg-nzu">
-    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
@@ -360,7 +360,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="0.75239522567647976" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="4pK-rc-7Kl" firstAttribute="leading" secondItem="FYO-zZ-lgo" secondAttribute="leading" constant="4" id="1R4-rC-Vxd"/>
                                                 <constraint firstItem="9Aw-0n-IDY" firstAttribute="leading" secondItem="FYO-zZ-lgo" secondAttribute="leading" constant="4" id="4Fz-fu-gM7"/>
@@ -498,7 +498,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GpG-Ql-j2Y"/>
+        <segue reference="iTU-SY-RQN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NoFavourites" width="500" height="500"/>
