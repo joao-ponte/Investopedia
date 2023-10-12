@@ -48,7 +48,6 @@ class FavouritesDataSource: NSObject, UICollectionViewDataSource {
                 let formattedPercentage = NumberFormatter.formatPercentage(percentage)
                 cell.cryptoChange24Hrs.text = formattedPercentage
                 
-                // Determine text color based on the sign of the percentage
                 if percentage >= 0 {
                     cell.cryptoChange24Hrs.textColor = .darkGreen
                 } else {

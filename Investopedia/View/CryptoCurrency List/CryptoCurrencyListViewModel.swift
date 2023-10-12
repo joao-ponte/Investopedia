@@ -66,24 +66,20 @@ final class CryptoCurrencyListViewModel {
 
 extension CryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
 
-    func fetchData(completion: @escaping () -> Void) {
-        fetchCryptoCurrencies(completion: completion)
-    }
-
-    // MARK: - Private Methods
-
-    private func fetchCryptoCurrencies(completion: @escaping () -> Void) {
+    func fetchData(completion: @escaping (Result<Void, Error>) -> Void) {
         print("Fetching data from the API...")
         networkManager.request(APIEndpoint.cryptoCurrencies, responseType: ResponseCryptos.self) { [weak self] result in
             switch result {
             case .success(let cryptos):
                 self?.processFetchedCryptoCurrencies(cryptos.data)
+                completion(.success(()))
             case .failure(let error):
-                self?.handleError(error)
+                completion(.failure(error))
             }
-            completion()
         }
     }
+
+    // MARK: - Private Methods
 
     private func processFetchedCryptoCurrencies(_ cryptos: [CryptoCurrency]) {
         let filteredCryptos = filterCryptos(with: searchQuery, from: cryptos)

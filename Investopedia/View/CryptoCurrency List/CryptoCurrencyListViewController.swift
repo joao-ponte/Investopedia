@@ -42,7 +42,7 @@ class CryptoCurrencyListViewController: UIViewController {
     
     private func setupUI() {
         setupTableView()
-        setupSearchBar()      
+        setupSearchBar()
     }
     
     private func setupTableView() {
@@ -64,17 +64,24 @@ class CryptoCurrencyListViewController: UIViewController {
         
         activityIndicator.startAnimating()
         
-        viewModel.fetchData { [weak self] in
+        viewModel.fetchData { [weak self] result in
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.tableView.reloadData()
+                
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    self?.handleFetchError(error)
+                }
             }
         }
     }
     
     private func setupAutoRefreshTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true) { [weak self] _ in
-            self?.viewModel.fetchData {
+            self?.viewModel.fetchData {_ in
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -86,6 +93,18 @@ class CryptoCurrencyListViewController: UIViewController {
     
     private func setupTableViewDelegate() {
         tableView.delegate = self
+    }
+    
+    private func handleFetchError(_ error: Error) {
+        let title = "Data Fetching Error"
+        let message = "Failed to fetch data. Please check your internet connection and try again later."
+        
+        DispatchQueue.main.async {
+            guard self.presentedViewController == nil else {
+                return
+            }
+            Alert.basicAlert(title: title, message: message, vc: self)
+        }
     }
 }
 

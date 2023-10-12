@@ -9,7 +9,7 @@ import Foundation
 
 protocol CryptoCurrencyListViewModelProtocol {
     // MARK: - Data Fetching
-    func fetchData(completion: @escaping () -> Void)
+    func fetchData(completion: @escaping (Result<Void, Error>) -> Void)
     
     // MARK: - Properties
     var cryptoCurrencies: [CryptoCurrency] { get }
