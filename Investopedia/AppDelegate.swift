@@ -10,13 +10,18 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var window: UIWindow?
     var networkManager: NetworkManagerProtocol?
     var database: Database?
     var timer: Timer?
-    
+    let networkUtility = NetworkUtility()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         networkManager = NetworkManager()
         database = CoreDataManager()
+        networkUtility.delegate = self
+        networkUtility.startMonitoring()
+
         
         startDataUpdateTimer()
         
@@ -57,6 +62,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+extension AppDelegate: NetworkUtilityDelegate {
+    func networkStatusDidChange(isConnected: Bool) {
+        if !isConnected {
+            DispatchQueue.main.async {
+                // Show your alert here
+                let rootViewController = UIApplication.shared.windows.first?.rootViewController
+                Alert.basicAlert(title: "No Internet Connection", message: "Please check your internet connection.", vc: rootViewController ?? UIViewController())
             }
         }
     }
