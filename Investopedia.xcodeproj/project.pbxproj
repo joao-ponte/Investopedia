@@ -20,7 +20,6 @@
 		FC1132162AB8A78100A306A8 /* CryptoStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */; };
 		FC27450E2AB30200007C0FC1 /* MockNetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27450D2AB30200007C0FC1 /* MockNetworkUtility.swift */; };
 		FC2745102AB30298007C0FC1 /* NetworkUtilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27450F2AB30298007C0FC1 /* NetworkUtilityProtocol.swift */; };
-		FC2745152AB35B24007C0FC1 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2745142AB35B24007C0FC1 /* LaunchScreenViewController.swift */; };
 		FC2745182AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FC2745172AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 */; };
 		FC27451B2AB451D8007C0FC1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27451A2AB451D8007C0FC1 /* CoreDataStack.swift */; };
 		FC27451E2AB45283007C0FC1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27451D2AB45283007C0FC1 /* Database.swift */; };
@@ -89,7 +88,6 @@
 		FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoStatisticsCell.swift; sourceTree = "<group>"; };
 		FC27450D2AB30200007C0FC1 /* MockNetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkUtility.swift; sourceTree = "<group>"; };
 		FC27450F2AB30298007C0FC1 /* NetworkUtilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilityProtocol.swift; sourceTree = "<group>"; };
-		FC2745142AB35B24007C0FC1 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		FC2745172AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = InvestopediaOpenView.mp4; sourceTree = "<group>"; };
 		FC27451A2AB451D8007C0FC1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FC27451D2AB45283007C0FC1 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		FC2745132AB35AFE007C0FC1 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FC2745142AB35B24007C0FC1 /* LaunchScreenViewController.swift */,
 				FC5E95DE2A56B6A300CECAC1 /* LaunchScreen.storyboard */,
 				FC2745162AB35BC2007C0FC1 /* Video */,
 			);
@@ -616,7 +613,6 @@
 				FC2745212AB45428007C0FC1 /* Investopedia.xcdatamodeld in Sources */,
 				FCD375F82ACD66930057E0D3 /* FavouritesViewModelProtocol.swift in Sources */,
 				FC1132142AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift in Sources */,
-				FC2745152AB35B24007C0FC1 /* LaunchScreenViewController.swift in Sources */,
 				FC571F872AA35B7100024B78 /* CryptoCurrencyListViewController.swift in Sources */,
 				FC0A5A6B2ABB311300FC47D5 /* CryptoCellType.swift in Sources */,
 				FCD375F62ACD663D0057E0D3 /* FavouritesViewModel.swift in Sources */,

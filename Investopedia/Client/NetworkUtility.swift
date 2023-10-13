@@ -28,11 +28,6 @@ class NetworkUtility: NetworkUtilityProtocol {
         let monitor = NWPathMonitor()
         let networkStatus = monitor.currentPath.status
 
-        switch networkStatus {
-        case .satisfied:
-            return true
-        default:
-            return false
-        }
+        return networkStatus == .satisfied ? true : false
     }
 }
