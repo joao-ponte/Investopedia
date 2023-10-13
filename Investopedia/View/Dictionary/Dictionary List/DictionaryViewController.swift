@@ -91,6 +91,15 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = term.word
         cell.textLabel?.numberOfLines = 0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sectionTitle = viewModel.sectionTitles[indexPath.section]
+        if let termsInSection = viewModel.termsBySection[sectionTitle] {
+            let selectedTerm = termsInSection[indexPath.row]
+            performSegue(withIdentifier: "showDetails", sender: selectedTerm)
+        }
+    }
+
 }
 
 // MARK: - UISearchBarDelegate

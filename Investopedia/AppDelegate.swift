@@ -56,7 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self?.networkManager?.requestCryptoCurrencyData(for: cryptoID) { result in
                         switch result {
                         case .success(let cryptoData):
-                            self?.database?.updateCoreData(with: cryptoData.data)
+                            if cryptoData.data != nil {
+                                self?.database?.updateCoreData(with: cryptoData.data)
+                            } else {
+                                print("Received nil cryptoData for \(cryptoID)")
+                            }
                         case .failure(let error):
                             print("Failed to update data for \(cryptoID): \(error)")
                         }
