@@ -45,6 +45,7 @@ class DictionaryViewController: UIViewController {
         viewModel = DictionaryViewModel()
         viewModel.fetchTerms()
         viewModel.updateFilteredTerms(with: "")
+        viewModel.updateSections()
     }
     // MARK: - Navigation
     
@@ -61,32 +62,32 @@ class DictionaryViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        let numberOfFilteredTerms = viewModel.filteredTerms.count
-        wordNotFoundImage.isHidden = numberOfFilteredTerms != 0
-        return numberOfFilteredTerms
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.sectionTitles.count
     }
-    
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell",
-                                                 for: indexPath)
-        let term = viewModel.filteredTerms[indexPath.row]
-        configureCell(cell, with: term)
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionTitle = viewModel.sectionTitles[section]
+        return viewModel.termsBySection[sectionTitle]?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath)
+
+        let sectionTitle = viewModel.sectionTitles[indexPath.section]
+        if let termsInSection = viewModel.termsBySection[sectionTitle] {
+            let term = termsInSection[indexPath.row]
+            configureCell(cell, with: term)
+        }
+
         return cell
     }
-    
-    func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetails",
-                     sender: viewModel.filteredTerms[indexPath.row])
-        tableView.deselectRow(at: indexPath, animated: true)
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.sectionTitles[section]
     }
     
-    private func configureCell(_ cell: UITableViewCell,
-                               with term: FinancialTerm) {
+    private func configureCell(_ cell: UITableViewCell, with term: FinancialTerm) {
         cell.textLabel?.text = term.word
         cell.textLabel?.numberOfLines = 0
     }

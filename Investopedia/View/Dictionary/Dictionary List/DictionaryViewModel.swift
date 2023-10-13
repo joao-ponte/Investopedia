@@ -17,6 +17,11 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
     
     private(set) var terms: [FinancialTerm] = []
     private var searchQuery: String = ""
+    
+    // New properties for sections
+    private(set) var termsBySection: [String: [FinancialTerm]] = [:]
+    private(set) var sectionTitles: [String] = []
+    
     var filteredTerms: [FinancialTerm] {
         if searchQuery.isEmpty {
             return terms
@@ -43,16 +48,19 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         } catch {
             print("Error decoding JSON: \(error)")
         }
+        updateSections()
     }
     
     func term(at index: Int) -> FinancialTerm? {
-        guard index >= 0 && index < terms.count else { return nil }
-        return terms[index]
+        guard index >= 0 && index < sectionTitles.count else { return nil }
+        let sectionTitle = sectionTitles[index]
+        return termsBySection[sectionTitle]?.first
     }
     
     func updateFilteredTerms(with searchText: String) {
         let trimmedSearchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         searchQuery = trimmedSearchText
+        updateSections()
         delegate?.filteredTermsUpdated()
     }
     
@@ -65,5 +73,23 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
     
     private func sortTermsAlphabetically() {
         terms.sort { $0.word < $1.word }
+    }
+    
+    internal func updateSections() {
+        termsBySection = [:]
+        sectionTitles = []
+        
+        for term in filteredTerms {
+            let startingLetter = String(term.word.prefix(1)).uppercased()
+            if termsBySection[startingLetter] == nil {
+                termsBySection[startingLetter] = []
+                sectionTitles.append(startingLetter)
+            }
+            termsBySection[startingLetter]?.append(term)
+        }
+        
+        for key in termsBySection.keys {
+            termsBySection[key]?.sort { $0.word < $1.word }
+        }
     }
 }
