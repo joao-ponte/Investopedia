@@ -101,6 +101,8 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             let selectedTerm = termsInSection[indexPath.row]
             performSegue(withIdentifier: "showDetails", sender: selectedTerm)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
 
 }
