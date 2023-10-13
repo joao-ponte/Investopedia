@@ -68,7 +68,10 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionTitle = viewModel.sectionTitles[section]
-        return viewModel.termsBySection[sectionTitle]?.count ?? 0
+        let numberOfRows = viewModel.termsBySection[sectionTitle]?.count ?? 0
+        wordNotFoundImage.isHidden = numberOfRows > 0
+
+        return numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,6 +112,8 @@ extension DictionaryViewController: UISearchBarDelegate {
                    textDidChange searchText: String) {
         viewModel.updateFilteredTerms(with: searchText)
         tableView.reloadData()
+        wordNotFoundImage.isHidden = viewModel.filteredTerms.count > 0
+
     }
 }
 // MARK: - UISrollViewDelegate

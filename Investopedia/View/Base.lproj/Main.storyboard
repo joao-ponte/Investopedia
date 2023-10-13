@@ -10,6 +10,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VyA-9H-taW">
+            <objects>
+                <tabBarController id="ZdJ-Bg-nzu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PRh-lf-23f"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K7L-aK-dkL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1fw-xM-hjB" kind="relationship" relationship="viewControllers" id="9qH-mV-jAm"/>
+                        <segue destination="OW4-cH-3gK" kind="relationship" relationship="viewControllers" id="ueY-6V-b87"/>
+                        <segue destination="wKY-13-cJf" kind="relationship" relationship="viewControllers" id="1j6-eo-BNW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqM-3J-FCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1076" y="668"/>
+        </scene>
+        <!--Fin-Dictionary-->
+        <scene sceneID="ndW-xZ-zY0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OW4-cH-3gK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Fin-Dictionary" image="text.book.closed" catalog="system" id="CXr-ld-CY6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpH-p2-uAJ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vj5-vB-Ju0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DKI-Yb-pRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="78.625954198473281" y="3.5211267605633805"/>
+        </scene>
         <!--Fin-Dictionary-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -67,26 +105,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.3435114503816" y="3.5211267605633805"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="VyA-9H-taW">
-            <objects>
-                <tabBarController id="ZdJ-Bg-nzu" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="PRh-lf-23f"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K7L-aK-dkL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <tabBarAppearance key="standardAppearance"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="1fw-xM-hjB" kind="relationship" relationship="viewControllers" id="9qH-mV-jAm"/>
-                        <segue destination="OW4-cH-3gK" kind="relationship" relationship="viewControllers" id="ueY-6V-b87"/>
-                        <segue destination="wKY-13-cJf" kind="relationship" relationship="viewControllers" id="98B-wD-RYj"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wqM-3J-FCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1076" y="668"/>
         </scene>
         <!--Term Detail View Controller-->
         <scene sceneID="alI-Yo-iiN">
@@ -199,25 +217,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ax-5p-FPz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1820.6106870229007" y="3.5211267605633805"/>
-        </scene>
-        <!--Fin-Dictionary-->
-        <scene sceneID="ndW-xZ-zY0">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OW4-cH-3gK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Fin-Dictionary" image="text.book.closed" catalog="system" id="CXr-ld-CY6"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpH-p2-uAJ">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vj5-vB-Ju0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DKI-Yb-pRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="78.625954198473281" y="3.5211267605633805"/>
         </scene>
         <!--Cryptocurrency List-->
         <scene sceneID="sxy-Rl-hcP">
