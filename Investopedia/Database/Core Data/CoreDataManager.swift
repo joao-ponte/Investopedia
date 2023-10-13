@@ -88,8 +88,13 @@ class CoreDataManager: Database {
             do {
                 try context.save()
             } catch {
-                let nserror = error as NSError
-                fatalError("Can not save context \(nserror), \(nserror.userInfo)")
+                if let nserror = error as? NSError {
+                    if nserror.domain == NSCocoaErrorDomain && nserror.code == NSValidationMissingMandatoryPropertyError {
+                        print("Received nil data from API. Skipping save for now.")
+                    } else {
+                        fatalError("Error saving context: \(error), \(nserror.userInfo)")
+                    }
+                }
             }
         }
     }

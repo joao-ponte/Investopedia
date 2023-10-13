@@ -76,6 +76,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K7L-aK-dkL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <tabBarAppearance key="standardAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="1fw-xM-hjB" kind="relationship" relationship="viewControllers" id="9qH-mV-jAm"/>
@@ -203,9 +204,7 @@
         <scene sceneID="ndW-xZ-zY0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OW4-cH-3gK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Fin-Dictionary" image="text.book.closed" catalog="system" id="CXr-ld-CY6">
-                        <color key="badgeColor" systemColor="systemGroupedBackgroundColor"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Fin-Dictionary" image="text.book.closed" catalog="system" id="CXr-ld-CY6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpH-p2-uAJ">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -289,9 +288,7 @@
         <scene sceneID="p12-1j-fhj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fw-xM-hjB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Crypto List" image="bitcoinsign" catalog="system" id="bbE-na-mXg">
-                        <color key="badgeColor" systemColor="systemGroupedBackgroundColor"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Crypto List" image="bitcoinsign" catalog="system" id="bbE-na-mXg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K9n-9t-jXn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -354,13 +351,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="change24Hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuI-lt-I2v">
-                                                    <rect key="frame" x="4" y="104" width="144" height="24"/>
+                                                    <rect key="frame" x="4" y="97" width="144" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="0.75239522567647976" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="4pK-rc-7Kl" firstAttribute="leading" secondItem="FYO-zZ-lgo" secondAttribute="leading" constant="4" id="1R4-rC-Vxd"/>
                                                 <constraint firstItem="9Aw-0n-IDY" firstAttribute="leading" secondItem="FYO-zZ-lgo" secondAttribute="leading" constant="4" id="4Fz-fu-gM7"/>
@@ -369,7 +365,7 @@
                                                 <constraint firstItem="4pK-rc-7Kl" firstAttribute="top" secondItem="LQ5-MB-lsl" secondAttribute="bottom" constant="8" id="Rg7-Vs-cOV"/>
                                                 <constraint firstItem="LQ5-MB-lsl" firstAttribute="leading" secondItem="FYO-zZ-lgo" secondAttribute="leading" constant="4" id="hIC-Sg-fjJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="XuI-lt-I2v" secondAttribute="trailing" constant="4" id="nDZ-0N-BgD"/>
-                                                <constraint firstItem="XuI-lt-I2v" firstAttribute="top" secondItem="4pK-rc-7Kl" secondAttribute="bottom" constant="8" id="nSL-wT-KYX"/>
+                                                <constraint firstItem="XuI-lt-I2v" firstAttribute="top" secondItem="4pK-rc-7Kl" secondAttribute="bottom" constant="1" id="nSL-wT-KYX"/>
                                                 <constraint firstAttribute="trailing" secondItem="4pK-rc-7Kl" secondAttribute="trailing" constant="4" id="rDS-xe-Xbb"/>
                                                 <constraint firstAttribute="trailing" secondItem="LQ5-MB-lsl" secondAttribute="trailing" constant="4" id="vkO-Uc-AJW"/>
                                                 <constraint firstItem="9Aw-0n-IDY" firstAttribute="top" secondItem="FYO-zZ-lgo" secondAttribute="top" constant="8" id="voQ-IQ-plo"/>
@@ -387,7 +383,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZaV-Vw-rxo"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zIw-uD-l5O" firstAttribute="leading" secondItem="ZaV-Vw-rxo" secondAttribute="leading" id="Qqf-dT-1qW"/>
                             <constraint firstItem="zIw-uD-l5O" firstAttribute="top" secondItem="ZaV-Vw-rxo" secondAttribute="top" id="Y6Q-GC-ka3"/>
@@ -498,7 +494,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iTU-SY-RQN"/>
+        <segue reference="GpG-Ql-j2Y"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NoFavourites" width="500" height="500"/>
@@ -511,13 +507,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

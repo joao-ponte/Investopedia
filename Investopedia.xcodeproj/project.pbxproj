@@ -20,7 +20,6 @@
 		FC1132162AB8A78100A306A8 /* CryptoStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */; };
 		FC27450E2AB30200007C0FC1 /* MockNetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27450D2AB30200007C0FC1 /* MockNetworkUtility.swift */; };
 		FC2745102AB30298007C0FC1 /* NetworkUtilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27450F2AB30298007C0FC1 /* NetworkUtilityProtocol.swift */; };
-		FC2745182AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FC2745172AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 */; };
 		FC27451B2AB451D8007C0FC1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27451A2AB451D8007C0FC1 /* CoreDataStack.swift */; };
 		FC27451E2AB45283007C0FC1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27451D2AB45283007C0FC1 /* Database.swift */; };
 		FC2745212AB45428007C0FC1 /* Investopedia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC27451F2AB45428007C0FC1 /* Investopedia.xcdatamodeld */; };
@@ -88,7 +87,6 @@
 		FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoStatisticsCell.swift; sourceTree = "<group>"; };
 		FC27450D2AB30200007C0FC1 /* MockNetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkUtility.swift; sourceTree = "<group>"; };
 		FC27450F2AB30298007C0FC1 /* NetworkUtilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilityProtocol.swift; sourceTree = "<group>"; };
-		FC2745172AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = InvestopediaOpenView.mp4; sourceTree = "<group>"; };
 		FC27451A2AB451D8007C0FC1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FC27451D2AB45283007C0FC1 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		FC2745202AB45428007C0FC1 /* Investopedia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Investopedia.xcdatamodel; sourceTree = "<group>"; };
@@ -197,17 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				FC5E95DE2A56B6A300CECAC1 /* LaunchScreen.storyboard */,
-				FC2745162AB35BC2007C0FC1 /* Video */,
 			);
 			path = LaunchScreen;
-			sourceTree = "<group>";
-		};
-		FC2745162AB35BC2007C0FC1 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				FC2745172AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 */,
-			);
-			path = Video;
 			sourceTree = "<group>";
 		};
 		FC2745192AB451A0007C0FC1 /* Database */ = {
@@ -556,7 +545,6 @@
 				FC5E95E02A56B6A300CECAC1 /* LaunchScreen.storyboard in Resources */,
 				FCC276442A98AF05005A63D8 /* FinancialDictionaryData.json in Resources */,
 				FC5E95DD2A56B6A300CECAC1 /* Assets.xcassets in Resources */,
-				FC2745182AB35BF1007C0FC1 /* InvestopediaOpenView.mp4 in Resources */,
 				FC5E95DB2A56B6A100CECAC1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
