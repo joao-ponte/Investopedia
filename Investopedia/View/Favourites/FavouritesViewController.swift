@@ -54,9 +54,10 @@ extension FavouritesViewController {
     
     private func configureFavouritesLayout() {
         let spacing: CGFloat = 10
-        let itemWidth = (collectionView.frame.width - 3 * spacing) / 2
+        let maxCellWidth = collectionView.frame.width - 22.5 * spacing // Adjust as needed
+        let itemWidth = min(maxCellWidth, collectionView.frame.width)
         let itemHeight = itemWidth
-        
+
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumInteritemSpacing = spacing
@@ -64,6 +65,7 @@ extension FavouritesViewController {
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         collectionView.collectionViewLayout = layout
     }
+
     
     private func setupUI() {
         collectionView.dataSource = favouritesDataSource
