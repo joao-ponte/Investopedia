@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         networkUtility.delegate = self
         networkUtility.startMonitoring()
 
-        
+        TabBarAppearanceHelper.setupTabBarAppearance()
         startDataUpdateTimer()
         
         return true
