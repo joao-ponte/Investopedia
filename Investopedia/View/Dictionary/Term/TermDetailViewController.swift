@@ -49,6 +49,10 @@ class TermDetailViewController: UIViewController {
             meaningLabel.text = term.meaning
             exampleLabel.text = term.example
             wordLabel.text = term.word
+            wordLabel.addUnderline()
+            
+            meaningLabel.roundCorners(cornerRadius: 15)
+            exampleLabel.roundCorners(cornerRadius: 15)
             
             updateButtonStates()
             updateButtonTitles()
@@ -63,5 +67,22 @@ class TermDetailViewController: UIViewController {
     private func updateButtonTitles() {
         previousButton.setTitle(viewModel.previousTerm()?.word, for: .normal)
         nextButton.setTitle(viewModel.nextTerm()?.word, for: .normal)
+    }
+}
+
+extension UIView {
+    func roundCorners(cornerRadius: CGFloat) {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+    }
+}
+
+extension UILabel {
+    func addUnderline() {
+        if let labelText = text {
+            let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+            let attributedString = NSMutableAttributedString(string: labelText, attributes: underlineAttribute)
+            attributedText = attributedString
+        }
     }
 }

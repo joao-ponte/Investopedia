@@ -668,7 +668,7 @@
     },
     {
       "id": 113,
-      "word": "Gross Margin",
+      "word": "Gross Margin (%)",
       "meaning": "A financial ratio that measures a company's profitability by calculating the percentage of each dollar of revenue remaining after subtracting the cost of goods sold.",
       "example": "If a company generates $1,000,000 in revenue and $600,000 in cost of goods sold, the gross margin would be 40% ($400,000 / $1,000,000)."
     },
