@@ -134,4 +134,29 @@ class DictionaryViewModelTests: XCTestCase {
         XCTAssertEqual(resultTerm2, term2)
         XCTAssertNil(resultInvalidIndex)
     }
+    
+    func testSearchQuery() {
+        // Given
+        let initialSearchQuery = viewModel.getSearchQueryForTesting()
+        let newSearchQuery = "test"
+        
+        // When
+        viewModel.updateFilteredTerms(with: newSearchQuery)
+        
+        // Then
+        XCTAssertEqual(viewModel.getSearchQueryForTesting(), newSearchQuery)
+        XCTAssertNotEqual(viewModel.getSearchQueryForTesting(), initialSearchQuery)
+    }
+    
+    func testDelegateInvocation() {
+        // Given
+        let searchText = "test"
+        viewModel.delegate = delegateMock
+        
+        // When
+        viewModel.updateFilteredTerms(with: searchText)
+        
+        // Then
+        XCTAssertTrue(delegateMock.filteredTermsUpdatedCalled)
+    }
 }

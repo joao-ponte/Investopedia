@@ -68,6 +68,10 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         self.terms = terms
     }
     
+    func getSearchQueryForTesting() -> String {
+            return searchQuery
+        }
+    
     // MARK: - Private Methods
     
     private func updateTerms(with newTerms: [FinancialTerm]) {
@@ -83,7 +87,9 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         termsBySection = [:]
         sectionTitles = []
         
-        for term in filteredTerms {
+        let sortedTerms = filteredTerms.sorted { $0.word < $1.word }
+        
+        for term in sortedTerms {
             let startingLetter = String(term.word.prefix(1)).uppercased()
             if termsBySection[startingLetter] == nil {
                 termsBySection[startingLetter] = []
