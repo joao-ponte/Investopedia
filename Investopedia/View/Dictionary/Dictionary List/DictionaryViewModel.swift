@@ -50,11 +50,11 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         }
         updateSections()
     }
-    
+
     func term(at index: Int) -> FinancialTerm? {
-        guard index >= 0 && index < sectionTitles.count else { return nil }
-        let sectionTitle = sectionTitles[index]
-        return termsBySection[sectionTitle]?.first
+        guard index >= 0 && index < terms.count else { return nil }
+        let term = terms[index]
+        return term
     }
     
     func updateFilteredTerms(with searchText: String) {
@@ -62,6 +62,10 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         searchQuery = trimmedSearchText
         updateSections()
         delegate?.filteredTermsUpdated()
+    }
+    
+    func setTermsForTesting(_ terms: [FinancialTerm]) {
+        self.terms = terms
     }
     
     // MARK: - Private Methods

@@ -9,6 +9,10 @@ import Foundation
 @testable import Investopedia
 
 class MockCryptoCurrencyListViewModel: CryptoCurrencyListViewModelProtocol {
+    func fetchData(completion: @escaping (Result<Void, Error>) -> Void) {
+        return
+    }
+    
     var selectedCrypto: Investopedia.CryptoCurrency?
     var cryptoCurrencies: [CryptoCurrency] = []
     var filteredCryptoCurrencies: [CryptoCurrency] = []

@@ -10,6 +10,22 @@ import Foundation
 
 
 class MockCryptoCurrencyStatisticsViewModel: CryptoCurrencyStatisticsViewModelProtocol {
+    func toggleFavorite() {
+        return
+    }
+    
+    func fetchData() {
+        return
+    }
+    
+    func stopRefreshTimer() {
+        return
+    }
+    
+    func isFavorite(crypto: Investopedia.CryptoCurrency) -> Bool {
+        return true
+    }
+    
     var selectedCrypto: CryptoCurrency?
     var delegate: CryptoCurrencyStatisticsViewModelDelegate?
     var coinTitleText: String = "MockCoinTitle"
