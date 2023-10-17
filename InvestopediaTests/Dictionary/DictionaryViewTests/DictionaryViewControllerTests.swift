@@ -2,60 +2,76 @@
 //  DictionaryViewControllerTests.swift
 //  InvestopediaTests
 //
-//  Created by João Ponte on 30/08/2023.
+//  Created by João Ponte on 17/10/2023.
 //
 
-//import XCTest
-//@testable import Investopedia
-//
-//class DictionaryViewControllerTests: XCTestCase {
-//
-//    var sut: DictionaryViewController!
-//    var mockViewModel: MockDictionaryViewModel!
-//
-//    override func setUpWithError() throws {
-//        sut = UIStoryboard(name: "Main", bundle: nil)
-//            .instantiateViewController(identifier: "DictionaryViewController") as? DictionaryViewController
-//        _ = sut.view // Load the view hierarchy
-//        
-//        mockViewModel = MockDictionaryViewModel()
-//        sut.viewModel = mockViewModel
-//    }
-//
-//    override func tearDownWithError() throws {
-//        sut = nil
-//        mockViewModel = nil
-//    }
-//    
-//    func testViewDidLoad_SetsUpUIElementsAndViewModel() {
-//        // When
-//        sut.viewDidLoad()
-//        
-//        // Then
-//        XCTAssertNotNil(sut.searchBar.delegate)
-//        XCTAssertNotNil(sut.tableView.delegate)
-//        XCTAssertNotNil(sut.tableView.dataSource)
-//    }
-//    
-////    func testTermAtIndexCalled() {
-////        let _ = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
-////        XCTAssertTrue(mockViewModel.termAtIndexCalled)
-////    }
-//    
-////    func testDidSelectRow() {
-////        let tableView = sut.tableView
-////        let indexPath = IndexPath(row: 0, section: 0)
-////        
-////        sut.tableView(tableView!, didSelectRowAt: indexPath)
-////        
-////        XCTAssertTrue(mockViewModel.termAtIndexCalled)
-////    }
-//    
-//    func testTableViewDataSource_NumberOfRowsInSection() {
-//        // Given
-//        let rowCount = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
-//        
-//        // Then
-//        XCTAssertEqual(rowCount, mockViewModel.filteredTerms.count)
-//    }
-//}
+import XCTest
+@testable import Investopedia
+
+class DictionaryViewControllerTests: XCTestCase {
+    
+    var viewController: DictionaryViewController!
+    var viewModelMock: DictionaryViewModelMock!
+    
+    override func setUp() {
+        super.setUp()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        viewController = storyboard.instantiateViewController(withIdentifier: "DictionaryViewController") as? DictionaryViewController
+        viewModelMock = DictionaryViewModelMock()
+        viewController.viewModel = viewModelMock
+        viewController.loadViewIfNeeded()
+    }
+    
+    override func tearDown() {
+        viewController = nil
+        viewModelMock = nil
+        super.tearDown()
+    }
+    
+    func testViewDidLoad() {
+        // Given
+        let searchBarDelegate = viewController.searchBar.delegate
+
+        // When
+        viewController.viewDidLoad()
+
+        // Then
+        XCTAssertNotNil(searchBarDelegate)
+    }
+    
+    func testSearchBarTextDidChangeUpdatesViewModel() {
+        // Given
+        let searchText = "Test Search"
+        
+        // When
+        viewController.searchBar(UISearchBar(), textDidChange: searchText)
+        
+        // Then
+        XCTAssertEqual(viewModelMock.searchText, searchText)
+    }
+    
+    func testTableViewDataSource() {
+        // Given
+        let viewModelMock = DictionaryViewModelMock()
+        viewController.viewModel = viewModelMock
+        
+        viewModelMock.sectionTitles = ["A", "B", "C"]
+        viewModelMock.termsBySection = [
+            "A": [FinancialTerm(id: 1, word: "Apple", meaning: "Apple definition", example: "Apple Example")],
+            "B": [FinancialTerm(id: 2, word: "Banana", meaning: "Banana definition", example: "Banana Example")],
+            "C": [FinancialTerm(id: 3, word: "Cherry", meaning: "Cherry definition", example: "Cherry Example")]
+        ]
+        
+        // When
+        let numberOfSections = viewController.numberOfSections(in: viewController.tableView)
+        let numberOfRowsInFirstSection = viewController.tableView(viewController.tableView, numberOfRowsInSection: 0)
+        
+        // Then
+        XCTAssertEqual(numberOfSections, viewModelMock.sectionTitles.count)
+        XCTAssertEqual(numberOfRowsInFirstSection, viewModelMock.termsBySection["A"]?.count ?? 0)
+        
+        // Check the first cell text
+        let firstCell = viewController.tableView(viewController.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(firstCell.textLabel?.text, "Apple")
+    }
+}
