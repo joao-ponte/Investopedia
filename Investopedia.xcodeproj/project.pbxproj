@@ -18,7 +18,6 @@
 		FC1132122AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */; };
 		FC1132142AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1132132AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift */; };
 		FC1132162AB8A78100A306A8 /* CryptoStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */; };
-		FC27450E2AB30200007C0FC1 /* MockNetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27450D2AB30200007C0FC1 /* MockNetworkUtility.swift */; };
 		FC2745102AB30298007C0FC1 /* NetworkUtilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27450F2AB30298007C0FC1 /* NetworkUtilityProtocol.swift */; };
 		FC27451B2AB451D8007C0FC1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27451A2AB451D8007C0FC1 /* CoreDataStack.swift */; };
 		FC27451E2AB45283007C0FC1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC27451D2AB45283007C0FC1 /* Database.swift */; };
@@ -30,6 +29,9 @@
 		FC2B90982ADE7BB900270E5D /* DictionaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B90972ADE7BB900270E5D /* DictionaryViewControllerTests.swift */; };
 		FC2B909B2ADE804F00270E5D /* TermDetailViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B909A2ADE804F00270E5D /* TermDetailViewModelMock.swift */; };
 		FC2B909D2ADE98F800270E5D /* TermDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B909C2ADE98F800270E5D /* TermDetailViewControllerTests.swift */; };
+		FC2B909F2ADE9CEA00270E5D /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B909E2ADE9CEA00270E5D /* NetworkManagerMock.swift */; };
+		FC2B90A12ADE9D4300270E5D /* NetworkUtilityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B90A02ADE9D4300270E5D /* NetworkUtilityMock.swift */; };
+		FC2B90A32ADE9D6500270E5D /* CryptoCurrencyListViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B90A22ADE9D6500270E5D /* CryptoCurrencyListViewModelDelegateMock.swift */; };
 		FC45454D2A9F8811005A7D07 /* DictionaryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC45454C2A9F8811005A7D07 /* DictionaryViewModelTests.swift */; };
 		FC571F772AA338A200024B78 /* CryptoCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F762AA338A200024B78 /* CryptoCurrency.swift */; };
 		FC571F812AA3502E00024B78 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC571F802AA3502E00024B78 /* NetworkError.swift */; };
@@ -61,9 +63,7 @@
 		FCD375FD2ACD67CD0057E0D3 /* FavouritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375FC2ACD67CD0057E0D3 /* FavouritesDataSource.swift */; };
 		FCD375FF2ACD681C0057E0D3 /* FavouritesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375FE2ACD681C0057E0D3 /* FavouritesDelegate.swift */; };
 		FCF529A32AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529A22AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift */; };
-		FCF529A52AB1D00A00149169 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529A42AB1D00A00149169 /* MockNetworkManager.swift */; };
 		FCF529A92AB1DB3E00149169 /* CryptoCurrencyListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529A82AB1DB3E00149169 /* CryptoCurrencyListViewControllerTests.swift */; };
-		FCF529AC2AB1DBD400149169 /* MockCryptoCurrencyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529AB2AB1DBD400149169 /* MockCryptoCurrencyListViewModel.swift */; };
 		FCF529AF2AB1F31A00149169 /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF529AE2AB1F31A00149169 /* NetworkUtility.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,7 +89,6 @@
 		FC1132112AB883F600A306A8 /* CryptoCurrencyStatisticsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewModelProtocol.swift; sourceTree = "<group>"; };
 		FC1132132AB89D1F00A306A8 /* CryptoCurrencyStatisticsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyStatisticsViewControllerProtocol.swift; sourceTree = "<group>"; };
 		FC1132152AB8A78100A306A8 /* CryptoStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoStatisticsCell.swift; sourceTree = "<group>"; };
-		FC27450D2AB30200007C0FC1 /* MockNetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkUtility.swift; sourceTree = "<group>"; };
 		FC27450F2AB30298007C0FC1 /* NetworkUtilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilityProtocol.swift; sourceTree = "<group>"; };
 		FC27451A2AB451D8007C0FC1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FC27451D2AB45283007C0FC1 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -101,6 +100,9 @@
 		FC2B90972ADE7BB900270E5D /* DictionaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewControllerTests.swift; sourceTree = "<group>"; };
 		FC2B909A2ADE804F00270E5D /* TermDetailViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModelMock.swift; sourceTree = "<group>"; };
 		FC2B909C2ADE98F800270E5D /* TermDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		FC2B909E2ADE9CEA00270E5D /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
+		FC2B90A02ADE9D4300270E5D /* NetworkUtilityMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilityMock.swift; sourceTree = "<group>"; };
+		FC2B90A22ADE9D6500270E5D /* CryptoCurrencyListViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewModelDelegateMock.swift; sourceTree = "<group>"; };
 		FC4545412A9F82B2005A7D07 /* InvestopediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvestopediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC45454C2A9F8811005A7D07 /* DictionaryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModelTests.swift; sourceTree = "<group>"; };
 		FC571F762AA338A200024B78 /* CryptoCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrency.swift; sourceTree = "<group>"; };
@@ -135,9 +137,7 @@
 		FCD375FC2ACD67CD0057E0D3 /* FavouritesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDataSource.swift; sourceTree = "<group>"; };
 		FCD375FE2ACD681C0057E0D3 /* FavouritesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDelegate.swift; sourceTree = "<group>"; };
 		FCF529A22AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewModelTests.swift; sourceTree = "<group>"; };
-		FCF529A42AB1D00A00149169 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		FCF529A82AB1DB3E00149169 /* CryptoCurrencyListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyListViewControllerTests.swift; sourceTree = "<group>"; };
-		FCF529AB2AB1DBD400149169 /* MockCryptoCurrencyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoCurrencyListViewModel.swift; sourceTree = "<group>"; };
 		FCF529AE2AB1F31A00149169 /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -458,9 +458,9 @@
 		FCF529AA2AB1DB9500149169 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				FCF529A42AB1D00A00149169 /* MockNetworkManager.swift */,
-				FCF529AB2AB1DBD400149169 /* MockCryptoCurrencyListViewModel.swift */,
-				FC27450D2AB30200007C0FC1 /* MockNetworkUtility.swift */,
+				FC2B909E2ADE9CEA00270E5D /* NetworkManagerMock.swift */,
+				FC2B90A02ADE9D4300270E5D /* NetworkUtilityMock.swift */,
+				FC2B90A22ADE9D6500270E5D /* CryptoCurrencyListViewModelDelegateMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -576,21 +576,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF529A52AB1D00A00149169 /* MockNetworkManager.swift in Sources */,
 				FC0A5A6F2ABB343F00FC47D5 /* CryptoCurrencyStatisticsViewModelTests.swift in Sources */,
 				FC2B90942ADD465100270E5D /* DictionaryViewModelDelegateMock.swift in Sources */,
 				FC2B90982ADE7BB900270E5D /* DictionaryViewControllerTests.swift in Sources */,
+				FC2B90A32ADE9D6500270E5D /* CryptoCurrencyListViewModelDelegateMock.swift in Sources */,
 				FC45454D2A9F8811005A7D07 /* DictionaryViewModelTests.swift in Sources */,
 				FC2B90962ADE7B8100270E5D /* DictionaryViewModelMock.swift in Sources */,
 				FC0A5A782ABB4C0400FC47D5 /* CryptoCurrencyStatisticsViewControllerTests.swift in Sources */,
-				FC27450E2AB30200007C0FC1 /* MockNetworkUtility.swift in Sources */,
 				FC0A5A7A2ABB4C8400FC47D5 /* MockCryptoCurrencyStatisticsViewModel.swift in Sources */,
 				FCA918B72AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift in Sources */,
 				FC2B909D2ADE98F800270E5D /* TermDetailViewControllerTests.swift in Sources */,
+				FC2B90A12ADE9D4300270E5D /* NetworkUtilityMock.swift in Sources */,
 				FCF529A32AB1CC1700149169 /* CryptoCurrencyListViewModelTests.swift in Sources */,
-				FCF529AC2AB1DBD400149169 /* MockCryptoCurrencyListViewModel.swift in Sources */,
 				FCF529A92AB1DB3E00149169 /* CryptoCurrencyListViewControllerTests.swift in Sources */,
 				FC2B909B2ADE804F00270E5D /* TermDetailViewModelMock.swift in Sources */,
+				FC2B909F2ADE9CEA00270E5D /* NetworkManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
