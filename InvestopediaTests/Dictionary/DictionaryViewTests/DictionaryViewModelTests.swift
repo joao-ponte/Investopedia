@@ -25,6 +25,14 @@ class DictionaryViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: - Initialization
+    
+    func testInitialization() {
+        XCTAssertNotNil(viewModel)
+    }
+    
+    // MARK: - Fetch Terms
+    
     func testFetchTerms() {
         // Given
         XCTAssertTrue(viewModel.terms.isEmpty)
@@ -36,6 +44,8 @@ class DictionaryViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.terms.isEmpty)
     }
     
+    // MARK: - Update Filtered Terms
+    
     func testUpdateFilteredTerms() {
         // Given
         let searchText = "test"
@@ -46,37 +56,6 @@ class DictionaryViewModelTests: XCTestCase {
         // Then
         XCTAssertTrue(delegateMock.filteredTermsUpdatedCalled)
         XCTAssertEqual(viewModel.filteredTerms.count, 0)
-    }
-    
-    func testTerm() {
-        // Given
-        let term1 = FinancialTerm(id: 1, word: "Test1", meaning: "Meaning1", example: "Example1")
-        let term2 = FinancialTerm(id: 2, word: "Test2", meaning: "Meaning2", example: "Example2")
-        viewModel.setTermsForTesting([term1, term2])
-        
-        // When
-        let resultTerm1 = viewModel.term(at: 0)
-        let resultTerm2 = viewModel.term(at: 1)
-        let resultInvalidIndex = viewModel.term(at: 2)
-        
-        // Then
-        XCTAssertNil(resultInvalidIndex)
-    }
-    
-    func testUpdateSections() {
-        // Given
-        let term1 = FinancialTerm(id: 1, word: "Apple", meaning: "Apple definition", example: "Apple Example")
-        let term2 = FinancialTerm(id: 2, word: "Banana", meaning: "Banana definition", example: "Banana Example")
-        let terms = [term1, term2]
-        viewModel.setTermsForTesting(terms)
-        
-        // When
-        viewModel.updateSections()
-        
-        // Then
-        XCTAssertEqual(viewModel.sectionTitles, ["A", "B"])
-        XCTAssertEqual(viewModel.termsBySection["A"], [term1])
-        XCTAssertEqual(viewModel.termsBySection["B"], [term2])
     }
     
     func testFilteredTermsEmpty() {
@@ -106,16 +85,21 @@ class DictionaryViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.filteredTerms.contains(term2))
     }
     
-    func testSetTermsForTesting() {
-        // Given: Some terms to set for testing
+    // MARK: - Term
+    
+    func testTerm() {
+        // Given
         let term1 = FinancialTerm(id: 1, word: "Test1", meaning: "Meaning1", example: "Example1")
         let term2 = FinancialTerm(id: 2, word: "Test2", meaning: "Meaning2", example: "Example2")
-        
-        // When: Setting terms for testing
         viewModel.setTermsForTesting([term1, term2])
         
-        // Then: The terms should be set correctly for testing
-        XCTAssertEqual(viewModel.terms, [term1, term2])
+        // When
+        _ = viewModel.term(at: 0)
+        _ = viewModel.term(at: 1)
+        let resultInvalidIndex = viewModel.term(at: 2)
+        
+        // Then
+        XCTAssertNil(resultInvalidIndex)
     }
     
     func testTermAtIndex() {
@@ -135,6 +119,40 @@ class DictionaryViewModelTests: XCTestCase {
         XCTAssertNil(resultInvalidIndex)
     }
     
+    // MARK: - Sections
+    
+    func testUpdateSections() {
+        // Given
+        let term1 = FinancialTerm(id: 1, word: "Apple", meaning: "Apple definition", example: "Apple Example")
+        let term2 = FinancialTerm(id: 2, word: "Banana", meaning: "Banana definition", example: "Banana Example")
+        let terms = [term1, term2]
+        viewModel.setTermsForTesting(terms)
+        
+        // When
+        viewModel.updateSections()
+        
+        // Then
+        XCTAssertEqual(viewModel.sectionTitles, ["A", "B"])
+        XCTAssertEqual(viewModel.termsBySection["A"], [term1])
+        XCTAssertEqual(viewModel.termsBySection["B"], [term2])
+    }
+    
+    // MARK: - Set Terms for Testing
+    
+    func testSetTermsForTesting() {
+        // Given: Some terms to set for testing
+        let term1 = FinancialTerm(id: 1, word: "Test1", meaning: "Meaning1", example: "Example1")
+        let term2 = FinancialTerm(id: 2, word: "Test2", meaning: "Meaning2", example: "Example2")
+        
+        // When: Setting terms for testing
+        viewModel.setTermsForTesting([term1, term2])
+        
+        // Then: The terms should be set correctly for testing
+        XCTAssertEqual(viewModel.terms, [term1, term2])
+    }
+    
+    // MARK: - Search Query
+    
     func testSearchQuery() {
         // Given
         let initialSearchQuery = viewModel.getSearchQueryForTesting()
@@ -147,6 +165,8 @@ class DictionaryViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.getSearchQueryForTesting(), newSearchQuery)
         XCTAssertNotEqual(viewModel.getSearchQueryForTesting(), initialSearchQuery)
     }
+    
+    // MARK: - Delegate Invocation
     
     func testDelegateInvocation() {
         // Given
