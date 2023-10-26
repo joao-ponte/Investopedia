@@ -19,7 +19,7 @@ so that I will have a user-friendly and intuitive interface that makes it easy t
 
 
 ## Installation Instructions
-To install and set up Virtual Tourist, follow these steps:
+To install and set up Investopedia, follow these steps:
 - Clone or download the project from the GitHub repository https://github.com/joao-ponte/Investopedia.
 - Open the project in Xcode.
 - Build and run the app on a simulator or a physical device running iOS 16.3 or higher.
