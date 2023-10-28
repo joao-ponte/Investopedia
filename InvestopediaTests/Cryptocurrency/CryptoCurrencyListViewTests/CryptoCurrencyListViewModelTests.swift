@@ -188,7 +188,4 @@ class CryptoCurrencyListViewModelTests: XCTestCase {
             XCTAssertEqual(self.viewModel.filteredCryptoCurrencies.count, 0)
         }
     }
-
-
 }
-

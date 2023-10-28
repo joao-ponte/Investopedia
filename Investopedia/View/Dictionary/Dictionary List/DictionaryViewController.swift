@@ -42,11 +42,13 @@ class DictionaryViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        viewModel = DictionaryViewModel()
+        let termRepository = JSONFinancialTermRepository()
+        viewModel = DictionaryViewModel(termRepository: termRepository)
         viewModel.fetchTerms()
         viewModel.updateFilteredTerms(with: "")
         viewModel.updateSections()
     }
+
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

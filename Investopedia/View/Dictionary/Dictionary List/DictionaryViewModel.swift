@@ -31,25 +31,22 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
     }
     
     weak var delegate: DictionaryViewModelDelegate?
+    private var termRepository: FinancialTermRepository
+    
+    init(termRepository: FinancialTermRepository) {
+           self.termRepository = termRepository
+       }
     
     // MARK: - Public Methods
     
     func fetchTerms() {
-        guard let url = Bundle.main.url(forResource: "FinancialDictionaryData", withExtension: "json") else {
-            print("Error loading JSON file.")
-            return
+            termRepository.fetchTerms { [weak self] terms in
+                if let terms = terms {
+                    self?.updateTerms(with: terms)
+                    self?.updateSections()
+                }
+            }
         }
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            let jsonData = try decoder.decode(ResponseData.self, from: data)
-            updateTerms(with: jsonData.dictionary)
-        } catch {
-            print("Error decoding JSON: \(error)")
-        }
-        updateSections()
-    }
 
     func term(at index: Int) -> FinancialTerm? {
         guard index >= 0 && index < terms.count else { return nil }
@@ -63,14 +60,6 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         updateSections()
         delegate?.filteredTermsUpdated()
     }
-    
-    func setTermsForTesting(_ terms: [FinancialTerm]) {
-        self.terms = terms
-    }
-    
-    func getSearchQueryForTesting() -> String {
-            return searchQuery
-        }
     
     // MARK: - Private Methods
     

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol FinancialTermRepository {
+    func fetchTerms(completion: @escaping ([FinancialTerm]?) -> Void)
+}

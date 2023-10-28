@@ -54,6 +54,8 @@
 		FC9A1B5D2A9E0ED40019F714 /* TermDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */; };
 		FCA918B72AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA918B62AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift */; };
 		FCB44A832A979B23000E4AF2 /* DictionaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */; };
+		FCBA98A02AED329E007BB20E /* JSONFinancialTermRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA989F2AED329E007BB20E /* JSONFinancialTermRepository.swift */; };
+		FCBA98A22AED32BB007BB20E /* FinancialTermRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA98A12AED32BB007BB20E /* FinancialTermRepository.swift */; };
 		FCC276442A98AF05005A63D8 /* FinancialDictionaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */; };
 		FCC276482A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */; };
 		FCD375F42ACD662B0057E0D3 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD375F32ACD662B0057E0D3 /* FavouritesViewController.swift */; };
@@ -128,6 +130,8 @@
 		FC9A1B5C2A9E0ED40019F714 /* TermDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewProtocol.swift; sourceTree = "<group>"; };
 		FCA918B62AA0CF5800BEC7D7 /* TermDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermDetailViewModelTests.swift; sourceTree = "<group>"; };
 		FCB44A822A979B23000E4AF2 /* DictionaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModel.swift; sourceTree = "<group>"; };
+		FCBA989F2AED329E007BB20E /* JSONFinancialTermRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFinancialTermRepository.swift; sourceTree = "<group>"; };
+		FCBA98A12AED32BB007BB20E /* FinancialTermRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialTermRepository.swift; sourceTree = "<group>"; };
 		FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FinancialDictionaryData.json; sourceTree = "<group>"; };
 		FCC276472A98C0C6005A63D8 /* DictionaryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewModelProtocol.swift; sourceTree = "<group>"; };
 		FCD375F32ACD662B0057E0D3 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 			children = (
 				FCC276432A98AF05005A63D8 /* FinancialDictionaryData.json */,
 				FC5E95F52A56DF6100CECAC1 /* FinancialTerm.swift */,
+				FCBA989F2AED329E007BB20E /* JSONFinancialTermRepository.swift */,
+				FCBA98A12AED32BB007BB20E /* FinancialTermRepository.swift */,
 			);
 			path = "Dictionary Response";
 			sourceTree = "<group>";
@@ -610,11 +616,13 @@
 				FC2745232AB45C7E007C0FC1 /* CoreDataManager.swift in Sources */,
 				FC571F772AA338A200024B78 /* CryptoCurrency.swift in Sources */,
 				FC5E95D42A56B6A100CECAC1 /* AppDelegate.swift in Sources */,
+				FCBA98A22AED32BB007BB20E /* FinancialTermRepository.swift in Sources */,
 				FCF529AF2AB1F31A00149169 /* NetworkUtility.swift in Sources */,
 				FC2745102AB30298007C0FC1 /* NetworkUtilityProtocol.swift in Sources */,
 				FC9A1B5B2A9E0DFA0019F714 /* TermDetailViewModel.swift in Sources */,
 				FC2B90922AD9A0F600270E5D /* TabBarAppearance.swift in Sources */,
 				FC0A5A762ABB49A800FC47D5 /* NumberFormatter.swift in Sources */,
+				FCBA98A02AED329E007BB20E /* JSONFinancialTermRepository.swift in Sources */,
 				FC99664F2AAF2F46001B6446 /* CryptoCurrencyTableViewCell.swift in Sources */,
 				FC11320E2AB864C300A306A8 /* CryptoCurrencyStatisticsViewController.swift in Sources */,
 				FC7ACE502AD81F57009F0FD8 /* Alert.swift in Sources */,
