@@ -38,7 +38,6 @@ class TermDetailViewControllerTests: XCTestCase {
 
         // Then
         XCTAssertTrue(viewModelMock.selectNextTermCalled)
-        // Add more assertions as needed based on the expected behavior
     }
 
     // MARK: - Other Tests for the ViewController
@@ -49,5 +48,3 @@ class TermDetailViewControllerTests: XCTestCase {
         super.tearDown()
     }
 }
-
-

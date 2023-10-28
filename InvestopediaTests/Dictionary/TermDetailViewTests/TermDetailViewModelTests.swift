@@ -70,6 +70,6 @@ final class TermDetailViewModelTests: XCTestCase {
         let previousTerm = viewModel?.previousTerm()
         
         // Then
-        XCTAssertEqual(previousTerm, nil)  // The initial selected term is the first term, so there's no previous term
+        XCTAssertEqual(previousTerm, nil)
     }
 }

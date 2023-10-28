@@ -31,23 +31,27 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
     }
     
     weak var delegate: DictionaryViewModelDelegate?
-    private var termRepository: FinancialTermRepository
+    internal var termRepository: FinancialTermRepository
+    
+    // MARK: - Initializer
     
     init(termRepository: FinancialTermRepository) {
-           self.termRepository = termRepository
-       }
-    
-    // MARK: - Public Methods
-    
+        self.termRepository = termRepository
+    }
+}
+
+// MARK: - Public Methods
+
+extension DictionaryViewModel {
     func fetchTerms() {
-            termRepository.fetchTerms { [weak self] terms in
-                if let terms = terms {
-                    self?.updateTerms(with: terms)
-                    self?.updateSections()
-                }
+        termRepository.fetchTerms { [weak self] terms in
+            if let terms = terms {
+                self?.updateTerms(with: terms)
+                self?.updateSections()
             }
         }
-
+    }
+    
     func term(at index: Int) -> FinancialTerm? {
         guard index >= 0 && index < terms.count else { return nil }
         let term = terms[index]
@@ -60,10 +64,12 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         updateSections()
         delegate?.filteredTermsUpdated()
     }
-    
-    // MARK: - Private Methods
-    
-    private func updateTerms(with newTerms: [FinancialTerm]) {
+}
+
+// MARK: - Private/Internal Methods
+
+extension DictionaryViewModel {
+    internal func updateTerms(with newTerms: [FinancialTerm]) {
         terms = newTerms
         sortTermsAlphabetically()
     }
@@ -76,9 +82,7 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
         termsBySection = [:]
         sectionTitles = []
         
-        let sortedTerms = filteredTerms.sorted { $0.word < $1.word }
-        
-        for term in sortedTerms {
+        for term in filteredTerms {
             let startingLetter = String(term.word.prefix(1)).uppercased()
             if termsBySection[startingLetter] == nil {
                 termsBySection[startingLetter] = []
@@ -87,6 +91,7 @@ final class DictionaryViewModel: DictionaryViewModelProtocol {
             termsBySection[startingLetter]?.append(term)
         }
         
+        // Sort terms within each section by the 'word' property
         for key in termsBySection.keys {
             termsBySection[key]?.sort { $0.word < $1.word }
         }

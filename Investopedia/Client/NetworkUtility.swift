@@ -13,7 +13,7 @@ protocol NetworkUtilityDelegate: AnyObject {
 
 class NetworkUtility: NetworkUtilityProtocol {
     weak var delegate: NetworkUtilityDelegate?
-
+    
     func startMonitoring() {
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { [weak self] path in
@@ -25,9 +25,6 @@ class NetworkUtility: NetworkUtilityProtocol {
     }
     
     func hasNetworkConnection() -> Bool {
-        let monitor = NWPathMonitor()
-        let networkStatus = monitor.currentPath.status
-
-        return networkStatus == .satisfied ? true : false
+        NWPathMonitor().currentPath.status == .satisfied
     }
 }
