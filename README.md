@@ -116,6 +116,8 @@ The Investopedia app is built using the following technologies and tools:
 
 - GitHub: Version control and collaboration are managed using GitHub, allowing code management.
 ## Screenshots
+![2](https://github.com/joao-ponte/Investopedia/assets/114771106/264631d4-fbfa-4399-ad30-1027b4743045)
+![1](https://github.com/joao-ponte/Investopedia/assets/114771106/ec6a3ba8-d0ea-4e03-9a5c-0959559d4efa)
 ## Author
 
 [@Joao Ponte](https://www.linkedin.com/in/jponte/)
